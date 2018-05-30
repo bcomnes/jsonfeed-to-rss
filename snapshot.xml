@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="https://bret.io">
+  <channel>
+    <title>bret.io log</title>
+    <link>https://bret.io</link>
+    <description>A running log of announcements, projects and accomplishments.</description>
+    <language>en-us</language>
+    <copyright>© 2018 Bret Comnes</copyright>
+    <managingEditor>https://bret.io (Bret Comnes)</managingEditor>
+    <webMaster>https://bret.io (Bret Comnes)</webMaster>
+    <pubDate>Fri, 13 Apr 2018 22:06:43 GMT</pubDate>
+    <lastBuildDate>Wed, 30 May 2018 01:41:56 GMT</lastBuildDate>
+    <category/>
+    <generator>jsonfeed-to-rss 1.0.0 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <ttl/>
+    <image>
+      <url>https://bret.io/icon-512x512.png</url>
+      <link>https://bret.io</link>
+      <title>bret.io log</title>
+    </image>
+    <skipHours/>
+    <skipDays/>
+    <item>
+      <title>but it has a summary!</title>
+      <link/>
+      <description>
+        <![CDATA[ey, no link, nourl]]>
+      </description>
+      <category/>
+      <guid isPermaLink="false">a-unique-id</guid>
+      <pubDate>2018-04-13T22:06:43.000Z</pubDate>
+    </item>
+    <item>
+      <title>A post with some tags</title>
+      <link>https://example.com/tags</link>
+      <description>
+        <![CDATA[<p>A post with some tags</p>]]>
+      </description>
+      <category>foo</category>
+      <category>bar</category>
+      <guid isPermaLink="false">https://example.com/tags-2018-04-12T22:06:43.000Z</guid>
+      <pubDate>2018-04-12T22:06:43.000Z</pubDate>
+    </item>
+    <item>
+      <title>Attachments</title>
+      <link>https://example.com/empty-attatchments</link>
+      <description>
+        <![CDATA[<p>Attachments</p>]]>
+      </description>
+      <category/>
+      <guid isPermaLink="false">https://example.com/empty-attatchments-2018-04-11T22:06:43.000Z</guid>
+      <pubDate>2018-04-11T22:06:43.000Z</pubDate>
+      <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4"/>
+      <enclosure type="audio/mpeg" url="https://example.com/attatchments-45.mp4" length="1234"/>
+    </item>
+    <item>
+      <title>Empty attachments</title>
+      <link>https://example.com/empty-attatchments</link>
+      <description>
+        <![CDATA[<p>Empty attachments</p>]]>
+      </description>
+      <category/>
+      <guid isPermaLink="false">https://example.com/empty-attatchments-2018-04-10T22:06:43.000Z</guid>
+      <pubDate>2018-04-10T22:06:43.000Z</pubDate>
+      <enclosure/>
+    </item>
+    <item>
+      <title>A post with no URL!!</title>
+      <link>https://example.com/some-external-link2</link>
+      <description>
+        <![CDATA[<p>A post with no URL!!</p>]]>
+      </description>
+      <category/>
+      <guid isPermaLink="false">https://example.com/some-external-link2-2018-04-09T22:06:43.000Z</guid>
+      <pubDate>2018-04-09T22:06:43.000Z</pubDate>
+    </item>
+    <item>
+      <title>A post with an author</title>
+      <link>https://example.com/some-external-link2rfdsfa</link>
+      <description>
+        <![CDATA[<p>A post with an author</p>]]>
+      </description>
+      <category/>
+      <guid isPermaLink="false">https://example.com/some-external-link2rfdsfa-2018-04-08T22:06:43.000Z</guid>
+      <pubDate>2018-04-08T22:06:43.000Z</pubDate>
+    </item>
+    <item>
+      <title>This is a blog title</title>
+      <link>https://example.com/some-external-link</link>
+      <description>
+        <![CDATA[<p>Hello, world!</p>]]>
+      </description>
+      <category/>
+      <guid isPermaLink="false">https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</guid>
+      <pubDate>2018-04-07T22:06:43.000Z</pubDate>
+    </item>
+    <item>
+      <title>Wee wooo this is some content.</title>
+      <link>https://bret.io/my-text-post</link>
+      <description>
+        <![CDATA[Wee wooo this is some content. 
+ Maybe a new paragraph too]]>
+      </description>
+      <category/>
+      <guid isPermaLink="false">https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</guid>
+      <pubDate>2018-04-07T20:48:02.000Z</pubDate>
+    </item>
+  </channel>
+</rss>

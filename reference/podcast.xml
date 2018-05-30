@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Hiking Treks</title>
+        <link>https://www.apple.com/itunes/podcasts/</link>
+        <language>en-us</language>
+        <copyright>&#8471; &amp; &#xA9; 2017 John Appleseed</copyright>
+        <itunes:subtitle>Find your trail. Great hikes and outdoor adventures.</itunes:subtitle>
+        <itunes:author>The Sunset Explorers</itunes:author>
+        <itunes:summary>Love to get outdoors and discover nature&apos;s treasures? Hiking Treks is the show for you. We review hikes and excursions, review outdoor gear and interview a variety of naturalists and adventurers. Look for new episodes each week.</itunes:summary>
+        <description>Love to get outdoors and discover nature&apos;s treasures? Hiking Treks is the show for you. We review hikes and excursions, review outdoor gear and interview a variety of naturalists and adventurers. Look for new episodes each week.</description>
+        <itunes:type>serial</itunes:type>
+        <itunes:owner>
+            <itunes:name>Sunset Explorers</itunes:name>
+            <itunes:email>mountainscape@icloud.com</itunes:email>
+        </itunes:owner>
+        <itunes:image href="http://podcasts.apple.com/resources/example/hiking_treks/images/cover_art.jpg"/>
+        <itunes:category text="Sports &amp; Recreation">
+          <itunes:category text="Outdoor"/>
+        </itunes:category>
+        <itunes:explicit>no</itunes:explicit>
+        <item>
+            <itunes:episodeType>trailer</itunes:episodeType>
+            <itunes:title>Hiking Treks Trailer</itunes:title>
+            <title>Hiking Treks Trailer</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>The Sunset Explorers share tips, techniques and recommendations for great hikes and adventures around the United States.</itunes:subtitle>
+            <itunes:summary>The Sunset Explorers share tips, techniques and recommendations for great hikes and adventures around the United States.</itunes:summary>
+            <description>The Sunset Explorers share tips, techniques and recommendations for great hikes and adventures around the United States.</description>
+            <content:encoded>
+                <![CDATA[The Sunset Explorers share tips, techniques and recommendations for great hikes and adventures around the United States. Listen on <a href="https://www.apple.com/itunes/podcasts/">Apple Podcasts</a>]]>.
+            </content:encoded>
+            <enclosure length="498537" type="audio/mpeg" url="http://example.com/podcasts/everything/AllAboutEverythingEpisode4.mp3"/>
+            <guid>http://example.com/podcasts/archive/aae20160418.mp3</guid>
+            <pubDate>Tue, 12 Apr 2016 01:15:00 +3000</pubDate>
+            <itunes:duration>17:59</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Mt. Hood, Oregon</itunes:title>
+            <itunes:episode>4</itunes:episode>
+            <itunes:season>2</itunes:season>
+            <title>S02 EP04 Mt. Hood, Oregon</title>
+            <itunes:author>The Sunset Explorers</itunes:author>
+            <itunes:subtitle>Tips for trekking around the tallest mountain in Oregon</itunes:subtitle>
+            <itunes:summary>Tips for trekking around the tallest mountain in Oregon</itunes:summary>
+            <description>Tips for trekking around the tallest mountain in Oregon</description>
+            <content:encoded>Tips for trekking around the tallest mountain in Oregon</content:encoded>
+            <enclosure length="8727310" type="audio/x-m4a" url="http://example.com/podcasts/everything/mthood.m4a"/>
+            <guid>http://example.com/podcasts/archive/aae20170606.m4a</guid>
+            <pubDate>Tue, 06 Jun 2017 12:00:00 GMT</pubDate>
+            <itunes:duration>17:04</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Bouldering Around Boulder</itunes:title>
+            <itunes:episode>3</itunes:episode>
+            <itunes:season>2</itunes:season>
+            <title>S02 EP03 Bouldering Around Boulder</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>We explore fun walks to climbing areas about the beautiful Colorado city of Boulder.</itunes:subtitle>
+            <itunes:summary>We explore fun walks to climbing areas about the beautiful Colorado city of Boulder.</itunes:summary>
+            <description>We explore fun walks to climbing areas about the beautiful Colorado city of Boulder.</description>
+            <itunes:image href="http://example.com/podcasts/everything/AllAboutEverything/Episode2.jpg"/>
+            <content:encoded>href="http://example.com/podcasts/everything/</content:encoded>
+            <enclosure length="5650889" type="video/mp4" url="http://example.com/podcasts/boulder.mp4"/>
+            <guid>http://example.com/podcasts/archive/aae20170530.mp4</guid>
+            <pubDate>Tue, 30 May 2017 13:00:00 EST</pubDate>
+            <itunes:duration>06:27</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Caribou Mountain, Maine</itunes:title>
+            <itunes:episode>2</itunes:episode>
+            <itunes:season>2</itunes:season>
+            <title>S02 EP02 Caribou Mountain, Maine</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>Put your fitness to the test with this invigorating hill climb.</itunes:subtitle>
+            <itunes:summary>Put your fitness to the test with this invigorating hill climb.</itunes:summary>
+            <description>Put your fitness to the test with this invigorating hill climb.</description>
+            <itunes:image href="http://example.com/podcasts/everything/AllAboutEverything/Episode3.jpg"/>
+            <content:encoded>href="http://example.com/podcasts/everything/</content:encoded>
+            <enclosure length="5650889" type="audio/x-m4v" url="http://example.com/podcasts/everything/caribou.m4v"/>
+            <guid>http://example.com/podcasts/archive/aae20170523.m4v</guid>
+            <pubDate>Tue, 23 May 2017 02:00:00 -0700</pubDate>
+            <itunes:duration>04:34</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Stawamus Chief</itunes:title>
+            <itunes:episode>1</itunes:episode>
+            <itunes:season>2</itunes:season>
+            <title>S02 EP01 Stawamus Chief</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>We tackle Stawamus Chief outside of Vancouver, BC and you should too!</itunes:subtitle>
+            <itunes:summary>We tackle Stawamus Chief outside of Vancouver, BC and you should too!</itunes:summary>
+            <description>We tackle Stawamus Chief outside of Vancouver, BC and you should too!</description>
+            <content:encoded>We tackle Stawamus Chief outside of Vancouver, BC and you should too!</content:encoded>
+            <enclosure length="498537" type="audio/mpeg" url="http://example.com/podcasts/everything/AllAboutEverythingEpisode4.mp3"/>
+            <guid>http://example.com/podcasts/archive/aae20170516.mp3</guid>
+            <pubDate>Tue, 16 May 2017 01:15:00 +3000</pubDate>
+            <itunes:duration>13:24</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Kuliouou Ridge Trail</itunes:title>
+            <itunes:episode>4</itunes:episode>
+            <itunes:season>1</itunes:season>
+            <title>S01 EP04 Kuliouou Ridge Trail</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>Oahu, Hawaii, has some picturesque hikes and this is one of the best!</itunes:subtitle>
+            <itunes:summary>Oahu, Hawaii, has some picturesque hikes and this is one of the best!</itunes:summary>
+            <description>Oahu, Hawaii, has some picturesque hikes and this is one of the best!</description>
+            <content:encoded>Oahu, Hawaii, has some picturesque hikes and this is one of the best!</content:encoded>
+            <enclosure length="498537" type="audio/mpeg" url="http://example.com/podcasts/everything/AllAboutEverythingEpisode4.mp3"/>
+            <guid>http://example.com/podcasts/archive/aae20160509.mp3</guid>
+            <pubDate>Tue, 10 May 2016 01:15:00 +3000</pubDate>
+            <itunes:duration>15:29</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Blood Mountain Loop</itunes:title>
+            <itunes:episode>3</itunes:episode>
+            <itunes:season>1</itunes:season>
+            <title>S01 EP03 Blood Mountain Loop</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>Hiking the Appalachian Trail and Freeman Trail in Georgia</itunes:subtitle>
+            <itunes:summary>Hiking the Appalachian Trail and Freeman Trail in Georgia</itunes:summary>
+            <description>Hiking the Appalachian Trail and Freeman Trail in Georgia</description>
+            <content:encoded>Hiking the Appalachian Trail and Freeman Trail in Georgia</content:encoded>
+            <enclosure length="498537" type="audio/mpeg" url="http://example.com/podcasts/everything/AllAboutEverythingEpisode4.mp3"/>
+            <guid>http://example.com/podcasts/archive/aae20160502.mp3</guid>
+            <pubDate>Tue, 03 May 2016 01:15:00 +3000</pubDate>
+            <itunes:duration>24:59</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Garden of the Gods Wilderness</itunes:title>
+            <itunes:episode>2</itunes:episode>
+            <itunes:season>1</itunes:season>
+            <title>S01 EP02 Garden of the Gods Wilderness</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>Wilderness Area Garden of the Gods in Illinois is a delightful spot for an extended hike.</itunes:subtitle>
+            <itunes:summary>Wilderness Area Garden of the Gods in Illinois is a delightful spot for an extended hike.</itunes:summary>
+            <description>Wilderness Area Garden of the Gods in Illinois is a delightful spot for an extended hike.</description>
+            <content:encoded>Wilderness Area Garden of the Gods in Illinois is a delightful spot for an extended hike.</content:encoded>
+            <enclosure length="498537" type="audio/mpeg" url="http://example.com/podcasts/everything/AllAboutEverythingEpisode4.mp3"/>
+            <guid>http://example.com/podcasts/archive/aae20160425.mp3</guid>
+            <pubDate>Tue, 26 Apr 2016 01:15:00 +3000</pubDate>
+            <itunes:duration>13:59</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:title>Upper Priest Lake Trail to Continental Creek Trail</itunes:title>
+            <itunes:episode>1</itunes:episode>
+            <itunes:season>1</itunes:season>
+            <title>S01 EP01 Upper Priest Lake Trail to Continental Creek Trail</title>
+            <itunes:author>The Sunset Adventurers</itunes:author>
+            <itunes:subtitle>We check out this powerfully scenic hike following the river in the Idaho Panhandle National Forests.</itunes:subtitle>
+            <itunes:summary>We check out this powerfully scenic hike following the river in the Idaho Panhandle National Forests.</itunes:summary>
+            <description>We check out this powerfully scenic hike following the river in the Idaho Panhandle National Forests.</description>
+            <content:encoded>We check out this powerfully scenic hike following the river in the Idaho Panhandle National Forests.</content:encoded>
+            <enclosure length="498537" type="audio/mpeg" url="http://example.com/podcasts/everything/AllAboutEverythingEpisode4.mp3"/>
+            <guid>http://example.com/podcasts/archive/aae20160418a.mp3</guid>
+            <pubDate>Tue, 19 Apr 2016 01:15:00 +3000</pubDate>
+            <itunes:duration>23:59</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+    </channel>
+</rss>

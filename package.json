@@ -1,0 +1,54 @@
+{
+  "name": "jsonfeed-to-rss",
+  "description": "Convert a JSON feed to an rss feed",
+  "version": "1.0.0",
+  "author": "Bret Comnes",
+  "bugs": {
+    "url": "https://github.com/bcomnes/jsonfeed-to-rss/issues"
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2",
+    "nanoassert": "^1.1.0",
+    "striptags": "^3.1.1",
+    "trim-left": "^1.0.1",
+    "trim-right": "^1.0.1",
+    "xmlbuilder": "^9.0.7"
+  },
+  "devDependencies": {
+    "@tap-format/spec": "^0.2.0",
+    "coveralls": "^3.0.0",
+    "dependency-check": "^3.1.0",
+    "existy": "^1.0.1",
+    "npm-run-all": "^4.0.2",
+    "nyc": "^11.6.0",
+    "snazzy": "^7.1.1",
+    "standard": "^10.0.0",
+    "tape": "^4.7.0",
+    "tape-run": "^3.0.0",
+    "temporary-directory": "^1.0.2"
+  },
+  "homepage": "https://github.com/bcomnes/jsonfeed-to-rss#readme",
+  "keywords": [
+    "atom",
+    "json",
+    "jsonfeed",
+    "rss",
+    "xml"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcomnes/jsonfeed-to-rss.git"
+  },
+  "scripts": {
+    "debug": "node --nolazy --inspect-brk=9229 node_modules/.bin/tape 'test.js'",
+    "report": "nyc report --reporter=text-lcov | coveralls",
+    "test": "run-s test:*",
+    "test:lint": "standard --verbose | snazzy",
+    "test:tape": "nyc --reporter=lcov tape 'test.js' | tap-format-spec",
+    "test:deps": "dependency-check package.json --missing --unused --no-dev",
+    "update": "node generate-snapshot.js",
+    "version": "run-s update && git add snapshot.xml snapshot.json"
+  }
+}
