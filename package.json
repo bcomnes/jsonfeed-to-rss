@@ -45,9 +45,9 @@
     "debug": "node --nolazy --inspect-brk=9229 node_modules/.bin/tape 'test.js'",
     "report": "nyc report --reporter=text-lcov | coveralls",
     "test": "run-s test:*",
+    "test:deps": "dependency-check package.json --missing --unused --no-dev",
     "test:lint": "standard --verbose | snazzy",
     "test:tape": "nyc --reporter=lcov tape 'test.js' | tap-format-spec",
-    "test:deps": "dependency-check package.json --missing --unused --no-dev",
     "update": "node generate-snapshot.js",
     "version": "run-s update && git add snapshot.xml snapshot.json"
   }

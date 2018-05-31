@@ -59,7 +59,7 @@ Example output:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xml:base="https://bret.io" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
     <title>bret.io log (RSS)</title>
@@ -79,11 +79,11 @@ Example output:
       <title>Wee wooo this is some content.</title>
       <link>https://bret.io/my-text-post</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description>
+      <description xml:base="https://bret.io">
         <![CDATA[Wee wooo this is some content. 
  Maybe a new paragraph too]]>
       </description>
-      <content:encoded>
+      <content:encoded xml:base="https://bret.io">
         <![CDATA[Wee wooo this is some content. 
  Maybe a new paragraph too]]>
       </content:encoded>
@@ -94,10 +94,10 @@ Example output:
       <title>This is a blog title</title>
       <link>https://example.com/some-external-link</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description>
+      <description xml:base="https://bret.io">
         <![CDATA[<p>Hello, world!</p>]]>
       </description>
-      <content:encoded>
+      <content:encoded xml:base="https://bret.io">
         <![CDATA[<p>Hello, world!</p>]]>
       </content:encoded>
       <guid isPermaLink="false">https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</guid>
@@ -116,7 +116,16 @@ Opts include:
 ```js
 {
   // a function that returns the atom feed url
-  feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '.xml')
+  feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '-rss.xml'),
+  language: 'en-us',
+  copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
+  managingEditor,
+  webMaster,
+  idIsPermalink, // if guid is the permalink, you can use this
+  category, // array of categories
+  ttl, 
+  skipHours,
+  skipDays
 }
 ```
 

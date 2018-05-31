@@ -14,10 +14,9 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     webMaster: null,
     idIsPermalink: false,
     category: null,
-    ttl: null, // TODO default on ttl
+    ttl: null,
     skipHours: null,
-    skipDays: null,
-    relativeItemLinks: false // enable item level relative links
+    skipDays: null
   }, opts)
 
   // 2.0.11 http://www.rssboard.org/rss-specification
@@ -60,8 +59,8 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       link: homePageURL,
       title: rssTitle
     } : undefined,
-    skipHours: opts.skipHours,
-    skipDays: opts.skipDays
+    skipHours: opts.skipHours ? { hour: opts.skipHours } : null,
+    skipDays: opts.skipDays ? { day: opts.skipDays } : null
   }
 
   if (jf.items) {
