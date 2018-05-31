@@ -1,7 +1,7 @@
 {
   "name": "jsonfeed-to-rss",
   "description": "Convert a JSON feed to an rss feed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Bret Comnes",
   "bugs": {
     "url": "https://github.com/bcomnes/jsonfeed-to-rss/issues"
