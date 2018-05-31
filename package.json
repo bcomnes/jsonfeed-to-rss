@@ -1,7 +1,7 @@
 {
   "name": "jsonfeed-to-rss",
   "description": "Convert a JSON feed to an rss feed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Bret Comnes",
   "bugs": {
     "url": "https://github.com/bcomnes/jsonfeed-to-rss/issues"
@@ -49,6 +49,6 @@
     "test:lint": "standard --verbose | snazzy",
     "test:tape": "nyc --reporter=lcov tape 'test.js' | tap-format-spec",
     "update": "node generate-snapshot.js",
-    "version": "run-s update && git add snapshot.xml snapshot.json"
+    "version": "run-s update && git add snapshots"
   }
 }

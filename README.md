@@ -109,13 +109,13 @@ Example output:
 
 ## API
 ### `jsonfeedToRSS(parsedJsonfeed, opts)`
-Coverts a parsed JSON feed into an atom feed.  Returns the string of the atom feed.
+Coverts a parsed JSON feed into an RSS feed.  Returns the string of the rss feed.
 
 Opts include:
 
 ```js
 {
-  // a function that returns the atom feed url
+  // a function that returns the rss feed url
   feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '-rss.xml'),
   language: 'en-us',
   copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
@@ -132,41 +132,28 @@ Opts include:
 ## See also
 
 - [JSON Feed: Mapping RSS and Atom to JSON Feed](https://jsonfeed.org/mappingrssandatom)
+- [rssboard.org/rss-specification](http://www.rssboard.org/rss-specification)
+- [validator.w3.org](https://validator.w3.org/feed/docs/rss2.html)
 - [AtomEnabled: Developers > Syndication](https://web.archive.org/web/20160113103647/http://atomenabled.org/developers/syndication/#link)
 - [bcomnes/generate-feed](https://github.com/bcomnes/generate-feed)
+- [Apple Requirements - Podcasts Connect Help](https://help.apple.com/itc/podcasts_connect/#/itc1723472cb)
+- [Apple RSS feed sample](https://help.apple.com/itc/podcasts_connect/#/itcbaf351599)
+- [Apple Create a podcast](https://help.apple.com/itc/podcasts_connect/#/itca5b22233a)
+- [Apple Podcasts Identity Guidelines](https://www.apple.com/itunes/marketing-on-podcasts/identity-guidelines.html#messaging-and-style)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
 
 [0]: https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square
 [1]: https://nodejs.org/api/documentation.html#documentation_stability_index
-[2]: https://img.shields.io/npm/v/jsonfeed-to-atom.svg?style=flat-square
-[3]: https://npmjs.org/package/jsonfeed-to-atom
-[4]: https://img.shields.io/travis/bcomnes/jsonfeed-to-atom/master.svg?style=flat-square
-[5]: https://travis-ci.org/bcomnes/jsonfeed-to-atom
-[8]: http://img.shields.io/npm/dm/jsonfeed-to-atom.svg?style=flat-square
-[9]: https://npmjs.org/package/jsonfeed-to-atom
+[2]: https://img.shields.io/npm/v/jsonfeed-to-rss.svg?style=flat-square
+[3]: https://npmjs.org/package/jsonfeed-to-rss
+[4]: https://img.shields.io/travis/bcomnes/jsonfeed-to-rss/master.svg?style=flat-square
+[5]: https://travis-ci.org/bcomnes/jsonfeed-to-rss
+[8]: http://img.shields.io/npm/dm/jsonfeed-to-rss.svg?style=flat-square
+[9]: https://npmjs.org/package/jsonfeed-to-rss
 [10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [11]: https://github.com/feross/standard
-[12]: https://img.shields.io/coveralls/bcomnes/jsonfeed-to-atom/master.svg?style=flat-square
-[13]: https://coveralls.io/github/bcomnes/jsonfeed-to-atom
+[12]: https://img.shields.io/coveralls/bcomnes/jsonfeed-to-rss/master.svg?style=flat-square
+[13]: https://coveralls.io/github/bcomnes/jsonfeed-to-rss
 [rss]: http://www.rssboard.org/rss-specification
-
-
-RSS LINKS:
-
-http://www.rssboard.org/rss-specification
-https://jsonfeed.org/mappingrssandatom
-https://jsonfeed.org/version/1
-http://www.rssboard.org/rss-profile
-https://validator.w3.org/feed/docs/rss2.html
-http://web.resource.org/rss/1.0/modules/content/
-
-
-ITUNES RSS LINKS
-
-https://help.apple.com/itc/podcasts_connect/#/itc1723472cb
-https://help.apple.com/itc/podcasts_connect/#/itcbaf351599
-https://help.apple.com/itc/podcasts_connect/#/itca5b22233a
-https://gist.github.com/bcomnes/defb825462722d96da7b877e22dd7588
-https://www.apple.com/itunes/marketing-on-podcasts/identity-guidelines.html#messaging-and-style
