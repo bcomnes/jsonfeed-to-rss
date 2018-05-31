@@ -1,13 +1,17 @@
 const packageInfo = require('./package.json')
 const generateTitle = require('./lib/generate-title')
+const get = require('lodash.get')
+const cleanDeep = require('clean-deep')
 
 module.exports = function jsonfeedToAtomObject (jf, opts) {
   const now = new Date()
+
   opts = Object.assign({
+    feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '-rss.xml'),
     language: 'en-us',
     copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
-    managingEditor: getManagingEditor(jf),
-    webMaster: getManagingEditor(jf),
+    managingEditor: null,
+    webMaster: null,
     idIsPermalink: false,
     category: null,
     ttl: null, // TODO default on ttl
@@ -17,18 +21,27 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
   }, opts)
 
   // 2.0.11 http://www.rssboard.org/rss-specification
+  // best practice http://www.rssboard.org/rss-profile
   // JSON Feed to rss mapping based off http://cyber.harvard.edu/rss/rss.html
   // and http://www.rssboard.org/rss-profile and
   // https://validator.w3.org/feed/docs/rss2.html
 
-  const { title, version, home_page_url: homePageURL, description } = jf
+  const { title, version, home_page_url: homePageURL, description, feed_url: feedURL } = jf
   if (version !== 'https://jsonfeed.org/version/1') throw new Error('jsonfeed-to-atom: JSON feed version 1 required')
   if (!title) throw new Error('jsonfeed-to-rss: missing title')
+  if (!feedURL) throw new Error('jsonfeed-to-atom: missing feed_url')
   if (!homePageURL) throw new Error('jsonfeed-to-rss: JSON feed missing home_page_url property')
   if (!description) throw new Error('jsonfeed-to-rss: JSON feed missing description property')
 
+  const rssFeedURL = opts.feedURLFn(feedURL, jf)
+  const rssTitle = `${title} (RSS)`
   const rss = {
-    title,
+    'atom:link': {
+      '@href': rssFeedURL,
+      '@rel': 'self',
+      '@type': 'application/rss+xml'
+    },
+    title: rssTitle,
     link: homePageURL,
     description,
     language: opts.language,
@@ -36,7 +49,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     managingEditor: opts.managingEditor,
     webMaster: opts.webMaster,
     pubDate: now.toUTCString(), // override with the newest pubdate thats less than now
-    lastBuildDate: now.toUTCString(),
+    // lastBuildDate: now.toUTCString(),
     category: opts.category, // no mapping, so leave as option
     generator: `${packageInfo.name} ${packageInfo.version} (${packageInfo.homepage})`,
     docs: 'http://www.rssboard.org/rss-specification',
@@ -45,7 +58,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     image: jf.icon ? {
       url: jf.icon,
       link: homePageURL,
-      title: title
+      title: rssTitle
     } : undefined,
     skipHours: opts.skipHours,
     skipDays: opts.skipDays
@@ -62,15 +75,22 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       const rssItem = {
         title: generateTitle(item),
         link: item.external_url || item.url,
+        // author: getManagingEditor(item) || getManagingEditor(jf),
+        'dc:creator': get(item, 'author.name') || get(jf, 'author.name'),
         description: {
-          '#cdata': item.content_html || item.content_text
+          '#cdata': item.content_html || item.content_text,
+          '@xml:base': homePageURL
+        },
+        'content:encoded': {
+          '#cdata': item.content_html || item.content_text,
+          '@xml:base': homePageURL
         },
         category: item.tags,
         guid: {
           '#text': item.id,
           '@isPermaLink': opts.idIsPermalink
         },
-        pubDate: item.date_published
+        pubDate: new Date(item.date_published).toUTCString()
       }
 
       if (item.attachments) {
@@ -80,27 +100,20 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
           '@length': attachment.size_in_bytes
         }))
       }
-      if (opts.relativeItemLinks) rssItem['@xml:base'] = item.url
+
       return rssItem
     })
     // Replace pubdate date most recently updated or published
     if (mostRecentlyUpdated > '0') rss.pubDate = new Date(mostRecentlyUpdated).toUTCString()
   }
 
-  return {
+  return cleanDeep({
     rss: {
       '@version': '2.0',
-      '@xml:base': homePageURL,
+      '@xmlns:atom': 'http://www.w3.org/2005/Atom',
+      '@xmlns:dc': 'http://purl.org/dc/elements/1.1/',
+      '@xmlns:content': 'http://purl.org/rss/1.0/modules/content/',
       channel: rss
     }
-  }
-}
-
-function getManagingEditor (jf) {
-  const {author} = jf
-  if (!author && (!author.url || author.name)) return null
-  let managingEditor = []
-  if (author.url) managingEditor.push(author.url)
-  if (author.name) managingEditor.push(`(${author.name})`)
-  return managingEditor.join(' ')
+  })
 }

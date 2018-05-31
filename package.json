@@ -7,12 +7,12 @@
     "url": "https://github.com/bcomnes/jsonfeed-to-rss/issues"
   },
   "dependencies": {
+    "clean-deep": "^3.0.2",
     "lodash.get": "^4.4.2",
-    "nanoassert": "^1.1.0",
     "striptags": "^3.1.1",
     "trim-left": "^1.0.1",
     "trim-right": "^1.0.1",
-    "xmlbuilder": "^9.0.7"
+    "xmlbuilder": "^10.0.0"
   },
   "devDependencies": {
     "@tap-format/spec": "^0.2.0",

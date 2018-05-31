@@ -13,5 +13,5 @@ const jsonfeedToRSSObject = require('./jsonfeed-to-rss-object')
 module.exports = function jsonfeedToRSS (jsonfeed) {
   const feedObj = jsonfeedToRSSObject(jsonfeed)
   const feed = builder.create(feedObj, { encoding: 'utf-8', skipNullAttributes: true, skipNullValues: true })
-  return feed.end({ pretty: true })
+  return feed.end({ pretty: true, allowEmpty: false })
 }

@@ -1,45 +1,57 @@
 {
  "rss": {
   "@version": "2.0",
-  "@xml:base": "https://bret.io",
+  "@xmlns:atom": "http://www.w3.org/2005/Atom",
+  "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+  "@xmlns:content": "http://purl.org/rss/1.0/modules/content/",
   "channel": {
-   "title": "bret.io log",
+   "atom:link": {
+    "@href": "https://bret.io/feed-rss.xml",
+    "@rel": "self",
+    "@type": "application/rss+xml"
+   },
+   "title": "bret.io log (RSS)",
    "link": "https://bret.io",
    "description": "A running log of announcements, projects and accomplishments.",
    "language": "en-us",
    "copyright": "© 2018 Bret Comnes",
-   "managingEditor": "https://bret.io (Bret Comnes)",
-   "webMaster": "https://bret.io (Bret Comnes)",
    "pubDate": "Fri, 13 Apr 2018 22:06:43 GMT",
-   "lastBuildDate": "Wed, 30 May 2018 01:41:56 GMT",
-   "category": null,
    "generator": "jsonfeed-to-rss 1.0.0 (https://github.com/bcomnes/jsonfeed-to-rss#readme)",
    "docs": "http://www.rssboard.org/rss-specification",
-   "ttl": null,
    "image": {
     "url": "https://bret.io/icon-512x512.png",
     "link": "https://bret.io",
-    "title": "bret.io log"
+    "title": "bret.io log (RSS)"
    },
-   "skipHours": null,
-   "skipDays": null,
    "item": [
     {
      "title": "but it has a summary!",
+     "dc:creator": "Bret Comnes",
      "description": {
-      "#cdata": "ey, no link, nourl"
+      "#cdata": "ey, no link, nourl",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "ey, no link, nourl",
+      "@xml:base": "https://bret.io"
      },
      "guid": {
       "#text": "a-unique-id",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-13T22:06:43.000Z"
+     "pubDate": "Fri, 13 Apr 2018 22:06:43 GMT"
     },
     {
      "title": "A post with some tags",
      "link": "https://example.com/tags",
+     "dc:creator": "Bret Comnes",
      "description": {
-      "#cdata": "<p>A post with some tags</p>"
+      "#cdata": "<p>A post with some tags</p>",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "<p>A post with some tags</p>",
+      "@xml:base": "https://bret.io"
      },
      "category": [
       "foo",
@@ -49,19 +61,25 @@
       "#text": "https://example.com/tags-2018-04-12T22:06:43.000Z",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-12T22:06:43.000Z"
+     "pubDate": "Thu, 12 Apr 2018 22:06:43 GMT"
     },
     {
      "title": "Attachments",
      "link": "https://example.com/empty-attatchments",
+     "dc:creator": "Bret Comnes",
      "description": {
-      "#cdata": "<p>Attachments</p>"
+      "#cdata": "<p>Attachments</p>",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "<p>Attachments</p>",
+      "@xml:base": "https://bret.io"
      },
      "guid": {
       "#text": "https://example.com/empty-attatchments-2018-04-11T22:06:43.000Z",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-11T22:06:43.000Z",
+     "pubDate": "Wed, 11 Apr 2018 22:06:43 GMT",
      "enclosure": [
       {
        "@type": "audio/mpeg",
@@ -77,63 +95,92 @@
     {
      "title": "Empty attachments",
      "link": "https://example.com/empty-attatchments",
+     "dc:creator": "Bret Comnes",
      "description": {
-      "#cdata": "<p>Empty attachments</p>"
+      "#cdata": "<p>Empty attachments</p>",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "<p>Empty attachments</p>",
+      "@xml:base": "https://bret.io"
      },
      "guid": {
       "#text": "https://example.com/empty-attatchments-2018-04-10T22:06:43.000Z",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-10T22:06:43.000Z",
-     "enclosure": []
+     "pubDate": "Tue, 10 Apr 2018 22:06:43 GMT"
     },
     {
      "title": "A post with no URL!!",
      "link": "https://example.com/some-external-link2",
+     "dc:creator": "Bret Comnes",
      "description": {
-      "#cdata": "<p>A post with no URL!!</p>"
+      "#cdata": "<p>A post with no URL!!</p>",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "<p>A post with no URL!!</p>",
+      "@xml:base": "https://bret.io"
      },
      "guid": {
       "#text": "https://example.com/some-external-link2-2018-04-09T22:06:43.000Z",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-09T22:06:43.000Z"
+     "pubDate": "Mon, 09 Apr 2018 22:06:43 GMT"
     },
     {
      "title": "A post with an author",
      "link": "https://example.com/some-external-link2rfdsfa",
+     "dc:creator": "Mr Guy",
      "description": {
-      "#cdata": "<p>A post with an author</p>"
+      "#cdata": "<p>A post with an author</p>",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "<p>A post with an author</p>",
+      "@xml:base": "https://bret.io"
      },
      "guid": {
       "#text": "https://example.com/some-external-link2rfdsfa-2018-04-08T22:06:43.000Z",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-08T22:06:43.000Z"
+     "pubDate": "Sun, 08 Apr 2018 22:06:43 GMT"
     },
     {
      "title": "This is a blog title",
      "link": "https://example.com/some-external-link",
+     "dc:creator": "Bret Comnes",
      "description": {
-      "#cdata": "<p>Hello, world!</p>"
+      "#cdata": "<p>Hello, world!</p>",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "<p>Hello, world!</p>",
+      "@xml:base": "https://bret.io"
      },
      "guid": {
       "#text": "https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-07T22:06:43.000Z"
+     "pubDate": "Sat, 07 Apr 2018 22:06:43 GMT"
     },
     {
      "title": "Wee wooo this is some content.",
      "link": "https://bret.io/my-text-post",
+     "dc:creator": "Bret Comnes",
      "description": {
-      "#cdata": "Wee wooo this is some content. \n Maybe a new paragraph too"
+      "#cdata": "Wee wooo this is some content. \n Maybe a new paragraph too",
+      "@xml:base": "https://bret.io"
+     },
+     "content:encoded": {
+      "#cdata": "Wee wooo this is some content. \n Maybe a new paragraph too",
+      "@xml:base": "https://bret.io"
      },
      "guid": {
       "#text": "https://bret.io/my-text-post-2018-04-07T20:48:02.000Z",
       "@isPermaLink": false
      },
-     "pubDate": "2018-04-07T20:48:02.000Z"
+     "pubDate": "Sat, 07 Apr 2018 20:48:02 GMT"
     }
    ]
   }

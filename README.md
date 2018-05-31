@@ -59,46 +59,56 @@ Example output:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>bret.io log</title>
-  <id>https://bret.io/feed.xml</id>
-  <updated>2018-04-07T22:06:43.000Z</updated>
-  <link rel="self" type="application/atom+xml" href="https://bret.io/feed.xml"/>
-  <link rel="alternate" type="application/json" href="https://bret.io/feed.json"/>
-  <link rel="alternate" type="text/html" href="https://bret.io"/>
-  <link rel="next" href="https://bret.io/2017.xml"/>
-  <author>
-    <name>Bret Comnes</name>
-    <uri>https://bret.io</uri>
-  </author>
-  <generator uri="https://github.com/bcomnes/jsonfeed-to-atom#readme" version="1.0.0">jsonfeed-to-atom</generator>
-  <rights>© 2018 Bret Comnes</rights>
-  <subtitle>A running log of announcements, projects and accomplishments.</subtitle>
-  <entry>
-    <id>https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</id>
-    <title>Wee wooo this is some content.</title>
-    <updated>2018-04-07T20:48:02.000Z</updated>
-    <published>2018-04-07T20:48:02.000Z</published>
-    <content type="text">Wee wooo this is some content. 
- Maybe a new paragraph too</content>
-    <link rel="alternate" href="https://bret.io/my-text-post"/>
-  </entry>
-  <entry>
-    <id>https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</id>
-    <title>This is a blog title</title>
-    <updated>2018-04-07T22:06:43.000Z</updated>
-    <published>2018-04-07T22:06:43.000Z</published>
-    <content type="html">
-      <![CDATA[<p>Hello, world!</p>]]>
-    </content>
-    <link rel="alternate" href="https://bret.io/my-blog-post"/>
-    <link rel="related" href="https://example.com/some-external-link"/>
-  </entry>
-</feed>
+<rss version="2.0" xml:base="https://bret.io" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
+    <title>bret.io log (RSS)</title>
+    <link>https://bret.io</link>
+    <description>A running log of announcements, projects and accomplishments.</description>
+    <language>en-us</language>
+    <copyright>© 2018 Bret Comnes</copyright>
+    <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
+    <generator>jsonfeed-to-rss 1.0.0 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <image>
+      <url>https://bret.io/icon-512x512.png</url>
+      <link>https://bret.io</link>
+      <title>bret.io log (RSS)</title>
+    </image>
+    <item>
+      <title>Wee wooo this is some content.</title>
+      <link>https://bret.io/my-text-post</link>
+      <dc:creator>Bret Comnes</dc:creator>
+      <description>
+        <![CDATA[Wee wooo this is some content. 
+ Maybe a new paragraph too]]>
+      </description>
+      <content:encoded>
+        <![CDATA[Wee wooo this is some content. 
+ Maybe a new paragraph too]]>
+      </content:encoded>
+      <guid isPermaLink="false">https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</guid>
+      <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>This is a blog title</title>
+      <link>https://example.com/some-external-link</link>
+      <dc:creator>Bret Comnes</dc:creator>
+      <description>
+        <![CDATA[<p>Hello, world!</p>]]>
+      </description>
+      <content:encoded>
+        <![CDATA[<p>Hello, world!</p>]]>
+      </content:encoded>
+      <guid isPermaLink="false">https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</guid>
+      <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
 ```
 
 ## API
-### `jsonfeedToAtom(parsedJsonfeed, opts)`
+### `jsonfeedToRSS(parsedJsonfeed, opts)`
 Coverts a parsed JSON feed into an atom feed.  Returns the string of the atom feed.
 
 Opts include:
