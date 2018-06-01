@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title><![CDATA[DatCast]]></title>
+    <description><![CDATA[A cool show about Dat!]]></description>
+    <link>https://dat-cast.hashbase.io/</link>
+    <generator>Cast – https://tryca.st/</generator>
+    <lastBuildDate>Tue, 29 May 2018 20:46:56 GMT</lastBuildDate>
+    <pubDate>Thu, 26 Apr 2018 15:59:03 GMT</pubDate>
+    <copyright><![CDATA[Copyright Bret Comnes and Jim Pick]]></copyright>
+    <language><![CDATA[en]]></language>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <itunes:author>Bret Comnes and Jim Pick</itunes:author>
+    <itunes:subtitle><![CDATA[A cool show about Dat!]]></itunes:subtitle>
+    <itunes:summary><![CDATA[A cool show about Dat!]]></itunes:summary>
+    <itunes:owner>
+      <itunes:name>Bret Comnes and Jim Pick</itunes:name>
+      <itunes:email>datcast@jimpick.com</itunes:email>
+    </itunes:owner>
+    <itunes:explicit>clean</itunes:explicit>
+    <itunes:image href="https://dat-cast.hashbase.io/img/DCUP0.jpg?e=2f42944"/>
+    <itunes:category text="Technology">
+      <itunes:category text="Tech News"/>
+    </itunes:category>
+    <item>
+      <title><![CDATA[Episode 2 - Danielle Robinson and Joe Hand]]></title>
+      <description><![CDATA[<p>
+Our guests are Danielle Robinson and Joe Hand who are co-executive directors of Code For Science and Society, the non-profit organization that runs the Dat Project.
+</p>
+
+<h2>Links</h2>
+
+<h3>Danielle Robinson</h3>
+
+<ul>
+<li>dat://about-danielle.hashbase.io/</li>
+<li>Twitter: <a href="https://twitter.com/daniellecrobins">@daniellecrobins</a></li>
+</ul>
+
+<h3>Joe Hand</h3>
+
+<ul>
+<li><a href="https://joeahand.com/">https://joeahand.com/</a></li>
+<li>Twitter: <a href="https://twitter.com/joeahand">@joeahand</a></li>
+</ul>
+
+<h3>Code for Science and Society</h3>
+
+<ul>
+<li><a href="https://codeforscience.org/">Code for Science and Society</a></li>
+<li><a href="https://datproject.org/">Dat Project</a></li>
+</ul>
+
+<h2>Recent Events</h2>
+
+<ul>
+<li><a href="https://blog.datproject.org/2018/05/14/dat-shopping-list/">Dat Shopping List Demo</a></li>
+<li><a href="https://github.com/mafintosh/hyperdb">HyperDB 3.0.0</a></li>
+<li><a href="https://peer-to-peer-web.com/nyc">Peer-to-Peer Web New York</a></li>
+<li><a href="https://twitter.com/taravancil/status/999498658105249792">DNS based dat:// lookups in Beaker Browser</a></li>
+<li><a href="https://github.com/cabal-club/cabal-desktop">Cabal Chat Client</a></li>
+</ul>
+
+<h2>Upcoming Events</h2>
+
+<ul>
+<li>Thu May 31 - <a href="https://blog.datproject.org/2018/05/24/code-for-science-society-community-call/">Code for Science Community Call</a></li>
+<li>Thu Mar 31 - Berlin - <a href="https://twitter.com/mafintosh/status/1001149486348021760">Beaker Browser Hack Night</a></li>
+<li>Jun 2 &amp; 3 - Berlin - JSConfEU
+<ul>
+<li><a href="https://2018.jsconf.eu/speakers/paul-frazee-formalizing-user-rights-on-the-web.html">Paul Frazee</a></li>
+<li><a href="https://2018.jsconf.eu/speakers/tara-vancil-imagine-this-a-web-without-servers.html">Tara Vancil</a></li>
+<li><a href="https://2018.jsconf.eu/speakers/emil-bay-hand-crafting-webassembly.html">Emil Bay</a></li>
+</ul>
+</li>
+<li>Jun 13 - San Francisco - <a href="https://www.eventbrite.com/e/decentralized-web-meet-up-tickets-46225948055">Decentralized Web Meetup</a> at the Internet Archive</li>
+</ul>
+
+<h2>Danielle Robinson</h2>
+<ul>
+<li><a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/academic-programs/neuroscience-graduate-program/">OHSU Neuroscience</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Open_access">Open Access</a></li>
+<li><a href="https://www.opencon2017.org/">OpenCon</a></li>
+<li><a href="https://www.datarefuge.org/">Data Refuge</a></li>
+<li><a href="https://medium.com/@maxogden/project-svalbard-a-metadata-vault-for-research-data-7088239177ab">Project Svalbard</a></li>
+<li><a href="https://blog.datproject.org/2018/04/19/practical-decentralization/">Practical Decentralization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Charcot%E2%80%93Marie%E2%80%93Tooth_disease">Charcot-Marie-Tooth disease</a></li>
+</ul>
+
+<h2>Joe Hand</h2>
+<ul>
+<li><a href="http://www.periscopic.com/">Periscopic</a></li>
+<li><a href="https://www.santafe.edu/research/projects/neighborhoods-slums-human-development">Santa Fe Institute + Slum/Shack Dwellers International</a></li>
+<li><a href="https://github.com/datproject/dat">Dat Command Line</a></li>
+</ul>
+
+<h1>Interview Links</h1>
+
+<ul>
+<li><a href="http://www.jeremyfreeman.net/">Jeremy Freeman</a></li>
+<li><a href="https://www.janelia.org/">Janelia Labs</a></li>
+<li><a href="https://www.datprotocol.com/">Dat Protocol Working Group / DEPs</a></li>
+<li><a href="https://blog.datproject.org/2018/03/22/dat-governance-updates/">Dat Governance Framework</a></li>
+<li><a href="https://codeforscience.org/">Code for Science &amp; Society</a></li>
+<li><a href="https://blog.datproject.org/2018/05/22/collaboration-czi/">CS&amp;S Collaborative Communities Project</a></li>
+<li><a href="https://changelog.com/rfc/6">Request For Commits – Episode #6</a></li>
+<li><a href="https://github.com/dat-land/dat-desktop">Dat Desktop</a></li>
+<li><a href="https://datbase.org/">datBase</a></li>
+<li><a href="https://archive.org/">Internet Archive</a></li>
+<li><a href="https://www.cdlib.org/">California Digital Library</a></li>
+<li><a href="https://dash.ucop.edu/stash">Dash</a></li>
+</ul>
+
+<h1>More podcasts to listen to</h1>
+
+<ul>
+<li><a href="https://www.dataengineeringpodcast.com/dat-with-danielle-robinson-and-joe-hand-episode-16/">https://www.dataengineeringpodcast.com/dat-with-danielle-robinson-and-joe-hand-episode-16/</a></li>
+<li><a href="http://pursuit.tech/2018/05/08/funding-with-grants-danielle-robinson/">http://pursuit.tech/2018/05/08/funding-with-grants-danielle-robinson/</a></li>
+</ul>
+]]></description>
+      <guid isPermaLink="false">5A2C7MKZ-6OGVI</guid>
+      <pubDate>Tue, 29 May 2018 00:07:08 GMT</pubDate>
+      <enclosure url="https://dat-cast.hashbase.io/audio/datcast-episode-0002-2018-05-28-danielle-robinson-and-joe-hand.mp3" length="51854315" type="audio/mpeg"/>
+      <itunes:author></itunes:author>
+      <itunes:explicit>clean</itunes:explicit>
+      <itunes:subtitle><![CDATA[<p>
+Our guests are Danielle Robinson and Joe Hand who are co-executive directors of Code For Science and Society, the non-profit organization that runs the Dat Project.
+</p>
+
+<h2>Links</h2>
+
+<h3>Danielle Robinson</h3>
+
+<ul>
+<li>dat://about-danielle.h ...]]></itunes:subtitle>
+      <itunes:summary><![CDATA[<p>
+Our guests are Danielle Robinson and Joe Hand who are co-executive directors of Code For Science and Society, the non-profit organization that runs the Dat Project.
+</p>
+
+<h2>Links</h2>
+
+<h3>Danielle Robinson</h3>
+
+<ul>
+<li>dat://about-danielle.hashbase.io/</li>
+<li>Twitter: <a href="https://twitter.com/daniellecrobins">@daniellecrobins</a></li>
+</ul>
+
+<h3>Joe Hand</h3>
+
+<ul>
+<li><a href="https://joeahand.com/">https://joeahand.com/</a></li>
+<li>Twitter: <a href="https://twitter.com/joeahand">@joeahand</a></li>
+</ul>
+
+<h3>Code for Science and Society</h3>
+
+<ul>
+<li><a href="https://codeforscience.org/">Code for Science and Society</a></li>
+<li><a href="https://datproject.org/">Dat Project</a></li>
+</ul>
+
+<h2>Recent Events</h2>
+
+<ul>
+<li><a href="https://blog.datproject.org/2018/05/14/dat-shopping-list/">Dat Shopping List Demo</a></li>
+<li><a href="https://github.com/mafintosh/hyperdb">HyperDB 3.0.0</a></li>
+<li><a href="https://peer-to-peer-web.com/nyc">Peer-to-Peer Web New York</a></li>
+<li><a href="https://twitter.com/taravancil/status/999498658105249792">DNS based dat:// lookups in Beaker Browser</a></li>
+<li><a href="https://github.com/cabal-club/cabal-desktop">Cabal Chat Client</a></li>
+</ul>
+
+<h2>Upcoming Events</h2>
+
+<ul>
+<li>Thu May 31 - <a href="https://blog.datproject.org/2018/05/24/code-for-science-society-community-call/">Code for Science Community Call</a></li>
+<li>Thu Mar 31 - Berlin - <a href="https://twitter.com/mafintosh/status/1001149486348021760">Beaker Browser Hack Night</a></li>
+<li>Jun 2 &amp; 3 - Berlin - JSConfEU
+<ul>
+<li><a href="https://2018.jsconf.eu/speakers/paul-frazee-formalizing-user-rights-on-the-web.html">Paul Frazee</a></li>
+<li><a href="https://2018.jsconf.eu/speakers/tara-vancil-imagine-this-a-web-without-servers.html">Tara Vancil</a></li>
+<li><a href="https://2018.jsconf.eu/speakers/emil-bay-hand-crafting-webassembly.html">Emil Bay</a></li>
+</ul>
+</li>
+<li>Jun 13 - San Francisco - <a href="https://www.eventbrite.com/e/decentralized-web-meet-up-tickets-46225948055">Decentralized Web Meetup</a> at the Internet Archive</li>
+</ul>
+
+<h2>Danielle Robinson</h2>
+<ul>
+<li><a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/academic-programs/neuroscience-graduate-program/">OHSU Neuroscience</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Open_access">Open Access</a></li>
+<li><a href="https://www.opencon2017.org/">OpenCon</a></li>
+<li><a href="https://www.datarefuge.org/">Data Refuge</a></li>
+<li><a href="https://medium.com/@maxogden/project-svalbard-a-metadata-vault-for-research-data-7088239177ab">Project Svalbard</a></li>
+<li><a href="https://blog.datproject.org/2018/04/19/practical-decentralization/">Practical Decentralization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Charcot%E2%80%93Marie%E2%80%93Tooth_disease">Charcot-Marie-Tooth disease</a></li>
+</ul>
+
+<h2>Joe Hand</h2>
+<ul>
+<li><a href="http://www.periscopic.com/">Periscopic</a></li>
+<li><a href="https://www.santafe.edu/research/projects/neighborhoods-slums-human-development">Santa Fe Institute + Slum/Shack Dwellers International</a></li>
+<li><a href="https://github.com/datproject/dat">Dat Command Line</a></li>
+</ul>
+
+<h1>Interview Links</h1>
+
+<ul>
+<li><a href="http://www.jeremyfreeman.net/">Jeremy Freeman</a></li>
+<li><a href="https://www.janelia.org/">Janelia Labs</a></li>
+<li><a href="https://www.datprotocol.com/">Dat Protocol Working Group / DEPs</a></li>
+<li><a href="https://blog.datproject.org/2018/03/22/dat-governance-updates/">Dat Governance Framework</a></li>
+<li><a href="https://codeforscience.org/">Code for Science &amp; Society</a></li>
+<li><a href="https://blog.datproject.org/2018/05/22/collaboration-czi/">CS&amp;S Collaborative Communities Project</a></li>
+<li><a href="https://changelog.com/rfc/6">Request For Commits – Episode #6</a></li>
+<li><a href="https://github.com/dat-land/dat-desktop">Dat Desktop</a></li>
+<li><a href="https://datbase.org/">datBase</a></li>
+<li><a href="https://archive.org/">Internet Archive</a></li>
+<li><a href="https://www.cdlib.org/">California Digital Library</a></li>
+<li><a href="https://dash.ucop.edu/stash">Dash</a></li>
+</ul>
+
+<h1>More podcasts to listen to</h1>
+
+<ul>
+<li><a href="https://www.dataengineeringpodcast.com/dat-with-danielle-robinson-and-joe-hand-episode-16/">https://www.dataengineeringpodcast.com/dat-with-danielle-robinson-and-joe-hand-episode-16/</a></li>
+<li><a href="http://pursuit.tech/2018/05/08/funding-with-grants-danielle-robinson/">http://pursuit.tech/2018/05/08/funding-with-grants-danielle-robinson/</a></li>
+</ul>
+]]></itunes:summary>
+      <itunes:duration>1:05:15</itunes:duration>
+      <itunes:length>51854315</itunes:length>
+      <itunes:keywords></itunes:keywords>
+      
+    </item>
+    <item>
+      <title><![CDATA[Episode 1 - Mathias Buus (@mafintosh)]]></title>
+      <description><![CDATA[We invite Mathias onto the show and talk about the upcoming Dat Multiwriter feature
+
+* http://github.com/mafintosh
+* https://peer-to-peer-web.com/]]></description>
+      <guid isPermaLink="false">C89G1GIQ-6PQFR</guid>
+      <pubDate>Thu, 10 May 2018 01:53:44 GMT</pubDate>
+      <enclosure url="https://dat-cast.hashbase.io/audio/datcast-episode-0001-2018-05-09-mafintosh.mp3" length="53279204" type="audio/mpeg"/>
+      <itunes:author></itunes:author>
+      <itunes:explicit>clean</itunes:explicit>
+      <itunes:subtitle><![CDATA[We invite Mathias onto the show and talk about the upcoming Dat Multiwriter feature
+
+* http://github.com/mafintosh
+* https://peer-to-peer-web.com/]]></itunes:subtitle>
+      <itunes:summary><![CDATA[We invite Mathias onto the show and talk about the upcoming Dat Multiwriter feature
+
+* http://github.com/mafintosh
+* https://peer-to-peer-web.com/]]></itunes:summary>
+      <itunes:duration>1:11:45</itunes:duration>
+      <itunes:length>53279204</itunes:length>
+      <itunes:keywords></itunes:keywords>
+      
+    </item>
+    <item>
+      <title><![CDATA[Episode 0 - Welcome to the DatCast!]]></title>
+      <description><![CDATA[The first episode, where Bret and Jim try making a podcast for the first time, and explain what they want the show to be.
+
+Links:
+
+* https://peer-to-peer-web.com/los-angeles/2018-04-28
+* https://twitter.com/mafintosh/status/989214862764118016]]></description>
+      <guid isPermaLink="false">2VCD9I31-RLTYB9</guid>
+      <pubDate>Thu, 26 Apr 2018 19:55:26 GMT</pubDate>
+      <enclosure url="https://dat-cast.hashbase.io/audio/datcast-episode-0000-2018-04-26.mp3" length="14677632" type="audio/mpeg"/>
+      <itunes:author></itunes:author>
+      <itunes:explicit>clean</itunes:explicit>
+      <itunes:subtitle><![CDATA[The first episode, where Bret and Jim try making a podcast for the first time, and explain what they want the show to be.
+
+Links:
+
+* https://peer-to-peer-web.com/los-angeles/2018-04-28
+* https://twitter.com/mafintosh/status/989214862764118016]]></itunes:subtitle>
+      <itunes:summary><![CDATA[The first episode, where Bret and Jim try making a podcast for the first time, and explain what they want the show to be.
+
+Links:
+
+* https://peer-to-peer-web.com/los-angeles/2018-04-28
+* https://twitter.com/mafintosh/status/989214862764118016]]></itunes:summary>
+      <itunes:duration>0:15:17</itunes:duration>
+      <itunes:length>14677632</itunes:length>
+      <itunes:keywords></itunes:keywords>
+      
+    </item>
+  </channel>
+</rss>

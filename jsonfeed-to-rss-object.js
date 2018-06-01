@@ -2,6 +2,8 @@ const packageInfo = require('./package.json')
 const generateTitle = require('./lib/generate-title')
 const get = require('lodash.get')
 const cleanDeep = require('clean-deep')
+const striptags = require('striptags')
+const sentenceSplitter = require('sentence-splitter')
 
 module.exports = function jsonfeedToAtomObject (jf, opts) {
   const now = new Date()
@@ -10,13 +12,14 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '-rss.xml'),
     language: 'en-us',
     copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
-    managingEditor: null,
-    webMaster: null,
-    idIsPermalink: false,
-    category: null,
+    managingEditor: null, // email@domain.com (First Last)
+    webMaster: null, // email@domain.com (First Last)
+    idIsPermalink: false, // guid is permalink
+    category: null, // site level categories. no mapping, so leave as option array.
     ttl: null,
-    skipHours: null,
-    skipDays: null
+    skipHours: null, // array of hour numbers
+    skipDays: null,  // array of skip days
+    itunes: !!jf._itunes // enable/disable itunes tags
   }, opts)
 
   // 2.0.11 http://www.rssboard.org/rss-specification
@@ -33,7 +36,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
   if (!description) throw new Error('jsonfeed-to-rss: JSON feed missing description property')
 
   const rssFeedURL = opts.feedURLFn(feedURL, jf)
-  const rssTitle = `${title} (RSS)`
+  const rssTitle = `${title}`
   const rss = {
     'atom:link': {
       '@href': rssFeedURL,
@@ -49,7 +52,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     webMaster: opts.webMaster,
     pubDate: now.toUTCString(), // override with the newest pubdate thats less than now
     // lastBuildDate: now.toUTCString(),
-    category: opts.category, // no mapping, so leave as option
+    category: opts.category,
     generator: `${packageInfo.name} ${packageInfo.version} (${packageInfo.homepage})`,
     docs: 'http://www.rssboard.org/rss-specification',
     // TODO: cloud
@@ -63,6 +66,28 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     skipDays: opts.skipDays ? { day: opts.skipDays } : null
   }
 
+  if (opts.itunes) {
+    Object.assign(rss, {
+      'itunes:author': get(jf, '_itunes.author') || get(jf, 'author.name'),
+      'itunes:summary': get(jf, '_itunes.summary') || description,
+      'itunes:subtitle': get(jf, '_itunes.subtitle'),
+      'itunes:type': ['episodic', 'serial'].some(type => get(jf, '_itunes.type') === type) ? get(jf, '_itunes.type') : 'episodic',
+      'itunes:owner': {
+        'itunes:name': get(jf, '_itunes.owner.name') || get(jf, 'author.name'),
+        'itunes:email': get(jf, '_itunes.owner.email')
+      },
+      'itunes:image': get(jf, '_itunes.image') || get(jf, 'icon'),
+      'itunes:category': {
+        // TODO Validate these // https://help.apple.com/itc/podcasts_connect/?lang=en#/itc9267a2f12
+        '@text': get(jf, '_itunes.category') || get(opts, 'category[0]'),
+        'itunes:category': {
+          '@text': get(jf, '_itunes.subcategory') || get(opts, 'category[1]')
+        }
+      },
+      'itunes:explicit': get(jf, '_itunes.explicit') ? 'yes' : 'no'
+    })
+  }
+
   if (jf.items) {
     let mostRecentlyUpdated = '0'
     rss.item = jf.items.map(item => {
@@ -71,18 +96,16 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       if (item.date_modified && (item.date_modified > mostRecentlyUpdated)) mostRecentlyUpdated = item.date_modified
 
       // Generate item object
+      const title = generateTitle(item)
       const rssItem = {
-        title: generateTitle(item),
+        title: title,
         link: item.external_url || item.url,
         // author: getManagingEditor(item) || getManagingEditor(jf),
         'dc:creator': get(item, 'author.name') || get(jf, 'author.name'),
-        description: {
-          '#cdata': item.content_html || item.content_text,
-          '@xml:base': homePageURL
-        },
+        // RSS supports HTML in description, but we are only going to use it for plain text, a common practice/misconception + apple recommended.
+        description: item.content_text || striptags(item.content_html),
         'content:encoded': {
-          '#cdata': item.content_html || item.content_text,
-          '@xml:base': homePageURL
+          '#cdata': item.content_html
         },
         category: item.tags,
         guid: {
@@ -92,12 +115,25 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
         pubDate: new Date(item.date_published).toUTCString()
       }
 
-      if (item.attachments) {
-        rssItem.enclosure = item.attachments.map(attachment => ({
+      if (item.attachments && item.attachments.length > 0) {
+        const attachment = item.attachments[0] // RSS only supports 1 per item!
+        rssItem.enclosure = {
           '@type': attachment.mime_type,
           '@url': attachment.url,
           '@length': attachment.size_in_bytes
-        }))
+        }
+
+        if (opts.itunes) {
+          Object.assign(rssItem, {
+            'itunes:episodeType': ['full', 'trailer', 'bonus'].some(type => get(item, '_itunes.type') === type) ? get(item, '_itunes.type') : 'full',
+            'itunes:title': get(item, '_itunes.title') || generateTitle(item),
+            'itunes:author': get(item, '_itunes.author') || get(item, 'author.name') || get(jf, '_itunes.author') || get(jf, 'author.name'),
+            'itunes:subtitle': get(item, '_itunes.subtitle') || get(sentenceSplitter.split(get(item, 'summary') || '').find(obj => obj.type === 'Sentence'), 'raw'),
+            'itunes:summary': get(item, '_itunes.summary') || get(item, 'summary'),
+            'itunes:duration': attachment.duration_in_seconds,
+            'itunes:season': get(item, '_itunes.season')
+          })
+        }
       }
 
       return rssItem

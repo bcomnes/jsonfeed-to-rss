@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
-    <title>bret.io log (RSS)</title>
+    <title>bret.io log</title>
     <link>https://bret.io</link>
     <description>A running log of announcements, projects and accomplishments.</description>
     <language>en-us</language>
@@ -13,17 +13,20 @@
     <image>
       <url>https://bret.io/icon-512x512.png</url>
       <link>https://bret.io</link>
-      <title>bret.io log (RSS)</title>
+      <title>bret.io log</title>
     </image>
+    <itunes:author>Bret Comnes</itunes:author>
+    <itunes:summary>A running log of announcements, projects and accomplishments.</itunes:summary>
+    <itunes:type>episodic</itunes:type>
+    <itunes:owner>
+      <itunes:name>Bret Comnes</itunes:name>
+    </itunes:owner>
+    <itunes:image>https://bret.io/icon-512x512.png</itunes:image>
+    <itunes:explicit>no</itunes:explicit>
     <item>
       <title>but it has a summary!</title>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[ey, no link, nourl]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
-        <![CDATA[ey, no link, nourl]]>
-      </content:encoded>
+      <description>ey, no link, nourl</description>
       <guid isPermaLink="false">a-unique-id</guid>
       <pubDate>Fri, 13 Apr 2018 22:06:43 GMT</pubDate>
     </item>
@@ -31,10 +34,8 @@
       <title>A post with some tags</title>
       <link>https://example.com/tags</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[<p>A post with some tags</p>]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
+      <description>A post with some tags</description>
+      <content:encoded>
         <![CDATA[<p>A post with some tags</p>]]>
       </content:encoded>
       <category>foo</category>
@@ -46,25 +47,26 @@
       <title>Attachments</title>
       <link>https://example.com/empty-attatchments</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[<p>Attachments</p>]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
-        <![CDATA[<p>Attachments</p>]]>
+      <description>Attachments &amp; Escapes</description>
+      <content:encoded>
+        <![CDATA[<p>Attachments & Escapes</p>]]>
       </content:encoded>
       <guid isPermaLink="false">https://example.com/empty-attatchments-2018-04-11T22:06:43.000Z</guid>
       <pubDate>Wed, 11 Apr 2018 22:06:43 GMT</pubDate>
-      <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4"/>
-      <enclosure type="audio/mpeg" url="https://example.com/attatchments-45.mp4" length="1234"/>
+      <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4" length="1234"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:title>Attachments</itunes:title>
+      <itunes:author>Bret Comnes</itunes:author>
+      <itunes:subtitle>Just a brief summary.</itunes:subtitle>
+      <itunes:summary>Just a brief summary.</itunes:summary>
+      <itunes:duration>12345</itunes:duration>
     </item>
     <item>
       <title>Empty attachments</title>
       <link>https://example.com/empty-attatchments</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[<p>Empty attachments</p>]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
+      <description>Empty attachments</description>
+      <content:encoded>
         <![CDATA[<p>Empty attachments</p>]]>
       </content:encoded>
       <guid isPermaLink="false">https://example.com/empty-attatchments-2018-04-10T22:06:43.000Z</guid>
@@ -74,10 +76,8 @@
       <title>A post with no URL!!</title>
       <link>https://example.com/some-external-link2</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[<p>A post with no URL!!</p>]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
+      <description>A post with no URL!!</description>
+      <content:encoded>
         <![CDATA[<p>A post with no URL!!</p>]]>
       </content:encoded>
       <guid isPermaLink="false">https://example.com/some-external-link2-2018-04-09T22:06:43.000Z</guid>
@@ -87,23 +87,24 @@
       <title>A post with an author</title>
       <link>https://example.com/some-external-link2rfdsfa</link>
       <dc:creator>Mr Guy</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[<p>A post with an author</p>]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
+      <description>A post with an author</description>
+      <content:encoded>
         <![CDATA[<p>A post with an author</p>]]>
       </content:encoded>
       <guid isPermaLink="false">https://example.com/some-external-link2rfdsfa-2018-04-08T22:06:43.000Z</guid>
       <pubDate>Sun, 08 Apr 2018 22:06:43 GMT</pubDate>
+      <enclosure type="audio/mpeg" url="https://example.com/attatchments-430.mp4"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:title>A post with an author</itunes:title>
+      <itunes:author>Mr Guy</itunes:author>
+      <itunes:duration>12345</itunes:duration>
     </item>
     <item>
       <title>This is a blog title</title>
       <link>https://example.com/some-external-link</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[<p>Hello, world!</p>]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
+      <description>Hello, world!</description>
+      <content:encoded>
         <![CDATA[<p>Hello, world!</p>]]>
       </content:encoded>
       <guid isPermaLink="false">https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</guid>
@@ -113,14 +114,8 @@
       <title>Wee wooo this is some content.</title>
       <link>https://bret.io/my-text-post</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[Wee wooo this is some content. 
- Maybe a new paragraph too]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
-        <![CDATA[Wee wooo this is some content. 
- Maybe a new paragraph too]]>
-      </content:encoded>
+      <description>Wee wooo this is some content. 
+ Maybe a new paragraph too</description>
       <guid isPermaLink="false">https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</guid>
       <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
     </item>

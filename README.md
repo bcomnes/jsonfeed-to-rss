@@ -44,7 +44,7 @@ Example input:
    "id": "https://bret.io/my-text-post-2018-04-07T20:48:02.000Z"
   },
   {
-   "date_published": "2018-04-07T22:06:43.000Z",
+   "date_published": "2018-04-07T22:06:43.000Z", q  
    "content_html": "<p>Hello, world!</p>",
    "title": "This is a blog title",
    "url": "https://bret.io/my-blog-post",
@@ -133,6 +133,7 @@ Opts include:
 
 - [JSON Feed: Mapping RSS and Atom to JSON Feed](https://jsonfeed.org/mappingrssandatom)
 - [rssboard.org/rss-specification](http://www.rssboard.org/rss-specification)
+- [Really Simple Syndication Best Practices Profile](http://www.rssboard.org/rss-profile#namespace-elements-content-encoded)
 - [validator.w3.org](https://validator.w3.org/feed/docs/rss2.html)
 - [AtomEnabled: Developers > Syndication](https://web.archive.org/web/20160113103647/http://atomenabled.org/developers/syndication/#link)
 - [bcomnes/generate-feed](https://github.com/bcomnes/generate-feed)
@@ -140,6 +141,8 @@ Opts include:
 - [Apple RSS feed sample](https://help.apple.com/itc/podcasts_connect/#/itcbaf351599)
 - [Apple Create a podcast](https://help.apple.com/itc/podcasts_connect/#/itca5b22233a)
 - [Apple Podcasts Identity Guidelines](https://www.apple.com/itunes/marketing-on-podcasts/identity-guidelines.html#messaging-and-style)
+- [Why RSS Content Module is Popular](https://developer.mozilla.org/en-US/docs/Web/RSS/Article/Why_RSS_Content_Module_is_Popular_-_Including_HTML_Contents)
+- [Apple Podcasts - What’s New in iOS 11 - 2017](http://podcasts.apple.com/resources/spec/ApplePodcastsSpecUpdatesiOS11.pdf)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)

@@ -2,7 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.0.1 - 2018-05-30
+## 2.0.- 2018-05-31
+* Lots of subtle changes
+* content_text used for description
+* content_html used for content:encoded
+* Add iTunes namespace options
+
+## 1.0.2- 2018-05-30
 * Update docs
 
 ## 1.0.0 - 2018-05-30

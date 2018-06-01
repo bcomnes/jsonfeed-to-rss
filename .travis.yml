@@ -1,0 +1,14 @@
+dist: trusty
+language: node_js
+node_js:
+  - 'node'
+sudo: false
+cache:
+  directories:
+    - ~/.npm
+install:
+  - npm i
+script:
+  - npm test
+after_success:
+  - npm run report
