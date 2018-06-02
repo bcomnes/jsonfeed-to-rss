@@ -24,34 +24,44 @@ Example input:
 
 ```json
 {
- "version": "https://jsonfeed.org/version/1",
- "title": "bret.io log",
- "home_page_url": "https://bret.io",
- "feed_url": "https://bret.io/feed.json",
- "description": "A running log of announcements, projects and accomplishments.",
- "next_url": "https://bret.io/2017.json",
- "icon": "https://bret.io/icon-512x512.png",
- "author": {
-  "name": "Bret Comnes",
-  "url": "https://bret.io",
-  "avatar": "https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
- },
- "items": [
-  {
-   "date_published": "2018-04-07T20:48:02.000Z",
-   "content_text": "Wee wooo this is some content. \n Maybe a new paragraph too",
-   "url": "https://bret.io/my-text-post",
-   "id": "https://bret.io/my-text-post-2018-04-07T20:48:02.000Z"
+  "version": "https://jsonfeed.org/version/1",
+  "title": "bret.io log",
+  "home_page_url": "https://bret.io",
+  "feed_url": "https://bret.io/feed.json",
+  "description": "A running log of announcements, projects and accomplishments.",
+  "next_url": "https://bret.io/2017.json",
+  "icon": "https://bret.io/icon-512x512.png",
+  "author": {
+   "name": "Bret Comnes",
+   "url": "https://bret.io",
+   "avatar": "https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
   },
-  {
-   "date_published": "2018-04-07T22:06:43.000Z", q  
-   "content_html": "<p>Hello, world!</p>",
-   "title": "This is a blog title",
-   "url": "https://bret.io/my-blog-post",
-   "external_url": "https://example.com/some-external-link",
-   "id": "https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z"
-  }
- ]
+  "_itunes": {},
+  "items": [
+   {
+    "date_published": "2018-04-07T20:48:02.000Z",
+    "content_text": "Wee wooo this is some content. \n Maybe a new paragraph too",
+    "url": "https://bret.io/my-text-post",
+    "id": "https://bret.io/my-text-post-2018-04-07T20:48:02.000Z",
+    "attachments":[  
+      {  
+        "url":"https://example.com/attatchments.mp4",
+        "mime_type":"audio/mpeg",
+        "title":"Hey this is a podcast",
+        "duration_in_seconds":12345,
+        "size_in_bytes":1234
+      }
+    ]
+   },
+   {
+    "date_published": "2018-04-07T22:06:43.000Z",
+    "content_html": "<p>Hello, world!</p>",
+    "title": "This is a blog title",
+    "url": "https://bret.io/my-blog-post",
+    "external_url": "https://example.com/some-external-link",
+    "id": "https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z"
+   }
+  ]
 }
 ```
 
@@ -62,42 +72,47 @@ Example output:
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
-    <title>bret.io log (RSS)</title>
+    <title>bret.io log</title>
     <link>https://bret.io</link>
     <description>A running log of announcements, projects and accomplishments.</description>
     <language>en-us</language>
     <copyright>© 2018 Bret Comnes</copyright>
     <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
-    <generator>jsonfeed-to-rss 1.0.0 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
+    <generator>jsonfeed-to-rss 1.0.2 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <image>
       <url>https://bret.io/icon-512x512.png</url>
       <link>https://bret.io</link>
-      <title>bret.io log (RSS)</title>
+      <title>bret.io log</title>
     </image>
+    <itunes:author>Bret Comnes</itunes:author>
+    <itunes:summary>A running log of announcements, projects and accomplishments.</itunes:summary>
+    <itunes:type>episodic</itunes:type>
+    <itunes:owner>
+      <itunes:name>Bret Comnes</itunes:name>
+    </itunes:owner>
+    <itunes:image>https://bret.io/icon-512x512.png</itunes:image>
+    <itunes:explicit>no</itunes:explicit>
     <item>
-      <title>Wee wooo this is some content.</title>
+      <title>Wee wooo this is some content. </title>
       <link>https://bret.io/my-text-post</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[Wee wooo this is some content. 
- Maybe a new paragraph too]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
-        <![CDATA[Wee wooo this is some content. 
- Maybe a new paragraph too]]>
-      </content:encoded>
+      <description>Wee wooo this is some content. 
+ Maybe a new paragraph too</description>
       <guid isPermaLink="false">https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</guid>
       <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
+      <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4" length="1234"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:title>Wee wooo this is some content. </itunes:title>
+      <itunes:author>Bret Comnes</itunes:author>
+      <itunes:duration>12345</itunes:duration>
     </item>
     <item>
       <title>This is a blog title</title>
       <link>https://example.com/some-external-link</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description xml:base="https://bret.io">
-        <![CDATA[<p>Hello, world!</p>]]>
-      </description>
-      <content:encoded xml:base="https://bret.io">
+      <description>Hello, world!</description>
+      <content:encoded>
         <![CDATA[<p>Hello, world!</p>]]>
       </content:encoded>
       <guid isPermaLink="false">https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</guid>

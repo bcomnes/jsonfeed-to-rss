@@ -11,12 +11,22 @@
    "url": "https://bret.io",
    "avatar": "https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
   },
+  "_itunes": {},
   "items": [
    {
     "date_published": "2018-04-07T20:48:02.000Z",
     "content_text": "Wee wooo this is some content. \n Maybe a new paragraph too",
     "url": "https://bret.io/my-text-post",
-    "id": "https://bret.io/my-text-post-2018-04-07T20:48:02.000Z"
+    "id": "https://bret.io/my-text-post-2018-04-07T20:48:02.000Z",
+    "attachments":[  
+      {  
+        "url":"https://example.com/attatchments.mp4",
+        "mime_type":"audio/mpeg",
+        "title":"Hey this is a podcast",
+        "duration_in_seconds":12345,
+        "size_in_bytes":1234
+      }
+    ]
    },
    {
     "date_published": "2018-04-07T22:06:43.000Z",

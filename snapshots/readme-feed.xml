@@ -15,6 +15,14 @@
       <link>https://bret.io</link>
       <title>bret.io log</title>
     </image>
+    <itunes:author>Bret Comnes</itunes:author>
+    <itunes:summary>A running log of announcements, projects and accomplishments.</itunes:summary>
+    <itunes:type>episodic</itunes:type>
+    <itunes:owner>
+      <itunes:name>Bret Comnes</itunes:name>
+    </itunes:owner>
+    <itunes:image>https://bret.io/icon-512x512.png</itunes:image>
+    <itunes:explicit>no</itunes:explicit>
     <item>
       <title>Wee wooo this is some content. </title>
       <link>https://bret.io/my-text-post</link>
@@ -23,6 +31,11 @@
  Maybe a new paragraph too</description>
       <guid isPermaLink="false">https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</guid>
       <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
+      <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4" length="1234"/>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:title>Wee wooo this is some content. </itunes:title>
+      <itunes:author>Bret Comnes</itunes:author>
+      <itunes:duration>12345</itunes:duration>
     </item>
     <item>
       <title>This is a blog title</title>
