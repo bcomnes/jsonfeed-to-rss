@@ -2,7 +2,7 @@
 [![npm version][2]][3] [![build status][4]][5] [![coverage][12]][13]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
-Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).
+Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports [iTunes RSS extensions and best practices][bp] for podcasts.  
 
 ![JSON feed icon](/icon.png) 
 
@@ -36,7 +36,9 @@ Example input:
    "url": "https://bret.io",
    "avatar": "https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
   },
-  "_itunes": {},
+  "_itunes": {
+    about: "https://github.com/bcomnes/jsonfeed-to-rss#itunes"
+  },
   "items": [
    {
     "date_published": "2018-04-07T20:48:02.000Z",
@@ -52,8 +54,8 @@ Example input:
         "size_in_bytes":1234
       }
     ]
-   },
-   {
+   },**
+   {**
     "date_published": "2018-04-07T22:06:43.000Z",
     "content_html": "<p>Hello, world!</p>",
     "title": "This is a blog title",
@@ -136,13 +138,33 @@ Opts include:
   copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
   managingEditor,
   webMaster,
-  idIsPermalink, // if guid is the permalink, you can use this
+  idIsPermalink: false, // if guid is the permalink, you can set this true
   category, // array of categories
   ttl, 
   skipHours,
-  skipDays
+  skipDays,
+  itunes: !!jf._itunes // generate RSS feed with iTunes extensions
 }
 ```
+
+## iTunes Extensions
+
+If the `itunes` option is set to `true` (or if the `jsonfeed._itunes` extension object is included in the jsonfeed) the resulting RSS feed will include as many itunes extension tags as possible.  
+
+All `_itunes.property` map directly to the RSS `itunes:property` extension, but most have default mappings to standard JSONFeed properties.  Its better to rely on the default mapping, but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.
+
+### Top-level
+
+- `_itunes.author` (optional) maps to `itunes:author`.  Defaults to `author.name`.
+- `_itunes.summary` (optional) maps to `itunes:summary`.  Defaults to `description`.
+- 'itunes:subtitle' (recommended) maps to `itunes:subtitle`.
+- 'itunes:type' (recommended) maps to `itunes:type`.  Defaults to `episodic` (newest first).  The other option is `serial` (oldest first). [Details][bp].
+- `_itunes.owner.name` (optional) maps to `itunes:owner.itunes:name`.  Defaults to `author.name`.
+- `_itunes.owner.email` (recommended) maps to `itunes:owner.itunes:email`.
+- `_itunes.image` (recomended) maps to `itunes:image`.  Defaults to `icon`.  iTunes has a different image recommendations than JSONFeed, so this is recommended.
+- `itunes.category` (optional) maps to `itunes:category`.  Defaults to `opts.category[0]
+
+
 
 ## See also
 
@@ -175,3 +197,4 @@ Opts include:
 [12]: https://img.shields.io/coveralls/bcomnes/jsonfeed-to-rss/master.svg?style=flat-square
 [13]: https://coveralls.io/github/bcomnes/jsonfeed-to-rss
 [rss]: http://www.rssboard.org/rss-specification
+[bp]: https://help.apple.com/itc/podcasts_connect/#/itc2b3780e76
