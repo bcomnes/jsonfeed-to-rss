@@ -103,6 +103,8 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:title>A post with an author</itunes:title>
       <itunes:author>Mr Guy</itunes:author>
+      <itunes:subtitle>A post with an author</itunes:subtitle>
+      <itunes:summary>A post with an author</itunes:summary>
       <itunes:duration>3:25:45</itunes:duration>
       <itunes:season>2018</itunes:season>
     </item>

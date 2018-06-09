@@ -6,6 +6,7 @@ const jsonfeedToRSSObject = require('./jsonfeed-to-rss-object')
 
 const testFeed = require('./snapshots/test-feed.json')
 const readmeFeed = require('./snapshots/readme-feed.json')
+const podcastFeed = require('./snapshots/podcast-feed.json')
 
 test('missing property errors', t => {
   t.throws(() => {
@@ -36,15 +37,6 @@ test('missing property errors', t => {
       title: 'A feed title'
     })
   }, /missing home_page_url/, 'Missing home_page_url throw')
-
-  t.throws(() => {
-    jsonfeedToRSS({
-      version: 'https://jsonfeed.org/version/1',
-      feed_url: 'https://jsonfeed.org/feed.json',
-      title: 'A feed title',
-      home_page_url: 'https://bret.io'
-    })
-  }, /missing description/, 'Missing description throw')
 
   t.end()
 })
@@ -90,6 +82,13 @@ test('full integration snapshot', t => {
 test('README full integration snapshot', t => {
   const rssFeed = jsonfeedToRSS(readmeFeed)
   const expect = fs.readFileSync('./snapshots/readme-feed.xml', 'utf8')
+  t.equal(rssFeed, expect, 'xml output snapshot is the same for README feed')
+  t.end()
+})
+
+test('Podcast full integration snapshot', t => {
+  const rssFeed = jsonfeedToRSS(podcastFeed)
+  const expect = fs.readFileSync('./snapshots/podcast-feed.xml', 'utf8')
   t.equal(rssFeed, expect, 'xml output snapshot is the same for README feed')
   t.end()
 })

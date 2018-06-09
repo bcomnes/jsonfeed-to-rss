@@ -39,6 +39,8 @@ You probably don't want to mix a blog feed with an iTunes feed.</description>
       <itunes:title>Wee wooo this is some content</itunes:title>
       <itunes:author>Bret Comnes</itunes:author>
       <itunes:episode>12</itunes:episode>
+      <itunes:subtitle>Wee wooo this is some content.</itunes:subtitle>
+      <itunes:summary>Wee wooo this is some content. With a few sentences. Here is a third sentence.</itunes:summary>
       <itunes:image>https://bret.io/episode-3000x3000.png</itunes:image>
       <itunes:duration>3:25:45</itunes:duration>
       <itunes:season>2018</itunes:season>
