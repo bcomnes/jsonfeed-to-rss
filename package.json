@@ -7,10 +7,13 @@
     "url": "https://github.com/bcomnes/jsonfeed-to-rss/issues"
   },
   "dependencies": {
+    "@bret/truthy": "^1.0.1",
+    "add-zero": "^1.0.0",
     "clean-deep": "^3.0.2",
     "lodash.get": "^4.4.2",
     "podcast-categories": "^1.0.0",
     "sentence-splitter": "^3.0.8",
+    "existy": "^1.0.1",
     "striptags": "^3.1.1",
     "trim-left": "^1.0.1",
     "trim-right": "^1.0.1",
@@ -20,7 +23,6 @@
     "@tap-format/spec": "^0.2.0",
     "coveralls": "^3.0.0",
     "dependency-check": "^3.1.0",
-    "existy": "^1.0.1",
     "npm-run-all": "^4.0.2",
     "nyc": "^11.6.0",
     "snazzy": "^7.1.1",

@@ -5,6 +5,7 @@ const jsonfeedToRSS = require('./')
 const jsonfeedToRSSObject = require('./jsonfeed-to-rss-object')
 
 const testFeed = require('./snapshots/test-feed.json')
+const readmeFeed = require('./snapshots/readme-feed.json')
 
 test('missing property errors', t => {
   t.throws(() => {
@@ -83,5 +84,12 @@ test('full integration snapshot', t => {
   const rssFeed = jsonfeedToRSS(testFeed)
   const expect = fs.readFileSync('./snapshots/snapshot.xml', 'utf8')
   t.equal(rssFeed, expect, 'xml output snapshot is the same')
+  t.end()
+})
+
+test('README full integration snapshot', t => {
+  const rssFeed = jsonfeedToRSS(readmeFeed)
+  const expect = fs.readFileSync('./snapshots/readme-feed.xml', 'utf8')
+  t.equal(rssFeed, expect, 'xml output snapshot is the same for README feed')
   t.end()
 })

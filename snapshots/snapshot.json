@@ -35,14 +35,15 @@
    "itunes:owner": {
     "itunes:name": "Bret Comnes"
    },
-   "itunes:image": "https://bret.io/icon-512x512.png",
+   "itunes:image": {
+    "@href": "https://bret.io/icon-512x512.png"
+   },
    "itunes:category": {
     "@text": "Sports & Recreation",
     "itunes:category": {
      "@text": "Outdoor"
     }
    },
-   "itunes:explicit": "no",
    "item": [
     {
      "title": "but it has a summary!",
@@ -95,7 +96,7 @@
      "itunes:author": "Bret Comnes",
      "itunes:subtitle": "Just a brief summary.",
      "itunes:summary": "Just a brief summary.",
-     "itunes:duration": 12345,
+     "itunes:duration": "3:25:45",
      "itunes:season": 2018
     },
     {
@@ -146,7 +147,7 @@
      "itunes:episodeType": "full",
      "itunes:title": "A post with an author",
      "itunes:author": "Mr Guy",
-     "itunes:duration": 12345,
+     "itunes:duration": "3:25:45",
      "itunes:season": 2018
     },
     {

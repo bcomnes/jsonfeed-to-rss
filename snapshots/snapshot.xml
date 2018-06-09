@@ -24,11 +24,10 @@
     <itunes:owner>
       <itunes:name>Bret Comnes</itunes:name>
     </itunes:owner>
-    <itunes:image>https://bret.io/icon-512x512.png</itunes:image>
+    <itunes:image href="https://bret.io/icon-512x512.png"/>
     <itunes:category text="Sports &amp; Recreation">
       <itunes:category text="Outdoor"/>
     </itunes:category>
-    <itunes:explicit>no</itunes:explicit>
     <item>
       <title>but it has a summary!</title>
       <dc:creator>Bret Comnes</dc:creator>
@@ -65,7 +64,7 @@
       <itunes:author>Bret Comnes</itunes:author>
       <itunes:subtitle>Just a brief summary.</itunes:subtitle>
       <itunes:summary>Just a brief summary.</itunes:summary>
-      <itunes:duration>12345</itunes:duration>
+      <itunes:duration>3:25:45</itunes:duration>
       <itunes:season>2018</itunes:season>
     </item>
     <item>
@@ -104,7 +103,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:title>A post with an author</itunes:title>
       <itunes:author>Mr Guy</itunes:author>
-      <itunes:duration>12345</itunes:duration>
+      <itunes:duration>3:25:45</itunes:duration>
       <itunes:season>2018</itunes:season>
     </item>
     <item>

@@ -4,7 +4,9 @@ const get = require('lodash.get')
 const cleanDeep = require('clean-deep')
 const striptags = require('striptags')
 const { cleanCategory, cleanSubcategory } = require('./lib/clean-category')
-const { getSubtitle, getSummary } = require('./lib/itunes-fields')
+const { getSubtitle, getSummary, truncate4k, truncate250, secondsToHMS, getPodcastType } = require('./lib/itunes-fields')
+const existy = require('existy')
+const truthy = require('@bret/truthy')
 
 module.exports = function jsonfeedToAtomObject (jf, opts) {
   const now = new Date()
@@ -74,20 +76,26 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       'itunes:author': get(jf, '_itunes.author') || get(jf, 'author.name'),
       'itunes:summary': getSummary(jf),
       'itunes:subtitle': getSubtitle(jf),
-      'itunes:type': ['episodic', 'serial'].some(type => get(jf, '_itunes.type') === type) ? get(jf, '_itunes.type') : 'episodic',
+      'itunes:type': getPodcastType(jf),
       'itunes:owner': {
         'itunes:name': get(jf, '_itunes.owner.name') || get(jf, 'author.name'),
         'itunes:email': get(jf, '_itunes.owner.email')
       },
-      'itunes:image': get(jf, '_itunes.image') || get(jf, 'icon'),
+      'itunes:image': {
+        '@href': get(jf, '_itunes.image') || get(jf, 'icon')
+      },
       'itunes:category': {
-        // TODO Validate these // https://help.apple.com/itc/podcasts_connect/?lang=en#/itc9267a2f12
         '@text': cleanCategory(category),
         'itunes:category': {
           '@text': cleanSubcategory(category, subcategory)
         }
       },
-      'itunes:explicit': get(jf, '_itunes.explicit') ? 'yes' : 'no'
+      'itunes:explicit': existy(get(jf, '_itunes.explicit')) ? truthy(get(jf, '_itunes.explicit')) ? 'yes' : 'no' : null,
+      'itunes:block': get(jf, '_itunes.block') ? 'Yes' : null,
+      'itunes:complete': get(jf, '_itunes.complete') ? 'Yes' : null,
+      'itunes:new-feed-url': get(jf, '_itunes.new_feed_url'),
+      description: truncate4k(rss.description),
+      title: truncate250(rss.title)
     })
   }
 
@@ -129,13 +137,19 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
 
         if (opts.itunes) {
           Object.assign(rssItem, {
-            'itunes:episodeType': ['full', 'trailer', 'bonus'].some(type => get(item, '_itunes.type') === type) ? get(item, '_itunes.type') : 'full',
+            'itunes:episodeType': ['full', 'trailer', 'bonus'].some(type => get(item, '_itunes.episode_type') === type) ? get(item, '_itunes.episode_type') : 'full',
             'itunes:title': get(item, '_itunes.title') || generateTitle(item),
             'itunes:author': get(item, '_itunes.author') || get(item, 'author.name') || get(jf, '_itunes.author') || get(jf, 'author.name'),
+            'itunes:episode': Number.isInteger(get(item, '_itunes.episode')) ? get(item, '_itunes.episode') : null,
             'itunes:subtitle': getSubtitle(item),
             'itunes:summary': getSummary(item),
-            'itunes:duration': attachment.duration_in_seconds,
-            'itunes:season': get(item, '_itunes.season') || date.getFullYear()
+            'itunes:image': get(item, '_itunes.image') || get(item, 'image'),
+            'itunes:duration': get(item, '_itunes.duration') || existy(attachment.duration_in_seconds) ? secondsToHMS(attachment.duration_in_seconds) : null,
+            'itunes:season': get(item, '_itunes.season') || getPodcastType(jf) === 'episodic' ? date.getFullYear() : null,
+            'itunes:block': get(item, '_itunes.block') ? 'Yes' : null,
+            'itunes:explicit': existy(get(item, '_itunes.explicit')) ? truthy(get(item, '_itunes.explicit')) ? 'yes' : 'no' : null,
+            'itunes:isClosedCaptioned': get(item, '_itunes.is_closed_captioned') ? 'Yes' : null,
+            description: truncate4k(rssItem.description)
           })
         }
       }

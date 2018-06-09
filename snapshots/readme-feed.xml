@@ -4,7 +4,9 @@
     <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
     <title>bret.io log</title>
     <link>https://bret.io</link>
-    <description>A running log of announcements, projects and accomplishments.</description>
+    <description>An example feed for a podcast. Includes a few examples of feed variants.
+
+You probably don't want to mix a blog feed with an iTunes feed.</description>
     <language>en-us</language>
     <copyright>© 2018 Bret Comnes</copyright>
     <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
@@ -16,27 +18,29 @@
       <title>bret.io log</title>
     </image>
     <itunes:author>Bret Comnes</itunes:author>
-    <itunes:summary>A running log of announcements, projects and accomplishments.</itunes:summary>
-    <itunes:subtitle>A running log of announcements, projects and accomplishments.</itunes:subtitle>
+    <itunes:summary>An example feed for a podcast. Includes a few examples of feed variants.</itunes:summary>
+    <itunes:subtitle>An example feed for a podcast.</itunes:subtitle>
     <itunes:type>episodic</itunes:type>
     <itunes:owner>
       <itunes:name>Bret Comnes</itunes:name>
+      <itunes:email>bcomnes@gmail.com</itunes:email>
     </itunes:owner>
-    <itunes:image>https://bret.io/icon-512x512.png</itunes:image>
-    <itunes:explicit>no</itunes:explicit>
+    <itunes:image href="https://bret.io/icon-3000x3000.png"/>
     <item>
-      <title>Wee wooo this is some content. </title>
+      <title>Wee wooo this is some content</title>
       <link>https://bret.io/my-text-post</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description>Wee wooo this is some content. 
+      <description>Wee wooo this is some content. With a few sentences. Here is a third sentence. 
  Maybe a new paragraph too</description>
       <guid isPermaLink="false">https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</guid>
       <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
       <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4" length="1234"/>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:title>Wee wooo this is some content. </itunes:title>
+      <itunes:title>Wee wooo this is some content</itunes:title>
       <itunes:author>Bret Comnes</itunes:author>
-      <itunes:duration>12345</itunes:duration>
+      <itunes:episode>12</itunes:episode>
+      <itunes:image>https://bret.io/episode-3000x3000.png</itunes:image>
+      <itunes:duration>3:25:45</itunes:duration>
       <itunes:season>2018</itunes:season>
     </item>
     <item>
