@@ -5,6 +5,7 @@ const cleanDeep = require('clean-deep')
 const striptags = require('striptags')
 const sentenceSplitter = require('sentence-splitter')
 const { cleanCategory, cleanSubcategory } = require('./lib/clean-category')
+const { getSubtitle, getSummary } = require('./lib/itunes-fields')
 
 module.exports = function jsonfeedToAtomObject (jf, opts) {
   const now = new Date()
@@ -72,8 +73,8 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     const subcategory = get(jf, '_itunes.subcategory') || get(opts, 'category[1]')
     Object.assign(rss, {
       'itunes:author': get(jf, '_itunes.author') || get(jf, 'author.name'),
-      'itunes:summary': get(jf, '_itunes.summary') || description,
-      'itunes:subtitle': get(jf, '_itunes.subtitle'),
+      'itunes:summary': getSummary(jf),
+      'itunes:subtitle': getSubtitle(jf),
       'itunes:type': ['episodic', 'serial'].some(type => get(jf, '_itunes.type') === type) ? get(jf, '_itunes.type') : 'episodic',
       'itunes:owner': {
         'itunes:name': get(jf, '_itunes.owner.name') || get(jf, 'author.name'),
@@ -100,6 +101,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
 
       // Generate item object
       const title = generateTitle(item)
+      const date = new Date(item.date_published)
       const rssItem = {
         title: title,
         link: item.external_url || item.url,
@@ -115,7 +117,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
           '#text': item.id,
           '@isPermaLink': opts.idIsPermalink
         },
-        pubDate: new Date(item.date_published).toUTCString()
+        pubDate: date.toUTCString()
       }
 
       if (item.attachments && item.attachments.length > 0) {
@@ -131,10 +133,10 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
             'itunes:episodeType': ['full', 'trailer', 'bonus'].some(type => get(item, '_itunes.type') === type) ? get(item, '_itunes.type') : 'full',
             'itunes:title': get(item, '_itunes.title') || generateTitle(item),
             'itunes:author': get(item, '_itunes.author') || get(item, 'author.name') || get(jf, '_itunes.author') || get(jf, 'author.name'),
-            'itunes:subtitle': get(item, '_itunes.subtitle') || get(sentenceSplitter.split(get(item, 'summary') || '').find(obj => obj.type === 'Sentence'), 'raw'),
-            'itunes:summary': get(item, '_itunes.summary') || get(item, 'summary'),
+            'itunes:subtitle': getSubtitle(item),
+            'itunes:summary': getSummary(item),
             'itunes:duration': attachment.duration_in_seconds,
-            'itunes:season': get(item, '_itunes.season')
+            'itunes:season': get(item, '_itunes.season') || date.getFullYear()
           })
         }
       }

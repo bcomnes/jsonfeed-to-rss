@@ -30,6 +30,7 @@
    },
    "itunes:author": "Bret Comnes",
    "itunes:summary": "A running log of announcements, projects and accomplishments.",
+   "itunes:subtitle": "A running log of announcements, projects and accomplishments.",
    "itunes:type": "episodic",
    "itunes:owner": {
     "itunes:name": "Bret Comnes"
@@ -94,7 +95,8 @@
      "itunes:author": "Bret Comnes",
      "itunes:subtitle": "Just a brief summary.",
      "itunes:summary": "Just a brief summary.",
-     "itunes:duration": 12345
+     "itunes:duration": 12345,
+     "itunes:season": 2018
     },
     {
      "title": "Empty attachments",
@@ -144,7 +146,8 @@
      "itunes:episodeType": "full",
      "itunes:title": "A post with an author",
      "itunes:author": "Mr Guy",
-     "itunes:duration": 12345
+     "itunes:duration": 12345,
+     "itunes:season": 2018
     },
     {
      "title": "This is a blog title",

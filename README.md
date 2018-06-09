@@ -89,6 +89,7 @@ Example output:
     </image>
     <itunes:author>Bret Comnes</itunes:author>
     <itunes:summary>A running log of announcements, projects and accomplishments.</itunes:summary>
+    <itunes:subtitle>A running log of announcements, projects and accomplishments.</itunes:subtitle>
     <itunes:type>episodic</itunes:type>
     <itunes:owner>
       <itunes:name>Bret Comnes</itunes:name>
@@ -108,6 +109,7 @@ Example output:
       <itunes:title>Wee wooo this is some content. </itunes:title>
       <itunes:author>Bret Comnes</itunes:author>
       <itunes:duration>12345</itunes:duration>
+      <itunes:season>2018</itunes:season>
     </item>
     <item>
       <title>This is a blog title</title>
@@ -184,12 +186,17 @@ All `_itunes.property` map directly to the RSS `itunes:property` extension, but 
 - `_itunes.image` (recommended) maps to `itunes:image`.  Defaults to `icon`.  iTunes has a different image recommendations than JSONFeed, so this is recommended.
 - `_itunes.category` (recommended) maps to `itunes:category`.  Defaults to `opts.category[0]`
 - `_itunes.subcategory` (recommended) maps to `itunes:category:itunes:category`.  Defaults to `opts.category[1]`
-- `_itunes.explicit` (optional) maps to `itunes:explicit`.  Defaults to 'no'.  Definitely set this if you like to swear. ✝️ Christian channel! 🙏 
+- `_itunes.explicit` (optional) maps to `itunes:explicit`.  Defaults to 'no'.  Definitely set this if you like cussin'. ✝️ Christian channel! 🙏 
 
 ### Items
 
-
-
+- `_itunes.type` (optional) maps to `itunes:episodeType`, but must be one of `full`, `trailer`, or `bonus`.  Defaults to `full`.
+- `_itunes.title` (optional) maps to `itunes:title`.  Falls back to `item.title` and then the `generateTitle` function.
+- `_itunes.author` (optional) maps to `itunes:author`.  Falls back to `author.name || jf._itunes.author || jf.author.name`.
+- `_itunes.subtitle` (optional) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `_itunes.summary`.
+- `_itunes.summary` (optional) maps to `itunes:summary`.  Defaults to the first paragraph of the generated plaintext description of the item.
+- `attachment.duration_in_seconds` (recommended) maps to `itunes:duration`.  No fallbacks!
+- `_itunes.season` (optional) maps to `itunes:season`.  Falls back to the year of the item.
 
 ## See also
 

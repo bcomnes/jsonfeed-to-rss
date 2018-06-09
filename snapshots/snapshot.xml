@@ -19,6 +19,7 @@
     </image>
     <itunes:author>Bret Comnes</itunes:author>
     <itunes:summary>A running log of announcements, projects and accomplishments.</itunes:summary>
+    <itunes:subtitle>A running log of announcements, projects and accomplishments.</itunes:subtitle>
     <itunes:type>episodic</itunes:type>
     <itunes:owner>
       <itunes:name>Bret Comnes</itunes:name>
@@ -65,6 +66,7 @@
       <itunes:subtitle>Just a brief summary.</itunes:subtitle>
       <itunes:summary>Just a brief summary.</itunes:summary>
       <itunes:duration>12345</itunes:duration>
+      <itunes:season>2018</itunes:season>
     </item>
     <item>
       <title>Empty attachments</title>
@@ -103,6 +105,7 @@
       <itunes:title>A post with an author</itunes:title>
       <itunes:author>Mr Guy</itunes:author>
       <itunes:duration>12345</itunes:duration>
+      <itunes:season>2018</itunes:season>
     </item>
     <item>
       <title>This is a blog title</title>
