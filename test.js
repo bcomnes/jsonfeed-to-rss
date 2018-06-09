@@ -90,6 +90,13 @@ test('README full integration snapshot', t => {
 test('Podcast full integration snapshot', t => {
   const rssFeed = jsonfeedToRSS(podcastFeed, podcastOpts)
   const expect = fs.readFileSync('./snapshots/podcast-feed.xml', 'utf8')
-  t.equal(rssFeed, expect, 'xml output snapshot is the same for README feed')
+  t.equal(rssFeed, expect, 'xml output snapshot is the same for podcast feed')
+  t.end()
+})
+
+test('Podcast full integration snapshot no itunes', t => {
+  const rssFeed = jsonfeedToRSS(podcastFeed)
+  const expect = fs.readFileSync('./snapshots/podcast-no-itunes-feed.xml', 'utf8')
+  t.equal(rssFeed, expect, 'xml output snapshot is the same for podcast feed without itunes')
   t.end()
 })

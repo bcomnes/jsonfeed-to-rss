@@ -15,5 +15,6 @@ fs.writeFileSync('snapshots/snapshot.json', JSON.stringify(rssObj, null, ' '))
 fs.writeFileSync('snapshots/readme-feed.xml', jsonfeedToRSS(readmeFeed))
 
 fs.writeFileSync('snapshots/podcast-feed.xml', jsonfeedToRSS(podcastFeed, podcastOpts))
+fs.writeFileSync('snapshots/podcast-no-itunes-feed.xml', jsonfeedToRSS(podcastFeed))
 
 console.log('update snapshot snapshot.xml')
