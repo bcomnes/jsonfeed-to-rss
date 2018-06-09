@@ -10,8 +10,8 @@ const jsonfeedToRSSObject = require('./jsonfeed-to-rss-object')
 /**
  * Convert a parsed JSON feed object into an rss 2.0.11 xml document
  */
-module.exports = function jsonfeedToRSS (jsonfeed) {
-  const feedObj = jsonfeedToRSSObject(jsonfeed)
+module.exports = function jsonfeedToRSS (jsonfeed, opts) {
+  const feedObj = jsonfeedToRSSObject(jsonfeed, opts)
   const feed = builder.create(feedObj, { encoding: 'utf-8', skipNullAttributes: true, skipNullValues: true })
   return feed.end({ pretty: true, allowEmpty: false })
 }

@@ -7,6 +7,7 @@ const { cleanCategory, cleanSubcategory } = require('./lib/clean-category')
 const { getSubtitle, getSummary, truncate4k, truncate250, secondsToHMS, getPodcastType } = require('./lib/itunes-fields')
 const existy = require('existy')
 const truthy = require('@bret/truthy')
+const merge = require('lodash.merge')
 
 module.exports = function jsonfeedToAtomObject (jf, opts) {
   const now = new Date()
@@ -24,6 +25,10 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     skipDays: null,  // array of skip days
     itunes: !!jf._itunes // enable/disable itunes tags
   }, opts)
+
+  if (typeof opts.itunes === 'object') {
+    jf._itunes = merge(jf._itunes, opts.itunes)
+  }
 
   // 2.0.11 http://www.rssboard.org/rss-specification
   // best practice http://www.rssboard.org/rss-profile
@@ -69,19 +74,19 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
   }
 
   if (opts.itunes) {
-    const category = get(jf, '_itunes.category') || get(opts, 'itunes.category') || get(opts, 'category[0]')
-    const subcategory = get(jf, '_itunes.subcategory') || get(opts, 'itunes.subcategory') || get(opts, 'category[1]')
+    const category = get(jf, '_itunes.category') || get(opts, 'category[0]')
+    const subcategory = get(jf, '_itunes.subcategory') || get(opts, 'category[1]')
     Object.assign(rss, {
-      'itunes:author': get(jf, '_itunes.author') || get(opts, 'itunes.author') || get(jf, 'author.name'),
-      'itunes:summary': getSummary(jf, opts),
-      'itunes:subtitle': getSubtitle(jf, opts),
-      'itunes:type': getPodcastType(jf, opts),
+      'itunes:author': get(jf, '_itunes.author') || get(jf, 'author.name'),
+      'itunes:summary': getSummary(jf),
+      'itunes:subtitle': getSubtitle(jf),
+      'itunes:type': getPodcastType(jf),
       'itunes:owner': {
-        'itunes:name': get(jf, '_itunes.owner.name') || get(opts, 'itunes.owner.name') || get(jf, 'author.name'),
-        'itunes:email': get(jf, '_itunes.owner.email') || get(opts, 'itunes.owner.email')
+        'itunes:name': get(jf, '_itunes.owner.name') || get(jf, 'author.name'),
+        'itunes:email': get(jf, '_itunes.owner.email')
       },
       'itunes:image': {
-        '@href': get(jf, '_itunes.image') || get(opts, 'itunes.image') || get(jf, 'icon')
+        '@href': get(jf, '_itunes.image') || get(jf, 'icon')
       },
       'itunes:category': {
         '@text': cleanCategory(category),
@@ -89,8 +94,8 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
           '@text': cleanSubcategory(category, subcategory)
         }
       },
-      'itunes:explicit': existy(get(jf, '_itunes.explicit') || get(opts, 'itunes.explicit')) ? truthy(get(jf, '_itunes.explicit') || get(opts, 'itunes.explicit')) ? 'yes' : 'no' : null,
-      'itunes:block': get(jf, '_itunes.block') || get(jf, '_itunes.block') ? 'Yes' : null,
+      'itunes:explicit': existy(get(jf, '_itunes.explicit')) ? truthy(get(jf, '_itunes.explicit')) ? 'yes' : 'no' : null,
+      'itunes:block': get(jf, '_itunes.block') ? 'Yes' : null,
       'itunes:complete': get(jf, '_itunes.complete') ? 'Yes' : null,
       'itunes:new-feed-url': get(jf, '_itunes.new_feed_url'),
       description: truncate4k(rss.description),

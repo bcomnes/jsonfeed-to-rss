@@ -12,6 +12,7 @@
     "clean-deep": "^3.0.2",
     "existy": "^1.0.1",
     "lodash.get": "^4.4.2",
+    "lodash.merge": "^4.6.1",
     "podcast-categories": "^1.0.0",
     "sentence-splitter": "^3.0.8",
     "striptags": "^3.1.1",

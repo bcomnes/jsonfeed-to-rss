@@ -182,7 +182,7 @@ The `content:encoded` field is used to store an `html` representation of content
 
 ## [iTunes Extensions][itunes]
 
-If the `itunes` option is set to `true` (or if the `jsonfeed._itunes` extension object is included in the jsonfeed) the resulting RSS feed will include as many itunes extension tags as possible.  
+If the `itunes` option is set to `true` (or if the `jsonfeed._itunes` extension object is included in the jsonfeed) the resulting RSS feed will include as many itunes extension tags as possible.  You can override/set `_itunes` extension fields from the `opts.itunes` object.
 
 All `_itunes.property` map directly to the RSS `itunes:property` extensions, but most have default mappings to standard JSONFeed properties. Its better to rely on the [default JSONFeed fields](https://jsonfeed.org/version/1), but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.  
 
