@@ -9,6 +9,7 @@
   "dependencies": {
     "clean-deep": "^3.0.2",
     "lodash.get": "^4.4.2",
+    "podcast-categories": "^1.0.0",
     "sentence-splitter": "^3.0.8",
     "striptags": "^3.1.1",
     "trim-left": "^1.0.1",

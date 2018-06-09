@@ -12,7 +12,10 @@
     "url":"https://bret.io",
     "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
   },
-  "_itunes": {},
+  "_itunes": {
+    "category": "Sports & Recreation",
+    "subcategory": "Outdoor"
+  },
   "items":[  
     {  
       "date_published":"2018-04-13T22:06:43.000Z",

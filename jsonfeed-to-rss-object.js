@@ -4,6 +4,7 @@ const get = require('lodash.get')
 const cleanDeep = require('clean-deep')
 const striptags = require('striptags')
 const sentenceSplitter = require('sentence-splitter')
+const { cleanCategory, cleanSubcategory } = require('./lib/clean-category')
 
 module.exports = function jsonfeedToAtomObject (jf, opts) {
   const now = new Date()
@@ -15,7 +16,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     managingEditor: null, // email@domain.com (First Last)
     webMaster: null, // email@domain.com (First Last)
     idIsPermalink: false, // guid is permalink
-    category: null, // site level categories. no mapping, so leave as option array.
+    categories: null, // site level categories. no mapping, so leave as option array.
     ttl: null,
     skipHours: null, // array of hour numbers
     skipDays: null,  // array of skip days
@@ -52,7 +53,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     webMaster: opts.webMaster,
     pubDate: now.toUTCString(), // override with the newest pubdate thats less than now
     // lastBuildDate: now.toUTCString(),
-    category: opts.category,
+    category: (opts.itunes && !opts.category) ? [get(jf, '_itunes.category'), get(jf, '_itunes.subcategory')] : opts.category,
     generator: `${packageInfo.name} ${packageInfo.version} (${packageInfo.homepage})`,
     docs: 'http://www.rssboard.org/rss-specification',
     // TODO: cloud
@@ -67,6 +68,8 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
   }
 
   if (opts.itunes) {
+    const category = get(jf, '_itunes.category') || get(opts, 'category[0]')
+    const subcategory = get(jf, '_itunes.subcategory') || get(opts, 'category[1]')
     Object.assign(rss, {
       'itunes:author': get(jf, '_itunes.author') || get(jf, 'author.name'),
       'itunes:summary': get(jf, '_itunes.summary') || description,
@@ -79,9 +82,9 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       'itunes:image': get(jf, '_itunes.image') || get(jf, 'icon'),
       'itunes:category': {
         // TODO Validate these // https://help.apple.com/itc/podcasts_connect/?lang=en#/itc9267a2f12
-        '@text': get(jf, '_itunes.category') || get(opts, 'category[0]'),
+        '@text': cleanCategory(category),
         'itunes:category': {
-          '@text': get(jf, '_itunes.subcategory') || get(opts, 'category[1]')
+          '@text': cleanSubcategory(category, subcategory)
         }
       },
       'itunes:explicit': get(jf, '_itunes.explicit') ? 'yes' : 'no'
@@ -148,6 +151,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       '@xmlns:atom': 'http://www.w3.org/2005/Atom',
       '@xmlns:dc': 'http://purl.org/dc/elements/1.1/',
       '@xmlns:content': 'http://purl.org/rss/1.0/modules/content/',
+      '@xmlns:itunes': opts.itunes ? 'http://www.itunes.com/dtds/podcast-1.0.dtd' : null,
       channel: rss
     }
   })

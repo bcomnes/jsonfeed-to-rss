@@ -2,7 +2,7 @@
 [![npm version][2]][3] [![build status][4]][5] [![coverage][12]][13]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
-Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports [iTunes RSS extensions and best practices][bp] for podcasts.  
+Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][bp] iTunes RSS extensions and best practices for podcasts, [xmlns:dc](http://www.rssboard.org/rss-profile#namespace-elements-dublin-creator) Dublin Core author names, and the [xmlns:content](RDF Site Summary 1.0 Modules: Content) encoded content extension.  
 
 ![JSON feed icon](/icon.png) 
 
@@ -71,7 +71,7 @@ Example output:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
     <title>bret.io log</title>
@@ -125,6 +125,7 @@ Example output:
 ```
 
 ## API
+
 ### `jsonfeedToRSS(parsedJsonfeed, opts)`
 Coverts a parsed JSON feed into an RSS feed.  Returns the string of the rss feed.
 
@@ -139,7 +140,7 @@ Opts include:
   managingEditor,
   webMaster,
   idIsPermalink: false, // if guid is the permalink, you can set this true
-  category, // array of categories
+  category, // array of categories.. will attempt to use iTunes categories if available
   ttl, 
   skipHours,
   skipDays,
@@ -147,11 +148,30 @@ Opts include:
 }
 ```
 
+## Dublin Core Extensions
+
+There is only one mapping implemented between jsonfeed and RSS:
+
+### Items
+
+- `item.author.name || jf.author.name` (recommended) maps to `dc:creator`.
+
+## RDF Site Summary Extensions
+
+The `content:encoded` field is used to store an `html` representation of content, and RSS's default `description` field is for a plain text representation.  
+
+### Items
+
+- `item.content_html` (recommended) maps to a `CDATA` encoded `content:encoded` node.
+- `item.content_text || striptags(item.content_html)` (recommended) maps to an escaped `description` node.
+
+### Items
+
 ## iTunes Extensions
 
 If the `itunes` option is set to `true` (or if the `jsonfeed._itunes` extension object is included in the jsonfeed) the resulting RSS feed will include as many itunes extension tags as possible.  
 
-All `_itunes.property` map directly to the RSS `itunes:property` extension, but most have default mappings to standard JSONFeed properties.  Its better to rely on the default mapping, but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.
+All `_itunes.property` map directly to the RSS `itunes:property` extension, but most have default mappings to standard JSONFeed properties.  Its better to rely on the [default JSONFeed fields](https://jsonfeed.org/version/1), but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.
 
 ### Top-level
 
@@ -161,8 +181,13 @@ All `_itunes.property` map directly to the RSS `itunes:property` extension, but 
 - 'itunes:type' (recommended) maps to `itunes:type`.  Defaults to `episodic` (newest first).  The other option is `serial` (oldest first). [Details][bp].
 - `_itunes.owner.name` (optional) maps to `itunes:owner.itunes:name`.  Defaults to `author.name`.
 - `_itunes.owner.email` (recommended) maps to `itunes:owner.itunes:email`.
-- `_itunes.image` (recomended) maps to `itunes:image`.  Defaults to `icon`.  iTunes has a different image recommendations than JSONFeed, so this is recommended.
-- `itunes.category` (optional) maps to `itunes:category`.  Defaults to `opts.category[0]
+- `_itunes.image` (recommended) maps to `itunes:image`.  Defaults to `icon`.  iTunes has a different image recommendations than JSONFeed, so this is recommended.
+- `_itunes.category` (recommended) maps to `itunes:category`.  Defaults to `opts.category[0]`
+- `_itunes.subcategory` (recommended) maps to `itunes:category:itunes:category`.  Defaults to `opts.category[1]`
+- `_itunes.explicit` (optional) maps to `itunes:explicit`.  Defaults to 'no'.  Definitely set this if you like to swear. ✝️ Christian channel! 🙏 
+
+### Items
+
 
 
 

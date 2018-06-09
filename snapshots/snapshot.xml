@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
     <title>bret.io log</title>
@@ -8,6 +8,8 @@
     <language>en-us</language>
     <copyright>© 2018 Bret Comnes</copyright>
     <pubDate>Fri, 13 Apr 2018 22:06:43 GMT</pubDate>
+    <category>Sports &amp; Recreation</category>
+    <category>Outdoor</category>
     <generator>jsonfeed-to-rss 1.0.2 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <image>
@@ -22,6 +24,9 @@
       <itunes:name>Bret Comnes</itunes:name>
     </itunes:owner>
     <itunes:image>https://bret.io/icon-512x512.png</itunes:image>
+    <itunes:category text="Sports &amp; Recreation">
+      <itunes:category text="Outdoor"/>
+    </itunes:category>
     <itunes:explicit>no</itunes:explicit>
     <item>
       <title>but it has a summary!</title>
