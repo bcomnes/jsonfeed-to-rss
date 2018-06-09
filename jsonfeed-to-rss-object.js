@@ -3,7 +3,6 @@ const generateTitle = require('./lib/generate-title')
 const get = require('lodash.get')
 const cleanDeep = require('clean-deep')
 const striptags = require('striptags')
-const sentenceSplitter = require('sentence-splitter')
 const { cleanCategory, cleanSubcategory } = require('./lib/clean-category')
 const { getSubtitle, getSummary } = require('./lib/itunes-fields')
 
