@@ -257,6 +257,16 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - [reference/rss20.xml](reference/rss20.xml)
 - [reference/scripting.rss](reference/scripting.rss)
 
+### Snapshots
+
+- [snapshots/podcast-feed.json](snapshots/podcast-feed.json)
+- [snapshots/podcast-feed.xml](snapshots/podcast-feed.xml)
+- [snapshots/podcast-no-itunes-feed.xml](snapshots/podcast-no-itunes-feed.xml)
+- [snapshots/readme-feed.json](snapshots/readme-feed.json)
+- [snapshots/readme-feed.xml](snapshots/readme-feed.xml)
+- [snapshots/snapshot.xml](snapshots/snapshot.xml)
+- [snapshots/test-feed.json](snapshots/test-feed.json)
+
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
 
