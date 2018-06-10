@@ -2,5 +2,6 @@
   "owner": { "email": "example@email.com" },
   "category": "Technology",
   "subcategory": "Software How-To",
-  "explicit": false
+  "explicit": false,
+  "summary": "A simple summary that describes the podcast."
 }}
