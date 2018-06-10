@@ -41,7 +41,9 @@ Example input:
      "owner": {
        "email": "bcomnes@gmail.com"
      },
-     "image": "https://bret.io/icon-3000x3000.png"
+     "image": "https://bret.io/icon-3000x3000.png",
+     "category": "Sports & Recreation",
+     "subcategory": "Outdoor"
   },
   "items":[  
      {  
@@ -73,7 +75,6 @@ Example input:
      }
   ]
 }
-
 ```
 
 Example output:
@@ -91,7 +92,9 @@ You probably don't want to mix a blog feed with an iTunes feed.</description>
     <language>en-us</language>
     <copyright>© 2018 Bret Comnes</copyright>
     <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
-    <generator>jsonfeed-to-rss 1.0.2 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
+    <category>Sports &amp; Recreation</category>
+    <category>Outdoor</category>
+    <generator>jsonfeed-to-rss 1.1.1 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <image>
       <url>https://bret.io/icon-512x512.png</url>
@@ -107,6 +110,9 @@ You probably don't want to mix a blog feed with an iTunes feed.</description>
       <itunes:email>bcomnes@gmail.com</itunes:email>
     </itunes:owner>
     <itunes:image href="https://bret.io/icon-3000x3000.png"/>
+    <itunes:category text="Sports &amp; Recreation">
+      <itunes:category text="Outdoor"/>
+    </itunes:category>
     <item>
       <title>Wee wooo this is some content</title>
       <link>https://bret.io/my-text-post</link>
@@ -120,6 +126,8 @@ You probably don't want to mix a blog feed with an iTunes feed.</description>
       <itunes:title>Wee wooo this is some content</itunes:title>
       <itunes:author>Bret Comnes</itunes:author>
       <itunes:episode>12</itunes:episode>
+      <itunes:subtitle>Wee wooo this is some content.</itunes:subtitle>
+      <itunes:summary>Wee wooo this is some content. With a few sentences. Here is a third sentence.</itunes:summary>
       <itunes:image>https://bret.io/episode-3000x3000.png</itunes:image>
       <itunes:duration>3:25:45</itunes:duration>
       <itunes:season>2018</itunes:season>
