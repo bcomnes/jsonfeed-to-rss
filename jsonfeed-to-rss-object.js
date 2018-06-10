@@ -27,6 +27,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
   }, opts)
 
   if (typeof opts.itunes === 'object') {
+    jf = merge({}, jf)
     jf._itunes = merge(jf._itunes, opts.itunes)
   }
 
