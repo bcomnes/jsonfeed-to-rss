@@ -16,7 +16,9 @@
      "owner": {
        "email": "bcomnes@gmail.com"
      },
-     "image": "https://bret.io/icon-3000x3000.png"
+     "image": "https://bret.io/icon-3000x3000.png",
+     "category": "Sports & Recreation",
+     "subcategory": "Outdoor"
   },
   "items":[  
      {  
