@@ -3,5 +3,5 @@
   "category": "Technology",
   "subcategory": "Software How-To",
   "explicit": false,
-  "summary": "A simple summary that describes the podcast."
+  "summary": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts."
 }}

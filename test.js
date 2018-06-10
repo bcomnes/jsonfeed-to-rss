@@ -4,7 +4,7 @@ const generateTitle = require('./lib/generate-title')
 const jsonfeedToRSS = require('./')
 const jsonfeedToRSSObject = require('./jsonfeed-to-rss-object')
 
-const testFeed = require('./snapshots/test-feed.json')
+const extendedFeed = require('./snapshots/extended-feed.json')
 const readmeFeed = require('./snapshots/readme-feed.json')
 const podcastFeed = require('./snapshots/podcast-feed.json')
 const podcastOpts = require('./snapshots/podcast-opts.json')
@@ -65,38 +65,38 @@ test('generateTitle', t => {
 })
 
 test('test-feed snapshot', t => {
-  const rssObj = jsonfeedToRSSObject(testFeed)
+  const rssObj = jsonfeedToRSSObject(extendedFeed)
 
-  const expect = require('./snapshots/snapshot.json')
+  const expect = require('./snapshots/extended-feed-rss.json')
 
   t.deepEqual(rssObj, expect, 'js transform is expected')
   t.end()
 })
 
 test('full integration snapshot', t => {
-  const rssFeed = jsonfeedToRSS(testFeed)
-  const expect = fs.readFileSync('./snapshots/snapshot.xml', 'utf8')
+  const rssFeed = jsonfeedToRSS(extendedFeed)
+  const expect = fs.readFileSync('./snapshots/extended-feed-rss.xml', 'utf8')
   t.equal(rssFeed, expect, 'xml output snapshot is the same')
   t.end()
 })
 
 test('README full integration snapshot', t => {
   const rssFeed = jsonfeedToRSS(readmeFeed)
-  const expect = fs.readFileSync('./snapshots/readme-feed.xml', 'utf8')
+  const expect = fs.readFileSync('./snapshots/readme-feed-rss.xml', 'utf8')
   t.equal(rssFeed, expect, 'xml output snapshot is the same for README feed')
   t.end()
 })
 
 test('Podcast full integration snapshot', t => {
   const rssFeed = jsonfeedToRSS(podcastFeed, podcastOpts)
-  const expect = fs.readFileSync('./snapshots/podcast-feed.xml', 'utf8')
+  const expect = fs.readFileSync('./snapshots/podcast-feed-rss.xml', 'utf8')
   t.equal(rssFeed, expect, 'xml output snapshot is the same for podcast feed')
   t.end()
 })
 
 test('Podcast full integration snapshot no itunes', t => {
   const rssFeed = jsonfeedToRSS(podcastFeed)
-  const expect = fs.readFileSync('./snapshots/podcast-no-itunes-feed.xml', 'utf8')
+  const expect = fs.readFileSync('./snapshots/podcast-no-itunes-feed-rss.xml', 'utf8')
   t.equal(rssFeed, expect, 'xml output snapshot is the same for podcast feed without itunes')
   t.end()
 })

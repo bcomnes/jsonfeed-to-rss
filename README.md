@@ -26,11 +26,11 @@ Example input:
 {  
   "version":"https://jsonfeed.org/version/1",
   "title":"bret.io log",
-  "home_page_url":"https://bret.io",
-  "feed_url":"https://bret.io/feed.json",
-  "description":"An example feed for a podcast. Includes a few examples of feed variants.\n\nYou probably don't want to mix a blog feed with an iTunes feed.",
-  "next_url":"https://bret.io/2017.json",
-  "icon":"https://bret.io/icon-512x512.png",
+  "home_page_url":"https://jsonfeed-to-rss.netlify.com",
+  "feed_url":"https://jsonfeed-to-rss.netlify.com/snapshots/readme-feed.json",
+  "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
+  "next_url":"https://jsonfeed-to-rss.netlify.com/snapshots/2017.json",
+  "icon":"https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
   "author":{  
      "name":"Bret Comnes",
      "url":"https://bret.io",
@@ -41,37 +41,29 @@ Example input:
      "owner": {
        "email": "bcomnes@gmail.com"
      },
-     "image": "https://bret.io/icon-3000x3000.png",
+     "image": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png",
      "category": "Sports & Recreation",
      "subcategory": "Outdoor"
   },
   "items":[  
      {  
         "date_published":"2018-04-07T20:48:02.000Z",
-        "content_text":"Wee wooo this is some content. With a few sentences. Here is a third sentence. \n Maybe a new paragraph too",
-        "url":"https://bret.io/my-text-post",
-        "id":"https://bret.io/my-text-post-2018-04-07T20:48:02.000Z",
-        "image": "https://bret.io/episode-3000x3000.png",
+        "content_html":"<h1>Curam ad aut hactenus dentes cedere vigil</h1>\n<h2>Non Clitorio vertitur cavatur</h2>\n<p>Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te\nmihi arcum fore nitidam; in dixit de simul.</p>",
+        "url":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post",
+        "id":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post-2018-04-07T20:48:02.000Z",
+        "image": "https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png",
         "_itunes": {
           "episode": 12
         },
         "attachments":[  
            {  
-              "url":"https://example.com/attatchments.mp4",
+              "url":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/attatchment.mp4",
               "mime_type":"audio/mpeg",
-              "title":"Hey this is a podcast",
+              "title":"Hey this is a podcast episode",
               "duration_in_seconds":12345,
               "size_in_bytes":1234
            }
         ]
-     },
-     {  
-        "date_published":"2018-04-07T22:06:43.000Z",
-        "content_html":"<p>Hello, world!</p>",
-        "title":"This is a blog title",
-        "url":"https://bret.io/my-blog-post",
-        "external_url":"https://example.com/some-external-link",
-        "id":"https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z"
      }
   ]
 }
@@ -83,65 +75,62 @@ Example output:
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
-    <atom:link href="https://bret.io/feed-rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://jsonfeed-to-rss.netlify.com/snapshots/readme-feed-rss.xml" rel="self" type="application/rss+xml"/>
     <title>bret.io log</title>
-    <link>https://bret.io</link>
-    <description>An example feed for a podcast. Includes a few examples of feed variants.
+    <link>https://jsonfeed-to-rss.netlify.com</link>
+    <description>A simple summary that describes the podcast.  It can have a few sentences.
 
-You probably don't want to mix a blog feed with an iTunes feed.</description>
+If there is more than one paragraph, it gets truncated in some contexts.</description>
     <language>en-us</language>
     <copyright>© 2018 Bret Comnes</copyright>
-    <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
+    <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
     <category>Sports &amp; Recreation</category>
     <category>Outdoor</category>
     <generator>jsonfeed-to-rss 1.1.1 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <image>
-      <url>https://bret.io/icon-512x512.png</url>
-      <link>https://bret.io</link>
+      <url>https://jsonfeed-to-rss.netlify.com/icon-512x512.png</url>
+      <link>https://jsonfeed-to-rss.netlify.com</link>
       <title>bret.io log</title>
     </image>
     <itunes:author>Bret Comnes</itunes:author>
-    <itunes:summary>An example feed for a podcast. Includes a few examples of feed variants.</itunes:summary>
-    <itunes:subtitle>An example feed for a podcast.</itunes:subtitle>
+    <itunes:summary>A simple summary that describes the podcast.  It can have a few sentences.</itunes:summary>
+    <itunes:subtitle>A simple summary that describes the podcast.</itunes:subtitle>
     <itunes:type>episodic</itunes:type>
     <itunes:owner>
       <itunes:name>Bret Comnes</itunes:name>
       <itunes:email>bcomnes@gmail.com</itunes:email>
     </itunes:owner>
-    <itunes:image href="https://bret.io/icon-3000x3000.png"/>
+    <itunes:image href="https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"/>
     <itunes:category text="Sports &amp; Recreation">
       <itunes:category text="Outdoor"/>
     </itunes:category>
     <item>
-      <title>Wee wooo this is some content</title>
-      <link>https://bret.io/my-text-post</link>
+      <title>Curam ad aut hactenus dentes cedere vigil</title>
+      <link>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post</link>
       <dc:creator>Bret Comnes</dc:creator>
-      <description>Wee wooo this is some content. With a few sentences. Here is a third sentence. 
- Maybe a new paragraph too</description>
-      <guid isPermaLink="false">https://bret.io/my-text-post-2018-04-07T20:48:02.000Z</guid>
+      <description>Curam ad aut hactenus dentes cedere vigil
+Non Clitorio vertitur cavatur
+Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te
+mihi arcum fore nitidam; in dixit de simul.</description>
+      <content:encoded>
+        <![CDATA[<h1>Curam ad aut hactenus dentes cedere vigil</h1>
+<h2>Non Clitorio vertitur cavatur</h2>
+<p>Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te
+mihi arcum fore nitidam; in dixit de simul.</p>]]>
+      </content:encoded>
+      <guid isPermaLink="false">https://jsonfeed-to-rss.netlify.com/a-url-to-a-post-2018-04-07T20:48:02.000Z</guid>
       <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
-      <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4" length="1234"/>
+      <enclosure type="audio/mpeg" url="https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/attatchment.mp4" length="1234"/>
       <itunes:episodeType>full</itunes:episodeType>
-      <itunes:title>Wee wooo this is some content</itunes:title>
+      <itunes:title>Curam ad aut hactenus dentes cedere vigil</itunes:title>
       <itunes:author>Bret Comnes</itunes:author>
       <itunes:episode>12</itunes:episode>
-      <itunes:subtitle>Wee wooo this is some content.</itunes:subtitle>
-      <itunes:summary>Wee wooo this is some content. With a few sentences. Here is a third sentence.</itunes:summary>
-      <itunes:image>https://bret.io/episode-3000x3000.png</itunes:image>
+      <itunes:subtitle>Curam ad aut hactenus dentes cedere vigil</itunes:subtitle>
+      <itunes:summary>Curam ad aut hactenus dentes cedere vigil</itunes:summary>
+      <itunes:image>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png</itunes:image>
       <itunes:duration>3:25:45</itunes:duration>
       <itunes:season>2018</itunes:season>
-    </item>
-    <item>
-      <title>This is a blog title</title>
-      <link>https://example.com/some-external-link</link>
-      <dc:creator>Bret Comnes</dc:creator>
-      <description>Hello, world!</description>
-      <content:encoded>
-        <![CDATA[<p>Hello, world!</p>]]>
-      </content:encoded>
-      <guid isPermaLink="false">https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</guid>
-      <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
     </item>
   </channel>
 </rss>

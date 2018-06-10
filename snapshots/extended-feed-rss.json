@@ -7,13 +7,13 @@
   "@xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd",
   "channel": {
    "atom:link": {
-    "@href": "https://bret.io/feed-rss.xml",
+    "@href": "https://jsonfeed-to-rss.netlify.com/snapshots/extended-feed-rss.xml",
     "@rel": "self",
     "@type": "application/rss+xml"
    },
-   "title": "bret.io log",
-   "link": "https://bret.io",
-   "description": "A running log of announcements, projects and accomplishments.",
+   "title": "jsonfeed-to-rss extended feed",
+   "link": "https://jsonfeed-to-rss.netlify.com",
+   "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
    "language": "en-us",
    "copyright": "© 2018 Bret Comnes",
    "pubDate": "Fri, 13 Apr 2018 22:06:43 GMT",
@@ -24,19 +24,20 @@
    "generator": "jsonfeed-to-rss 1.1.1 (https://github.com/bcomnes/jsonfeed-to-rss#readme)",
    "docs": "http://www.rssboard.org/rss-specification",
    "image": {
-    "url": "https://bret.io/icon-512x512.png",
-    "link": "https://bret.io",
-    "title": "bret.io log"
+    "url": "https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
+    "link": "https://jsonfeed-to-rss.netlify.com",
+    "title": "jsonfeed-to-rss extended feed"
    },
    "itunes:author": "Bret Comnes",
-   "itunes:summary": "A running log of announcements, projects and accomplishments.",
-   "itunes:subtitle": "A running log of announcements, projects and accomplishments.",
+   "itunes:summary": "A simple summary that describes the podcast.  It can have a few sentences.",
+   "itunes:subtitle": "A simple summary that describes the podcast.",
    "itunes:type": "episodic",
    "itunes:owner": {
-    "itunes:name": "Bret Comnes"
+    "itunes:name": "Bret Comnes",
+    "itunes:email": "bcomnes@gmail.com"
    },
    "itunes:image": {
-    "@href": "https://bret.io/icon-512x512.png"
+    "@href": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"
    },
    "itunes:category": {
     "@text": "Sports & Recreation",
@@ -46,9 +47,9 @@
    },
    "item": [
     {
-     "title": "but it has a summary!",
+     "title": "A title, giving some simple context to the episode",
      "dc:creator": "Bret Comnes",
-     "description": "ey, no link, nourl",
+     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
      "guid": {
       "#text": "a-unique-id",
       "@isPermaLink": false
@@ -59,9 +60,9 @@
      "title": "A post with some tags",
      "link": "https://example.com/tags",
      "dc:creator": "Bret Comnes",
-     "description": "A post with some tags",
+     "description": "A post with some tags.\n\nTags are super cool.",
      "content:encoded": {
-      "#cdata": "<p>A post with some tags</p>"
+      "#cdata": "<p>A post with some tags.</p>\n\n<p>Tags are super cool.</p>"
      },
      "category": [
       "foo",

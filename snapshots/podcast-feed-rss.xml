@@ -11,7 +11,9 @@
     <category>Software How-To</category>
     <generator>jsonfeed-to-rss 1.1.1 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
-    <itunes:summary>A simple summary that describes the podcast.</itunes:summary>
+    <itunes:summary>A simple summary that describes the podcast.  It can have a few sentences.
+
+If there is more than one paragraph, it gets truncated in some contexts.</itunes:summary>
     <itunes:subtitle>A simple summary that describes the podcast.</itunes:subtitle>
     <itunes:type>episodic</itunes:type>
     <itunes:owner>
