@@ -4,7 +4,7 @@
 
 Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.  
 
-![JSON feed icon](/icon.png) 
+![JSON feed icon](/reference/icon.png) 
 
 ## Installation
 ```console
@@ -257,12 +257,12 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 ### Snapshots
 
 - [snapshots/podcast-feed.json](snapshots/podcast-feed.json)
-- [snapshots/podcast-feed.xml](snapshots/podcast-feed.xml)
-- [snapshots/podcast-no-itunes-feed.xml](snapshots/podcast-no-itunes-feed.xml)
+- [snapshots/podcast-feed-rss.xml](snapshots/podcast-feed.xml)
+- [snapshots/podcast-no-itunes-feed-rss.xml](snapshots/podcast-no-itunes-feed.xml)
 - [snapshots/readme-feed.json](snapshots/readme-feed.json)
-- [snapshots/readme-feed.xml](snapshots/readme-feed.xml)
-- [snapshots/snapshot.xml](snapshots/snapshot.xml)
-- [snapshots/test-feed.json](snapshots/test-feed.json)
+- [snapshots/readme-feed-rss.xml](snapshots/readme-feed.xml)
+- [snapshots/extended-feed-rss.xml](snapshots/snapshot.xml)
+- [snapshots/extended-feed.json](snapshots/test-feed.json)
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)

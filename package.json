@@ -33,9 +33,7 @@
     "sitedown": "^3.3.0",
     "snazzy": "^7.1.1",
     "standard": "^10.0.0",
-    "tape": "^4.7.0",
-    "tape-run": "^3.0.0",
-    "temporary-directory": "^1.0.2"
+    "tape": "^4.7.0"
   },
   "homepage": "https://github.com/bcomnes/jsonfeed-to-rss#readme",
   "keywords": [
@@ -62,7 +60,7 @@
     "version": "run-s update && git add snapshots",
     "clean": "rimraf build && mkdirp build",
     "build": "run-s clean && run-p build:*",
-    "build:static": "cpx '{icon.png,snapshots/*,referece/*}' build",
+    "build:static": "cpx '{snapshots,reference}/*' 'build'",
     "build:md": "sitedown . -b build/ -l layout.html",
     "watch": "run-s clean && run-p watch:*",
     "watch:static": "run-s build:static -- --watch",
