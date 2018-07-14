@@ -229,7 +229,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 
 ### Related projects
 
-- [bcomnes/jsonfeed-to-atom](https://github.com/bcomnes/generate-feed)
+- [bcomnes/jsonfeed-to-atom](https://github.com/bcomnes/jsonfeed-to-atom)
 - [bcomnes/generate-feed](https://github.com/bcomnes/generate-feed)
 
 ### More iTunes RSS feed information
