@@ -4,7 +4,7 @@
 
 Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.  
 
-![JSON feed icon](/reference/icon.png) 
+![JSON feed icon](/reference/icon.png)
 
 ## Installation
 ```console
@@ -153,7 +153,7 @@ Opts include:
   webMaster,
   idIsPermalink: false, // if guid is the permalink, you can set this true
   category, // array of categories.. will attempt to use iTunes categories if available
-  ttl, 
+  ttl,
   skipHours,
   skipDays,
   itunes: !!jf._itunes // generate RSS feed with iTunes extensions
@@ -200,7 +200,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.new_feed_url` (optional) maps to `itunes:new-feed-url`.  Used for moving feeds from an old url to a new url.  When generating `next_url` (the next n older feed items), you could generate the converse url for the previous (newer) n items and store it here.  
 - `_itunes.author` (mapped) maps to `itunes:author`.  Defaults to `author.name`.
 - `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated `description` rss field.
-- `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `itunes:summary`. 
+- `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `itunes:summary`.
 - `_itunes.owner.name` (mapped) maps to `itunes:owner.itunes:name`.  Defaults to `author.name`.
 
 ### Items
@@ -208,7 +208,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.episode` (recommended) maps to `itunes:episode`.  No fallback. Must be an integer > 0.  Its recommended you put episode numbers here, instead of in the title.
 - `_itunes.episode_type` (optional) maps to `itunes:episodeType`, but must be one of `full`, `trailer`, or `bonus`.  Defaults to `full`.
 - `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the item from being added to Apple's podcast directory. "For example, you might want to block a specific episode if you know that its content would otherwise cause the entire podcast to be removed from Apple Podcasts."
-- `_itunes.is_closed_captioned` (optional) maps to `itunes:isClosedCaptioned.
+- `_itunes.is_closed_captioned` (optional) maps to `itunes:isClosedCaptioned`.
 - `_itunes.explicit` (optional) maps to `itunes:explicit`.  Defaults to null.
 - `_itunes.title` (mapped) maps to `itunes:title`.  Falls back to `item.title` and then the `generateTitle` function.
 - `_itunes.author` (mapped) maps to `itunes:author`.  Falls back to `author.name || jf._itunes.author || jf.author.name`.
