@@ -193,7 +193,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.image` (recommended) maps to `itunes:image`.  Defaults to `icon` but the `icon` field does not meet the minimum requirements for this field.  The `icon` field is a 512x512 image, where iTunes recommends Artwork that must be a minimum size of 1400 x 1400 pixels and a maximum size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate file extensions (.jpg, .png), and in the RGB colorspace.
 - `_itunes.category` (recommended) maps to `itunes:category`.  Defaults to `opts.category[0]`.  Must be a [valid category][categories].
 - `_itunes.subcategory` (recommended) maps to `itunes:category:itunes:category`.  Defaults to `opts.category[1]`. Must be a [valid subcategory][categories].
-- `_itunes.explicit` (recommended) maps to `itunes:explicit`.  Defaults to unset.  Definitely set this if you like cussin'. ✝️ Christian channel! 🙏
+- `_itunes.explicit` (recommended) maps to `itunes:explicit`.  Defaults to unset.  Definitely set this if you like cussin'.
 - `_itunes.type` (optional) maps to `itunes:type`.  Defaults to `episodic` (newest first).  The other option is `serial` (oldest first). [Details][bp].
 - `_itunes.complete` (optional) maps to `itunes:complete`.  Defaults to null.  Tells podcast clients to stop updating this feed ️️️forever. ⚠️
 - `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the feed from being added to Apple's podcast directory.  Helpful for private or customer specific feeds.
