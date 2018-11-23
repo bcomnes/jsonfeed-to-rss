@@ -2,7 +2,7 @@
 [![npm version][2]][3] [![build status][4]][5] [![coverage][12]][13]
 [![downloads][8]][9] [![js-standard-style][10]][11] [![Otechie](https://api.otechie.com/consultant/bcomnes/badge.svg)](https://otechie.com/bcomnes)
 
-Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.  
+Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.
 
 ![JSON feed icon](/reference/icon.png)
 
@@ -23,7 +23,7 @@ const rssFeed = jsonfeedToRSS(someJSONFeed) // Returns an rss 2.0.11 formatted j
 Example input:
 
 ```json
-{  
+{
   "version":"https://jsonfeed.org/version/1",
   "title":"bret.io log",
   "home_page_url":"https://jsonfeed-to-rss.netlify.com",
@@ -31,12 +31,12 @@ Example input:
   "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
   "next_url":"https://jsonfeed-to-rss.netlify.com/snapshots/2017.json",
   "icon":"https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
-  "author":{  
+  "author":{
      "name":"Bret Comnes",
      "url":"https://bret.io",
      "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
   },
-  "_itunes":{  
+  "_itunes":{
      "about":"https://github.com/bcomnes/jsonfeed-to-rss#itunes",
      "owner": {
        "email": "bcomnes@gmail.com"
@@ -45,8 +45,8 @@ Example input:
      "category": "Sports & Recreation",
      "subcategory": "Outdoor"
   },
-  "items":[  
-     {  
+  "items":[
+     {
         "date_published":"2018-04-07T20:48:02.000Z",
         "content_html":"<h1>Curam ad aut hactenus dentes cedere vigil</h1>\n<h2>Non Clitorio vertitur cavatur</h2>\n<p>Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te\nmihi arcum fore nitidam; in dixit de simul.</p>",
         "url":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post",
@@ -55,8 +55,8 @@ Example input:
         "_itunes": {
           "episode": 12
         },
-        "attachments":[  
-           {  
+        "attachments":[
+           {
               "url":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/attatchment.mp4",
               "mime_type":"audio/mpeg",
               "title":"Hey this is a podcast episode",
@@ -170,7 +170,7 @@ There is only one mapping implemented between jsonfeed and RSS:
 
 ## [RDF Site Summary Extensions][content]
 
-The `content:encoded` field is used to store an `html` representation of content, and RSS's default `description` field is for a plain text representation.  
+The `content:encoded` field is used to store an `html` representation of content, and RSS's default `description` field is for a plain text representation.
 
 ### Items
 
@@ -181,10 +181,10 @@ The `content:encoded` field is used to store an `html` representation of content
 
 If the `itunes` option is set to `true` (or if the `jsonfeed._itunes` extension object is included in the jsonfeed) the resulting RSS feed will include as many itunes extension tags as possible.  You can override/set `_itunes` extension fields from the `opts.itunes` object.
 
-All `_itunes.property` map directly to the RSS `itunes:property` extensions, but most have default mappings to standard JSONFeed properties. Its better to rely on the [default JSONFeed fields](https://jsonfeed.org/version/1), but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.  
+All `_itunes.property` map directly to the RSS `itunes:property` extensions, but most have default mappings to standard JSONFeed properties. Its better to rely on the [default JSONFeed fields](https://jsonfeed.org/version/1), but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.
 
-- There are a few extension fields that SHOULD be included, but dont map well.  These are marked as (recommended).  
-- There are fields that dont have a mapping that are definitely optional but CAN be included. These are marked as (optional).  
+- There are a few extension fields that SHOULD be included, but dont map well.  These are marked as (recommended).
+- There are fields that dont have a mapping that are definitely optional but CAN be included. These are marked as (optional).
 - There are fields that have default and acceptable mappings.  These MAY be included but probably not.  These are marked as (mapped).
 
 ### Top-level
@@ -193,11 +193,11 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.image` (recommended) maps to `itunes:image`.  Defaults to `icon` but the `icon` field does not meet the minimum requirements for this field.  The `icon` field is a 512x512 image, where iTunes recommends Artwork that must be a minimum size of 1400 x 1400 pixels and a maximum size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate file extensions (.jpg, .png), and in the RGB colorspace.
 - `_itunes.category` (recommended) maps to `itunes:category`.  Defaults to `opts.category[0]`.  Must be a [valid category][categories].
 - `_itunes.subcategory` (recommended) maps to `itunes:category:itunes:category`.  Defaults to `opts.category[1]`. Must be a [valid subcategory][categories].
-- `_itunes.explicit` (recommended) maps to `itunes:explicit`.  Defaults to unset.  Definitely set this if you like cussin'.
+- `_itunes.explicit` (recommended) maps to `itunes:explicit`.  Defaults to unset.  Definitely set this if you like cussin' or for your christian minecraft server 🙏 ⛪️.
 - `_itunes.type` (optional) maps to `itunes:type`.  Defaults to `episodic` (newest first).  The other option is `serial` (oldest first). [Details][bp].
 - `_itunes.complete` (optional) maps to `itunes:complete`.  Defaults to null.  Tells podcast clients to stop updating this feed ️️️forever. ⚠️
 - `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the feed from being added to Apple's podcast directory.  Helpful for private or customer specific feeds.
-- `_itunes.new_feed_url` (optional) maps to `itunes:new-feed-url`.  Used for moving feeds from an old url to a new url.  When generating `next_url` (the next n older feed items), you could generate the converse url for the previous (newer) n items and store it here.  
+- `_itunes.new_feed_url` (optional) maps to `itunes:new-feed-url`.  Used for moving feeds from an old url to a new url.  When generating `next_url` (the next n older feed items), you could generate the converse url for the previous (newer) n items and store it here.
 - `_itunes.author` (mapped) maps to `itunes:author`.  Defaults to `author.name`.
 - `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated `description` rss field.
 - `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `itunes:summary`.
