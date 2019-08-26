@@ -1,4 +1,4 @@
-# jsonfeed-to-rss [![stability][0]][1]
+# jsonfeed-to-rss
 [![npm version][2]][3] [![build status][4]][5] [![coverage][12]][13]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
