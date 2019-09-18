@@ -22,7 +22,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     categories: null, // site level categories. no mapping, so leave as option array.
     ttl: null,
     skipHours: null, // array of hour numbers
-    skipDays: null,  // array of skip days
+    skipDays: null, // array of skip days
     itunes: !!jf._itunes // enable/disable itunes tags
   }, opts)
 
