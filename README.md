@@ -244,6 +244,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - [Apple Podcasts - What’s New in iOS 11 - 2017](http://podcasts.apple.com/resources/spec/ApplePodcastsSpecUpdatesiOS11.pdf) ([mirror](reference/ApplePodcastsSpecUpdatesiOS11.pdf))
 - [Apple Podcasts Identity Guidelines](https://www.apple.com/itunes/marketing-on-podcasts/identity-guidelines.html#messaging-and-style)
 - [podbase Podcast Validator](https://podba.se/validate/)
+- [Apple podcasts: Whats new](https://itunespartner.apple.com/podcasts/whats-new/)
 
 ### Reference RSS feeds
 
