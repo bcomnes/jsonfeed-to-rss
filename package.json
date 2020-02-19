@@ -21,13 +21,13 @@
     "xmlbuilder": "^14.0.0"
   },
   "devDependencies": {
-    "auto-changelog": "^1.16.2",
-    "gh-release": "^3.5.0",
     "@tap-format/spec": "^0.2.0",
+    "auto-changelog": "^1.16.2",
     "budo": "^11.2.2",
     "coveralls": "^3.0.0",
     "cpx2": "^2.0.0",
     "dependency-check": "^4.1.0",
+    "gh-release": "^3.5.0",
     "mkdirp": "^1.0.0",
     "npm-run-all": "^4.1.3",
     "nyc": "^15.0.0",
@@ -52,24 +52,23 @@
     "url": "git+https://github.com/bcomnes/jsonfeed-to-rss.git"
   },
   "scripts": {
+    "build": "run-s clean && run-p build:*",
+    "build:md": "sitedown . -b build/ -l layout.html",
+    "build:static": "cpx '{snapshots,reference}/*' 'build'",
+    "clean": "rimraf build && mkdirp build",
     "debug": "node --nolazy --inspect-brk=9229 node_modules/.bin/tape 'test.js'",
+    "prepublishOnly": "git push --follow-tags && gh-release",
     "report": "nyc report --reporter=text-lcov | coveralls",
+    "start": "run-s watch",
     "test": "run-s test:*",
     "test:deps": "dependency-check package.json --missing --unused --no-dev",
     "test:lint": "standard --verbose | snazzy",
     "test:tape": "nyc --reporter=lcov tape 'test.js' | tap-format-spec",
     "update": "node generate-snapshot.js",
-    "version": "run-s update && git add snapshots",
-    "clean": "rimraf build && mkdirp build",
-    "build": "run-s clean && run-p build:*",
-    "build:static": "cpx '{snapshots,reference}/*' 'build'",
-    "build:md": "sitedown . -b build/ -l layout.html",
+    "version": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md",
     "watch": "run-s clean && run-p watch:*",
-    "watch:static": "run-s build:static -- --watch",
-    "watch:md": "run-s build:md -- --watch",
     "watch:dir": "budo -d build --live --open",
-    "start": "run-s watch",
-    "prepublishOnly": "git push --follow-tags && gh-release",
-    "version": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md"
+    "watch:md": "run-s build:md -- --watch",
+    "watch:static": "run-s build:static -- --watch"
   }
 }
