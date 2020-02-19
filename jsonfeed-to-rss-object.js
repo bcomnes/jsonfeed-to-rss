@@ -150,7 +150,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
             'itunes:summary': getSummary(item),
             'itunes:image': get(item, '_itunes.image') || get(item, 'image'),
             'itunes:duration': get(item, '_itunes.duration') || existy(attachment.duration_in_seconds) ? secondsToHMS(attachment.duration_in_seconds) : null,
-            'itunes:season': get(item, '_itunes.season') || getPodcastType(jf) === 'episodic' ? date.getFullYear() : null,
+            'itunes:season': get(item, '_itunes.season') || null,
             'itunes:block': get(item, '_itunes.block') ? 'Yes' : null,
             'itunes:explicit': existy(get(item, '_itunes.explicit')) ? truthy(get(item, '_itunes.explicit')) ? 'yes' : 'no' : null,
             'itunes:isClosedCaptioned': get(item, '_itunes.is_closed_captioned') ? 'Yes' : null,

@@ -130,7 +130,6 @@ mihi arcum fore nitidam; in dixit de simul.</p>]]>
       <itunes:summary>Curam ad aut hactenus dentes cedere vigil</itunes:summary>
       <itunes:image>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png</itunes:image>
       <itunes:duration>3:25:45</itunes:duration>
-      <itunes:season>2018</itunes:season>
     </item>
   </channel>
 </rss>
@@ -206,6 +205,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 ### Items
 
 - `_itunes.episode` (recommended) maps to `itunes:episode`.  No fallback. Must be an integer > 0.  Its recommended you put episode numbers here, instead of in the title.
+- `_itunes.season` (optional) maps to `itunes:season`.
 - `_itunes.episode_type` (optional) maps to `itunes:episodeType`, but must be one of `full`, `trailer`, or `bonus`.  Defaults to `full`.
 - `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the item from being added to Apple's podcast directory. "For example, you might want to block a specific episode if you know that its content would otherwise cause the entire podcast to be removed from Apple Podcasts."
 - `_itunes.is_closed_captioned` (optional) maps to `itunes:isClosedCaptioned`.
@@ -215,7 +215,6 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `_itunes.summary`.
 - `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated plaintext description of the item.
 - `_itunes.duration` (mapped) maps to `itunes:duration`. Defaults to `attachment.duration_in_seconds` formatted as HH:MM:SS.
-- `_itunes.season` (mapped) maps to `itunes:season`.  Falls back to the year of the item if the podcast is `episodic`.
 - `_itunes.image` (mapped) maps to `itunes:image`.  Defaults to `image`.  Artwork must be a minimum size of 1400 x 1400 pixels and a maximum size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate file extensions (.jpg, .png), and in the RGB colorspace.  JSONFeed has no defined image restrictions on the `image` field, so it can be safely used for this purpose.
 
 ## See also
