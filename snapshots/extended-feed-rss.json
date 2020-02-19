@@ -18,8 +18,8 @@
    "copyright": "© 2020 Bret Comnes",
    "pubDate": "Fri, 13 Apr 2018 22:06:43 GMT",
    "category": [
-    "Sports & Recreation",
-    "Outdoor"
+    "Sports",
+    "Football"
    ],
    "generator": "jsonfeed-to-rss 2.0.0 (https://github.com/bcomnes/jsonfeed-to-rss#readme)",
    "docs": "http://www.rssboard.org/rss-specification",
@@ -40,9 +40,9 @@
     "@href": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"
    },
    "itunes:category": {
-    "@text": "Sports & Recreation",
+    "@text": "Sports",
     "itunes:category": {
-     "@text": "Outdoor"
+     "@text": "Football"
     }
    },
    "item": [

@@ -10,8 +10,8 @@ If there is more than one paragraph, it gets truncated in some contexts.</descri
     <language>en-us</language>
     <copyright>© 2020 Bret Comnes</copyright>
     <pubDate>Fri, 13 Apr 2018 22:06:43 GMT</pubDate>
-    <category>Sports &amp; Recreation</category>
-    <category>Outdoor</category>
+    <category>Sports</category>
+    <category>Football</category>
     <generator>jsonfeed-to-rss 2.0.0 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <image>
@@ -28,8 +28,8 @@ If there is more than one paragraph, it gets truncated in some contexts.</descri
       <itunes:email>bcomnes@gmail.com</itunes:email>
     </itunes:owner>
     <itunes:image href="https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"/>
-    <itunes:category text="Sports &amp; Recreation">
-      <itunes:category text="Outdoor"/>
+    <itunes:category text="Sports">
+      <itunes:category text="Football"/>
     </itunes:category>
     <item>
       <title>A title, giving some simple context to the episode</title>

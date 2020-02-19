@@ -1,4 +1,4 @@
-{  
+{
   "version":"https://jsonfeed.org/version/1",
   "title":"jsonfeed-to-rss extended feed",
   "home_page_url":"https://jsonfeed-to-rss.netlify.com",
@@ -7,7 +7,7 @@
   "next_url":"https://jsonfeed-to-rss.netlify.com/2017.json",
   "icon":"https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
   "favicon":"https://jsonfeed-to-rss.netlify.com/favicon-64x64.png",
-  "author":{  
+  "author":{
     "name":"Bret Comnes",
     "url":"https://bret.io",
     "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
@@ -18,37 +18,37 @@
        "email": "bcomnes@gmail.com"
      },
      "image": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png",
-     "category": "Sports & Recreation",
-     "subcategory": "Outdoor"
+     "category": "Sports",
+     "subcategory": "Football"
   },
-  "items":[  
-    {  
+  "items":[
+    {
       "date_published":"2018-04-13T22:06:43.000Z",
       "content_text":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
       "title":"A title, giving some simple context to the episode",
       "id":"a-unique-id",
       "summary":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
     },
-    {  
+    {
       "date_published":"2018-04-12T22:06:43.000Z",
       "content_html":"<p>A post with some tags.</p>\n\n<p>Tags are super cool.</p>",
       "title":"A post with some tags",
       "url":"https://example.com/tags",
-      "tags":[  
+      "tags":[
         "foo",
         "bar"
       ],
       "id":"https://example.com/tags-2018-04-12T22:06:43.000Z"
     },
-    {  
+    {
       "date_published":"2018-04-11T22:06:43.000Z",
       "content_html":"<p>Attachments & Escapes</p>",
       "content_text":"Attachments & Escapes",
       "title":"Attachments",
       "url":"https://example.com/empty-attatchments",
       "summary": "Just a brief summary.",
-      "attachments":[  
-        {  
+      "attachments":[
+        {
           "url":"https://example.com/attatchments.mp4",
           "mime_type":"audio/mpeg",
           "title":"Hey this is a podcast",
@@ -58,42 +58,42 @@
       ],
       "id":"https://example.com/empty-attatchments-2018-04-11T22:06:43.000Z"
     },
-    {  
+    {
       "date_published":"2018-04-10T22:06:43.000Z",
       "content_html":"<p>Empty attachments</p>",
       "title":"Empty attachments",
       "url":"https://example.com/empty-attatchments",
-      "attachments":[  
+      "attachments":[
 
       ],
       "id":"https://example.com/empty-attatchments-2018-04-10T22:06:43.000Z"
     },
-    {  
+    {
       "date_published":"2018-04-09T22:06:43.000Z",
       "content_html":"<p>A post with no URL!!</p>",
       "title":"A post with no URL!!",
       "external_url":"https://example.com/some-external-link2",
       "id":"https://example.com/some-external-link2-2018-04-09T22:06:43.000Z"
     },
-    {  
+    {
       "date_published":"2018-04-08T22:06:43.000Z",
       "content_html":"<p>A post with an author</p>",
       "title":"A post with an author",
       "url":"https://example.com/some-external-link2rfdsfa",
-      "author":{  
+      "author":{
         "name":"Mr Guy",
         "url":"https://twitter.com/foo",
         "avatar":"https://gravatar.com/avatar/5fcbb4764c8c88f71aa83f4465ce4e0e?size=512"
       },
       "id":"https://example.com/some-external-link2rfdsfa-2018-04-08T22:06:43.000Z",
-      "attachments":[  
-        {  
+      "attachments":[
+        {
           "url":"https://example.com/attatchments-430.mp4",
           "mime_type":"audio/mpeg",
           "title":"Hey this is another podcast",
           "duration_in_seconds":12345
         },
-        {  
+        {
           "url":"https://example.com/attatchments-45.mp4",
           "mime_type":"audio/mpeg",
           "title":"Hey this is another podcast",
@@ -102,7 +102,7 @@
         }
       ]
     },
-    {  
+    {
       "date_published":"2018-04-07T22:06:43.000Z",
       "content_html":"<p>Hello, world!</p>",
       "title":"This is a blog title",
@@ -110,7 +110,7 @@
       "external_url":"https://example.com/some-external-link",
       "id":"https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z"
     },
-    {  
+    {
       "date_published":"2018-04-07T20:48:02.000Z",
       "content_text":"Wee wooo this is some content. \n Maybe a new paragraph too",
       "title":"Wee wooo this is some content.",
