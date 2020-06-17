@@ -31,6 +31,7 @@ If there is more than one paragraph, it gets truncated in some contexts.</descri
     <itunes:category text="Sports">
       <itunes:category text="Football"/>
     </itunes:category>
+    <itunes:new-feed-url>https://some-other-domain.com/snapshots/extended-feed-rss.xml</itunes:new-feed-url>
     <item>
       <title>A title, giving some simple context to the episode</title>
       <dc:creator>Bret Comnes</dc:creator>

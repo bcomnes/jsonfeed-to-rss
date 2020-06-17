@@ -98,7 +98,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       'itunes:explicit': existy(get(jf, '_itunes.explicit')) ? truthy(get(jf, '_itunes.explicit')) ? 'yes' : 'no' : null,
       'itunes:block': get(jf, '_itunes.block') ? 'Yes' : null,
       'itunes:complete': get(jf, '_itunes.complete') ? 'Yes' : null,
-      'itunes:new-feed-url': get(jf, '_itunes.new_feed_url'),
+      'itunes:new-feed-url': get(jf, '_itunes.new_feed_url') ? opts.feedURLFn(get(jf, '_itunes.new_feed_url'), jf) : null,
       description: truncate4k(rss.description),
       title: truncate250(rss.title)
     })

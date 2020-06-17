@@ -45,6 +45,7 @@
      "@text": "Football"
     }
    },
+   "itunes:new-feed-url": "https://some-other-domain.com/snapshots/extended-feed-rss.xml",
    "item": [
     {
      "title": "A title, giving some simple context to the episode",

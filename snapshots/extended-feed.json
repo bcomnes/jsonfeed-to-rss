@@ -19,7 +19,8 @@
      },
      "image": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png",
      "category": "Sports",
-     "subcategory": "Football"
+     "subcategory": "Football",
+     "new_feed_url": "https://some-other-domain.com/snapshots/extended-feed.json"
   },
   "items":[
     {
