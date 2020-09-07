@@ -39,12 +39,10 @@ If there is more than one paragraph, it gets truncated in some contexts.</descri
 Non Clitorio vertitur cavatur
 Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te
 mihi arcum fore nitidam; in dixit de simul.</description>
-      <content:encoded>
-        <![CDATA[<h1>Curam ad aut hactenus dentes cedere vigil</h1>
+      <content:encoded><![CDATA[<h1>Curam ad aut hactenus dentes cedere vigil</h1>
 <h2>Non Clitorio vertitur cavatur</h2>
 <p>Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te
-mihi arcum fore nitidam; in dixit de simul.</p>]]>
-      </content:encoded>
+mihi arcum fore nitidam; in dixit de simul.</p>]]></content:encoded>
       <guid isPermaLink="false">https://jsonfeed-to-rss.netlify.com/a-url-to-a-post-2018-04-07T20:48:02.000Z</guid>
       <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
       <enclosure type="audio/mpeg" url="https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/attatchment.mp4" length="1234"/>
