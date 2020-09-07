@@ -48,11 +48,9 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
       <description>A post with some tags.
 
 Tags are super cool.</description>
-      <content:encoded>
-        <![CDATA[<p>A post with some tags.</p>
+      <content:encoded><![CDATA[<p>A post with some tags.</p>
 
-<p>Tags are super cool.</p>]]>
-      </content:encoded>
+<p>Tags are super cool.</p>]]></content:encoded>
       <category>foo</category>
       <category>bar</category>
       <guid isPermaLink="false">https://example.com/tags-2018-04-12T22:06:43.000Z</guid>
@@ -63,9 +61,7 @@ Tags are super cool.</description>
       <link>https://example.com/empty-attatchments</link>
       <dc:creator>Bret Comnes</dc:creator>
       <description>Attachments &amp; Escapes</description>
-      <content:encoded>
-        <![CDATA[<p>Attachments & Escapes</p>]]>
-      </content:encoded>
+      <content:encoded><![CDATA[<p>Attachments & Escapes</p>]]></content:encoded>
       <guid isPermaLink="false">https://example.com/empty-attatchments-2018-04-11T22:06:43.000Z</guid>
       <pubDate>Wed, 11 Apr 2018 22:06:43 GMT</pubDate>
       <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4" length="1234"/>
@@ -81,9 +77,7 @@ Tags are super cool.</description>
       <link>https://example.com/empty-attatchments</link>
       <dc:creator>Bret Comnes</dc:creator>
       <description>Empty attachments</description>
-      <content:encoded>
-        <![CDATA[<p>Empty attachments</p>]]>
-      </content:encoded>
+      <content:encoded><![CDATA[<p>Empty attachments</p>]]></content:encoded>
       <guid isPermaLink="false">https://example.com/empty-attatchments-2018-04-10T22:06:43.000Z</guid>
       <pubDate>Tue, 10 Apr 2018 22:06:43 GMT</pubDate>
     </item>
@@ -92,9 +86,7 @@ Tags are super cool.</description>
       <link>https://example.com/some-external-link2</link>
       <dc:creator>Bret Comnes</dc:creator>
       <description>A post with no URL!!</description>
-      <content:encoded>
-        <![CDATA[<p>A post with no URL!!</p>]]>
-      </content:encoded>
+      <content:encoded><![CDATA[<p>A post with no URL!!</p>]]></content:encoded>
       <guid isPermaLink="false">https://example.com/some-external-link2-2018-04-09T22:06:43.000Z</guid>
       <pubDate>Mon, 09 Apr 2018 22:06:43 GMT</pubDate>
     </item>
@@ -103,9 +95,7 @@ Tags are super cool.</description>
       <link>https://example.com/some-external-link2rfdsfa</link>
       <dc:creator>Mr Guy</dc:creator>
       <description>A post with an author</description>
-      <content:encoded>
-        <![CDATA[<p>A post with an author</p>]]>
-      </content:encoded>
+      <content:encoded><![CDATA[<p>A post with an author</p>]]></content:encoded>
       <guid isPermaLink="false">https://example.com/some-external-link2rfdsfa-2018-04-08T22:06:43.000Z</guid>
       <pubDate>Sun, 08 Apr 2018 22:06:43 GMT</pubDate>
       <enclosure type="audio/mpeg" url="https://example.com/attatchments-430.mp4"/>
@@ -121,9 +111,7 @@ Tags are super cool.</description>
       <link>https://example.com/some-external-link</link>
       <dc:creator>Bret Comnes</dc:creator>
       <description>Hello, world!</description>
-      <content:encoded>
-        <![CDATA[<p>Hello, world!</p>]]>
-      </content:encoded>
+      <content:encoded><![CDATA[<p>Hello, world!</p>]]></content:encoded>
       <guid isPermaLink="false">https://bret.io/my-blog-post-2018-04-07T22:06:43.000Z</guid>
       <pubDate>Sat, 07 Apr 2018 22:06:43 GMT</pubDate>
     </item>
