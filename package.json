@@ -72,5 +72,9 @@
     "watch:dir": "budo -d build --live --open",
     "watch:md": "run-s build:md -- --watch",
     "watch:static": "run-s build:static -- --watch"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/bcomnes"
   }
 }
