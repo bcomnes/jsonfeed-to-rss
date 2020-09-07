@@ -1,5 +1,5 @@
 # jsonfeed-to-rss
-[![npm version][2]][3] [![build status][4]][5] [![coverage][12]][13]
+[![npm version][2]][3] [![build status][4]][5]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
 Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.
