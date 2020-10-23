@@ -1,6 +1,6 @@
 {
   "name": "@jonhyfun/jsonfeed-to-rss-google",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "jsonfeed-to-rss googleplay support",
   "main": "index.js",
   "scripts": {

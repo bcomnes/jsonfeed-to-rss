@@ -56,7 +56,9 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     description,
 	'googleplay:owner': jf._google.owner,
 	'googleplay:author': jf._google.author,
-	'googleplay:image': jf._google.image,
+	'googleplay:image': {
+	'@href': jf._google.image
+	},
     language: opts.language,
     copyright: opts.copyright,
     managingEditor: opts.managingEditor,
