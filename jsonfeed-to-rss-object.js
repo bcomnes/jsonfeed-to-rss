@@ -151,7 +151,9 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
             'itunes:episode': Number.isInteger(get(item, '_itunes.episode')) ? get(item, '_itunes.episode') : null,
             'itunes:subtitle': getSubtitle(item),
             'itunes:summary': getSummary(item),
-            'itunes:image': get(item, '_itunes.image') || get(item, 'image'),
+			'itunes:image': {
+			'@href': get(item, '_itunes.image') || get(item, 'image')
+			},
             'itunes:duration': get(item, '_itunes.duration') || existy(attachment.duration_in_seconds) ? secondsToHMS(attachment.duration_in_seconds) : null,
             'itunes:season': get(item, '_itunes.season') || null,
             'itunes:block': get(item, '_itunes.block') ? 'Yes' : null,
