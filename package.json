@@ -33,7 +33,7 @@
     "rimraf": "^3.0.0",
     "sitedown": "^4.0.0",
     "snazzy": "^9.0.0",
-    "standard": "^14.0.2",
+    "standard": "^16.0.1",
     "tape": "^5.0.1"
   },
   "homepage": "https://github.com/bcomnes/jsonfeed-to-rss#readme",
