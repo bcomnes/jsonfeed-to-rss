@@ -65,11 +65,13 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     docs: 'http://www.rssboard.org/rss-specification',
     // TODO: cloud
     ttl: opts.ttl,
-    image: jf.icon ? {
-      url: jf.icon,
-      link: homePageURL,
-      title: rssTitle
-    } : undefined,
+    image: jf.icon
+      ? {
+          url: jf.icon,
+          link: homePageURL,
+          title: rssTitle
+        }
+      : undefined,
     skipHours: opts.skipHours ? { hour: opts.skipHours } : null,
     skipDays: opts.skipDays ? { day: opts.skipDays } : null
   }
