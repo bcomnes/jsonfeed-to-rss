@@ -15,7 +15,7 @@
    "link": "https://jsonfeed-to-rss.netlify.com",
    "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
    "language": "en-us",
-   "copyright": "© 2020 Bret Comnes",
+   "copyright": "© 2021 Bret Comnes",
    "pubDate": "Fri, 13 Apr 2018 22:06:43 GMT",
    "category": [
     "Sports",
