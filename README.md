@@ -36,6 +36,11 @@ Example input:
      "url":"https://bret.io",
      "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
   },
+  "_google": {
+	"owner":"someone@gmail.com",
+	"author":"someone",
+	"image": "https://jsonfeed-to-rss.netlify.com/icon-512x512.png"
+  },
   "_itunes":{
      "about":"https://github.com/bcomnes/jsonfeed-to-rss#itunes",
      "owner": {
@@ -73,7 +78,7 @@ Example output:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <atom:link href="https://jsonfeed-to-rss.netlify.com/snapshots/readme-feed-rss.xml" rel="self" type="application/rss+xml"/>
     <title>bret.io log</title>
@@ -86,6 +91,9 @@ If there is more than one paragraph, it gets truncated in some contexts.</descri
     <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
     <category>Sports &amp; Recreation</category>
     <category>Outdoor</category>
+	<googleplay:owner>someone@gmail.com</googleplay:owner>
+	<googleplay:author>someone</googleplay:author>
+	<googleplay:image>https://jsonfeed-to-rss.netlify.com/icon-512x512.png</googleplay:image>
     <generator>jsonfeed-to-rss 1.1.1 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <image>

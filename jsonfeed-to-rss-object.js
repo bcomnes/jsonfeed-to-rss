@@ -54,6 +54,11 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
     title: rssTitle,
     link: homePageURL,
     description,
+	'googleplay:owner': jf._google.owner,
+	'googleplay:author': jf._google.author,
+	'googleplay:image': {
+	'@href': jf._google.image
+	},
     language: opts.language,
     copyright: opts.copyright,
     managingEditor: opts.managingEditor,
@@ -150,7 +155,9 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
             'itunes:episode': Number.isInteger(get(item, '_itunes.episode')) ? get(item, '_itunes.episode') : null,
             'itunes:subtitle': getSubtitle(item),
             'itunes:summary': getSummary(item),
-            'itunes:image': get(item, '_itunes.image') || get(item, 'image'),
+			'itunes:image': {
+			'@href': get(item, '_itunes.image') || get(item, 'image')
+			},
             'itunes:duration': get(item, '_itunes.duration') || existy(attachment.duration_in_seconds) ? secondsToHMS(attachment.duration_in_seconds) : null,
             'itunes:season': get(item, '_itunes.season') || null,
             'itunes:block': get(item, '_itunes.block') ? 'Yes' : null,
@@ -173,6 +180,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
       '@xmlns:atom': 'http://www.w3.org/2005/Atom',
       '@xmlns:dc': 'http://purl.org/dc/elements/1.1/',
       '@xmlns:content': 'http://purl.org/rss/1.0/modules/content/',
+	  '@xmlns:googleplay': 'http://www.google.com/schemas/play-podcasts/1.0',
       '@xmlns:itunes': opts.itunes ? 'http://www.itunes.com/dtds/podcast-1.0.dtd' : null,
       channel: rss
     }
