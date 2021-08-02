@@ -17,7 +17,7 @@
     "sentence-splitter": "^3.0.8",
     "striptags": "^3.2.0",
     "trim-left": "^1.0.1",
-    "trim-right": "^1.0.1",
+    "trim-right": "^2.0.0",
     "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {
