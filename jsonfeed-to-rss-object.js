@@ -14,7 +14,7 @@ module.exports = function jsonfeedToAtomObject (jf, opts) {
 
   opts = Object.assign({
     feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '-rss.xml'),
-    language: 'en-us',
+    language: jf.language ? jf.language : 'en-us',
     copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
     managingEditor: null, // email@domain.com (First Last)
     webMaster: null, // email@domain.com (First Last)
