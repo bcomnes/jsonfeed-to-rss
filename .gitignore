@@ -4,3 +4,4 @@ coverage
 .vscode
 build
 package-lock.json
+sandbox.js
