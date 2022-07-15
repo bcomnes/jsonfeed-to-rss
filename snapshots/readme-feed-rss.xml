@@ -52,7 +52,7 @@ mihi arcum fore nitidam; in dixit de simul.</p>]]></content:encoded>
       <itunes:episode>12</itunes:episode>
       <itunes:subtitle>Curam ad aut hactenus dentes cedere vigil</itunes:subtitle>
       <itunes:summary>Curam ad aut hactenus dentes cedere vigil</itunes:summary>
-      <itunes:image>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png</itunes:image>
+      <itunes:image href="https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png"/>
       <itunes:duration>3:25:45</itunes:duration>
     </item>
   </channel>

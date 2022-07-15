@@ -93,7 +93,7 @@ Download: Episode 55: eSports
       <itunes:title>Learn Me Something eSports</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into what eSports are, its long history, and why it&amp;#8217;s so lucrative.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into what eSports are, its long history, and why it&amp;#8217;s so lucrative. Can you really make a full-time living as a career gamer?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E54-eSports.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E54-eSports.jpg"/>
     </item>
     <item>
       <title>The Impromptu WWDC 2018 Surprises Us All</title>
@@ -157,7 +157,7 @@ Download: Episode 139: WWDC 2018 Surprises Us All
       <itunes:title>The Impromptu WWDC 2018 Surprises Us All</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, we have a dense episode covering Apple&amp;#8217;s WWDC conference.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, we have a dense episode covering Apple&amp;#8217;s WWDC conference. There was a lot to unpack from iOS 12, watchOS 5, tvOS 12, and the grand daddy: macOS 10.14. Make sure to grab a coffee and set aside the next hour and forty three minutes.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-WWDC-2018-Surprises-Us-All.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-WWDC-2018-Surprises-Us-All.jpg"/>
     </item>
     <item>
       <title>Learn Me Something The Ketogenic Diet</title>
@@ -227,7 +227,7 @@ Download: Episode 54: The Ketogenic Diet
       <itunes:title>Learn Me Something The Ketogenic Diet</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the ketogenic diet, what it is, how it works, and why it&amp;#8217;s been so successful for so many people.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the ketogenic diet, what it is, how it works, and why it&amp;#8217;s been so successful for so many people.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E54-The-Ketogenic-Diet.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E54-The-Ketogenic-Diet.jpg"/>
     </item>
     <item>
       <title>The Impromptu Pre-WWDC 2018 with GDPR on The Side</title>
@@ -291,7 +291,7 @@ Download: Episode 138: Pre-WWDC 2018 with GDPR on The Side
       <itunes:title>The Impromptu Pre-WWDC 2018 with GDPR on The Side</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, Michael is back from vacation to discuss the European Union&amp;#8217;s new data privacy law, GDPR, which came into effect on May 25, 2018.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, Michael is back from vacation to discuss the European Union&amp;#8217;s new data privacy law, GDPR, which came into effect on May 25, 2018. Businesses have had a long time to work on getting compliant, so why is it that some are shutting off access to their EU users and how does this affect the general public? Also, we&amp;#8217;re about a week away from Apple&amp;#8217;s WWDC conference, so this is also our pre-WWDC show where we discuss what we know and what we don&amp;#8217;t.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E138-Pre-WWDC-2018-with-GDPR-on-The-Side.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E138-Pre-WWDC-2018-with-GDPR-on-The-Side.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Sugar</title>
@@ -363,7 +363,7 @@ Download: Episode 53: Sugar
       <itunes:title>Learn Me Something Sugar</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the top of sugar, an ever present ingredient in drinks and food.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the top of sugar, an ever present ingredient in drinks and food. Are there different types of sugar and are all of them bad? How much are you supposed to consume on a daily basis? All of these questions are answered and more.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E53-Sugar.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E53-Sugar.jpg"/>
     </item>
     <item>
       <title>Learn Me Something The Tragedy of Alfie Evans</title>
@@ -427,7 +427,7 @@ Download: Episode 52: The Tragedy of Alfie Evans
       <itunes:title>Learn Me Something The Tragedy of Alfie Evans</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich discuss Alfie Evans, an infant boy from Liverpool with an undiagnosed neurodegenerative disorder.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich discuss Alfie Evans, an infant boy from Liverpool with an undiagnosed neurodegenerative disorder. This was a troubling legal case that drew significant public attention in the United Kingdom and overseas, and we have mixed feelings about.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E52-The-Tragedy-of-Alfie-Evans.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E52-The-Tragedy-of-Alfie-Evans.jpg"/>
     </item>
     <item>
       <title>The Impromptu Oculus Go VR</title>
@@ -487,7 +487,7 @@ Download: Episode 137: Oculus Rift VR Goes Affordable
       <itunes:title>The Impromptu Oculus Go VR</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, Oculus announces Oculus Go, a new afordable VR headset for $199.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, Oculus announces Oculus Go, a new afordable VR headset for $199. While not the highest end headset, there are notable improvements to the lenses and a few breakthroughs: no PC, phone, or wires needed.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E137-Oculus-Go-VR.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E137-Oculus-Go-VR.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Your Irritable Guts</title>
@@ -557,7 +557,7 @@ Download: Episode 51: Your Irritable Guts
       <itunes:title>Learn Me Something Your Irritable Guts</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into a rather gross but fascinating subject: Irritable Bowel Syndrome (IBS).</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into a rather gross but fascinating subject: Irritable Bowel Syndrome (IBS).</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E51-Your-Irritable-Guts.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E51-Your-Irritable-Guts.jpg"/>
     </item>
     <item>
       <title>The Impromptu The Dark Bargain</title>
@@ -615,7 +615,7 @@ Download: Episode 136: The Dark Bargain
       <itunes:title>The Impromptu The Dark Bargain</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, an in-depth discussion about Facebook&amp;#8217;s announcement that they&amp;#8217;re getting into the online dating space.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, an in-depth discussion about Facebook&amp;#8217;s announcement that they&amp;#8217;re getting into the online dating space. It seems like such a tone-deaf response after the Cambridge Analytica fiasco and senate hearings with Mark Zuckerberg about mishandling user data, or is it? Will anyone use the Facebook dating service, does anyone care, and will not jeopardize its competitors businesses?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E136-The-Dark-Bargain.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E136-The-Dark-Bargain.jpg"/>
     </item>
     <item>
       <title>Learn Me Something All Things Awesome</title>
@@ -665,7 +665,7 @@ Download: Episode 50: All Things Awesome
       <itunes:title>Learn Me Something All Things Awesome</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron, Rich, and Alex discuss all things that are awesome.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron, Rich, and Alex discuss all things that are awesome. Well, not all of them&amp;#8230; but we do have a concise list of some pretty great things. Despite this being our 50th episode extravaganza and a slightly different format from what you&amp;#8217;re used to, we think this is a good time to reflect on some positive things in the world.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E50-All-Things-Awesome.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E50-All-Things-Awesome.jpg"/>
     </item>
     <item>
       <title>The Impromptu Apple Delays Cross-Platform “Marzipan” UI?</title>
@@ -727,7 +727,7 @@ Download: Episode 135: Apple Delays Code
       <itunes:title>The Impromptu Apple Delays Cross-Platform “Marzipan” UI?</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, Michael and Alex dive deeper into the topic of &amp;#8220;Marzipan,&amp;#8221; the code-named cross-platform UI that supposedly would be announced at WWDC this June (we think it&amp;#8217;s been delayed?).</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, Michael and Alex dive deeper into the topic of &amp;#8220;Marzipan,&amp;#8221; the code-named cross-platform UI that supposedly would be announced at WWDC this June (we think it&amp;#8217;s been delayed?). If you haven&amp;#8217;t been keeping up on the reasons why this shift is happening on Apple&amp;#8217;s platforms, what it means for developers and consumers, and why you should care, you might want to listen to our previous podcast where we introduce the topic.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E135-Apple-Delays-Cross-Platform-Marziplan-UI.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E135-Apple-Delays-Cross-Platform-Marziplan-UI.jpg"/>
     </item>
     <item>
       <title>Learn Me Something The NRA</title>
@@ -797,7 +797,7 @@ Download: Episode 49: The NRA
       <itunes:title>Learn Me Something The NRA</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of the NRA, its history and why guns are coveted in America, why reasonable gun control laws haven&amp;#8217;t happened, and pose the question: is the NRA is th…</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of the NRA, its history and why guns are coveted in America, why reasonable gun control laws haven&amp;#8217;t happened, and pose the question: is the NRA is the real problem?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E49-The-NRA.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E49-The-NRA.jpg"/>
     </item>
     <item>
       <title>Covered S4E9 – Shobha Rao, GIRLS BURN BRIGHTER</title>
@@ -869,7 +869,7 @@ Download: Episode S4E9: Shobha Rao, GIRLS BURN BRIGHTER
       <itunes:title>Covered S4E9 – Shobha Rao, GIRLS BURN BRIGHTER</itunes:title>
       <itunes:subtitle>Synopsis: Author Shobha Rao discusses her debut novel, GIRLS BURN BRIGHTER, as well as the plight of human trafficking in India, how fiction has changed in a post-9/11 world, the perseverance of the human spirit, whether fiction writers have an obli…</itunes:subtitle>
       <itunes:summary>Synopsis: Author Shobha Rao discusses her debut novel, GIRLS BURN BRIGHTER, as well as the plight of human trafficking in India, how fiction has changed in a post-9/11 world, the perseverance of the human spirit, whether fiction writers have an obligation to expose the dark truths about humanity, and how she wrote the book in two months while living in complete isolation. Also, apologies for the abrupt ending &amp;#8211; we had a lengthy conversation about my own writing I didn&amp;#8217;t think anyone wanted to sit through and by the end of it, I completely forgot to thank Shobha and ask her the usual &amp;#8220;where can people find you?&amp;#8221; Time flies when you&amp;#8217;re talking shop.</itunes:summary>
-      <itunes:image>https://images.gr-assets.com/books/1520279618l/34275212.jpg</itunes:image>
+      <itunes:image href="https://images.gr-assets.com/books/1520279618l/34275212.jpg"/>
     </item>
     <item>
       <title>The Impromptu Dark Patterns</title>
@@ -933,7 +933,7 @@ Download: Episode 134: Dark Patterns
       <itunes:title>The Impromptu Dark Patterns</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, Michael and Alex dive deeper into the topic of dark patterns.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, Michael and Alex dive deeper into the topic of dark patterns. Dark Patterns are tricks used in websites and apps that make you buy or sign up for things that you didn&amp;#8217;t mean to. Although many companies employee these unsavoury techniques, Facebook has come under fire lately for doing this, which strikes us as odd, especially right after the Cambridge Analytica fiasco.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E134-Dark-Patterns.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E134-Dark-Patterns.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Alcohol</title>
@@ -999,7 +999,7 @@ Download: Episode 48: Alcohol
       <itunes:title>Learn Me Something Alcohol</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of alcohol.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of alcohol. How exactly does it affect our bodies and does it have positive health benefits when taken moderately? What are the negative consequences of consuming large quantities over an extended period of time? Find out about the science in this week&amp;#8217;s episode!</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E48-Alcohol.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E48-Alcohol.jpg"/>
     </item>
     <item>
       <title>The Impromptu A Mountain of Salt</title>
@@ -1057,7 +1057,7 @@ Download: Episode 133: A Mountain of Salt
       <itunes:title>The Impromptu A Mountain of Salt</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, Michael and Alex continue to unpack the results of the two-day congress hearing with Facebook CEO, Mark Zuckerberg, what this means for the future of consumer data, privacy, legislation, and beyond.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, Michael and Alex continue to unpack the results of the two-day congress hearing with Facebook CEO, Mark Zuckerberg, what this means for the future of consumer data, privacy, legislation, and beyond. Also related: France is building a WhatsApp rival due to surveillance risks, considering Facebook owns WhatsApp, it simply can&amp;#8217;t be trusted.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E133-A-Mountain-of-Salt.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E133-A-Mountain-of-Salt.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Flat Earthers</title>
@@ -1119,7 +1119,7 @@ Download: Episode 47: Flat Earthers
       <itunes:title>Learn Me Something Flat Earthers</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of Flat Earthers.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of Flat Earthers. How long have people believed the Earth is flat, and why does a portion of modern day society vehemently believe our planet is flat, despite mountains of science-based evidence?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E47-Flat-Earthers.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E47-Flat-Earthers.jpg"/>
     </item>
     <item>
       <title>The Impromptu Apple Course Corrects on The Mac Pro?</title>
@@ -1177,7 +1177,7 @@ Download: Episode 132: Apple Course Corrects on The Mac Pro?
       <itunes:title>The Impromptu Apple Course Corrects on The Mac Pro?</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, Michael and Alex unpack some of the information reported by Matthew Panzarino at Techcrunch regarding the delay of the &amp;#8220;modular&amp;#8221; Mac Pro.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, Michael and Alex unpack some of the information reported by Matthew Panzarino at Techcrunch regarding the delay of the &amp;#8220;modular&amp;#8221; Mac Pro. Why do professionals care so much about this computer, and what exactly are they looking for in the next redesign? It&amp;#8217;s been delayed until 2019, but will Apple deliver on our wildest fantasies?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-Apple-Course-Corrects-on-The-Mac-Pro.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-Apple-Course-Corrects-on-The-Mac-Pro.jpg"/>
     </item>
     <item>
       <title>Learn Me Something What Is Sleep?</title>
@@ -1249,7 +1249,7 @@ Download: Episode 46: What Is Sleep?
       <itunes:title>Learn Me Something What Is Sleep?</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of sleep, a follow up to our episode on dreams.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the topic of sleep, a follow up to our episode on dreams. How does science define sleep and what are all of the components that make it up? Why are some people unable to get regular restful sleep? There&amp;#8217;s a ton of research that is being done on the subject, so we scratch the surface of that in this podcast to try and figure it all out.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E46-What-Is-Sleep-Pic-of-Dog.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E46-What-Is-Sleep-Pic-of-Dog.jpg"/>
     </item>
     <item>
       <title>The Impromptu A Crayon for Your iPad</title>
@@ -1315,7 +1315,7 @@ Download: Episode 131: A Crayon for Your iPad
       <itunes:title>The Impromptu A Crayon for Your iPad</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, Michael and Alex succinctly summarize Apple&amp;#8217;s event on education in Chicago from the previous week.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, Michael and Alex succinctly summarize Apple&amp;#8217;s event on education in Chicago from the previous week. In addition to new classroom specific software enhancements for iOS, a new iPad was introduced, in addition to a new $50 crayon stylus made by Logitech. At the tail end of the podcast, we follow up on last week&amp;#8217;s conversation with an update on the Facebook/Cambridge Analytica debacle and the first state-level lawsuit.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E131-A-Crayon-for-Your-iPad.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E131-A-Crayon-for-Your-iPad.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Learn Something About “Learn Me Something”</title>
@@ -1383,7 +1383,7 @@ Download: Episode 45: Learn Something About &amp;#8220;Learn Me Something&amp;#8
       <itunes:title>Learn Me Something Learn Something About “Learn Me Something”</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron, Rich, and Alex take a breather to gather their thoughts over the Easter weekend to reflect on the past 45 episodes, and do a little Q&amp;amp;A so that you can learn more about who they are.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron, Rich, and Alex take a breather to gather their thoughts over the Easter weekend to reflect on the past 45 episodes, and do a little Q&amp;amp;A so that you can learn more about who they are.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/Learn-Me-Something-Team-e1522393604788.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/Learn-Me-Something-Team-e1522393604788.jpg"/>
     </item>
     <item>
       <title>The Impromptu Cambridge Analytica: So What Now?</title>
@@ -1445,7 +1445,7 @@ Download: Episode 130: Cambridge Analytica: So What Now?
       <itunes:title>The Impromptu Cambridge Analytica: So What Now?</itunes:title>
       <itunes:subtitle>Synopsis: What are your limits with what you&amp;#8217;re willing to tolerate as far as data collection on your life is concerned?</itunes:subtitle>
       <itunes:summary>Synopsis: What are your limits with what you&amp;#8217;re willing to tolerate as far as data collection on your life is concerned? Do you realize that your political views can be influenced on social media platforms like Facebook? No? Well, you&amp;#8217;d be wrong, because it is. This week on the podcast, we dive into the Cambridge Analytica/Facebook privacy breach, affecting millions of Facebook users. Cambridge Analytica, a political consulting firm which combines data mining, data brokerage, and data analysis with strategic communication for the electoral process, has been outed as using millions of American&amp;#8217;s data to skew their political views during the 2016 Federal election.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E130-Cambridge-Analytica-What-Now.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E130-Cambridge-Analytica-What-Now.jpg"/>
     </item>
     <item>
       <title>Covered S4E8 – Lisa Lueddecke, A SHIVER OF SNOW AND SKY</title>
@@ -1533,7 +1533,7 @@ Download: Episode S4E8: Lisa Lueddecke, A SHIVER OF SNOW AND SKY
       <itunes:title>Covered S4E8 – Lisa Lueddecke, A SHIVER OF SNOW AND SKY</itunes:title>
       <itunes:subtitle>Synopsis: Author Lisa Lueddecke discusses her Young Adult fantasy novel, A SHIVER OF SNOW AND SKY, the origins of its fairy tale-esque story, what draws her to the Young Adult demographic, writing three-dimensional characters, successfully juggling …</itunes:subtitle>
       <itunes:summary>Synopsis: Author Lisa Lueddecke discusses her Young Adult fantasy novel, A SHIVER OF SNOW AND SKY, the origins of its fairy tale-esque story, what draws her to the Young Adult demographic, writing three-dimensional characters, successfully juggling multiple POVs, and the necessity of enthusiastic beta readers.</itunes:summary>
-      <itunes:image>https://images.gr-assets.com/books/1503314049l/32602009.jpg</itunes:image>
+      <itunes:image href="https://images.gr-assets.com/books/1503314049l/32602009.jpg"/>
     </item>
     <item>
       <title>Learn Me Something What Are Dreams?</title>
@@ -1603,7 +1603,7 @@ Download: Episode 44: What Are Dreams?
       <itunes:title>Learn Me Something What Are Dreams?</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into how dreams work.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into how dreams work. We all have them, or do we? Can you remember yours and what do they really mean?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E44-What-Are-Dreams.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E44-What-Are-Dreams.jpg"/>
     </item>
     <item>
       <title>The Impromptu Apple’s Focus on Education</title>
@@ -1663,7 +1663,7 @@ Download: Episode 129: Apple&amp;#8217;s Focus on Education
       <itunes:title>The Impromptu Apple’s Focus on Education</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, we are focusing on how Apple is and will be doubling down on helping the education sector with technology.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, we are focusing on how Apple is and will be doubling down on helping the education sector with technology. On a broader note, what will the future hold for eBooks, iPads in the classroom, and cloud based software that can provide instant feedback to students and vice versa to teachers? Perhaps the future is already here and we just don&amp;#8217;t realize it yet.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E129-Apples-Focus-On-Education-300x200.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E129-Apples-Focus-On-Education-300x200.jpg"/>
     </item>
     <item>
       <title>Learn Me Something How Do Psilocybin “Magic” Mushrooms Work?</title>
@@ -1741,7 +1741,7 @@ Download: Episode 43: How Do Psilocybin Mushrooms Work?
       <itunes:title>Learn Me Something How Do Psilocybin “Magic” Mushrooms Work?</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into how psilocybin &amp;#8220;magic&amp;#8221; mushrooms work.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into how psilocybin &amp;#8220;magic&amp;#8221; mushrooms work.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E43-How-Do-Psilocybin-Magic-Mushrooms-Work.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E43-How-Do-Psilocybin-Magic-Mushrooms-Work.jpg"/>
     </item>
     <item>
       <title>The Impromptu Do Government Run Postal Services Suck?</title>
@@ -1793,7 +1793,7 @@ Download: Episode 128: Do Government Run Postal Services Suck?
       <itunes:title>The Impromptu Do Government Run Postal Services Suck?</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, we put forth a question: Do government run postal services suck?</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, we put forth a question: Do government run postal services suck? If so, how are they adapting to changes in technology and consumer behaviour? And what happens when Amazon, the largest online retailer, stops using USPS and Canada Post for delivering packages?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E128-Do-Government-Run-Postal-Services-Suck.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E128-Do-Government-Run-Postal-Services-Suck.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Mass Shootings Explained</title>
@@ -1865,7 +1865,7 @@ Download: Episode 42: Mass Shootings Explained
       <itunes:title>Learn Me Something Mass Shootings Explained</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the timely and relevant topic of mass shootings.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the timely and relevant topic of mass shootings. Using our research, we try to understand the overall cause behind them, how they can be prevented, and what countries suffer the worst from these tragedies. Is the United States the only country that has mass shootings? How do other countries handle gun control and regulation? These questions are answered and many more.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E42-Mass-Shootings-Explained.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E42-Mass-Shootings-Explained.jpg"/>
     </item>
     <item>
       <title>The Impromptu Everything Is 4K?</title>
@@ -1927,7 +1927,7 @@ Download: Episode 127: Everything Is 4K?
       <itunes:title>The Impromptu Everything Is 4K?</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, the Samsung Galaxy S9 launches; we discuss the innovative new camera design and why it matters, the less than stellar new 960FPS camera mode, the affordable 4K TV future is here, and Microsoft unleashes a really n…</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, the Samsung Galaxy S9 launches; we discuss the innovative new camera design and why it matters, the less than stellar new 960FPS camera mode, the affordable 4K TV future is here, and Microsoft unleashes a really nice update to Xbox One X.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E127-Everything-Is-4K.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E127-Everything-Is-4K.jpg"/>
     </item>
     <item>
       <title>Learn Me Something The Pyramids</title>
@@ -2009,7 +2009,7 @@ Download: Episode 41: The Pyramids
       <itunes:title>Learn Me Something The Pyramids</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the great pyramids of Egypt.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the great pyramids of Egypt. The question eluding scientists for centuries: how the heck were they built? There are many theories—some of which are plausible—but we don&amp;#8217;t completely know all the answers.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E41-The-Pyramids-Promo.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E41-The-Pyramids-Promo.jpg"/>
     </item>
     <item>
       <title>The Impromptu Apple’s Favourite Marzipan</title>
@@ -2065,7 +2065,7 @@ Download: Episode 126: Apple&amp;#8217;s Favourite Marzipan
       <itunes:title>The Impromptu Apple’s Favourite Marzipan</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, we discuss Mark Gurman&amp;#8217;s scoop on how Apple is planning on unifying the macOS and iOS development platforms, similar to what Microsoft has attempted in the past.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, we discuss Mark Gurman&amp;#8217;s scoop on how Apple is planning on unifying the macOS and iOS development platforms, similar to what Microsoft has attempted in the past. The idea: code once, deploy everywhere. Will this reinvigorate developer interest in the Mac again and breathe new life into the Mac App Store? Only time will tell.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The.Impromptu.E126-Apples-Favourite-Marzipan.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The.Impromptu.E126-Apples-Favourite-Marzipan.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Understanding Pornography</title>
@@ -2133,7 +2133,7 @@ Download: Episode 40: Understanding Pornography
       <itunes:title>Learn Me Something Understanding Pornography</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve the origins of pornography and ask the existential question of the century: is it bad for you?</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve the origins of pornography and ask the existential question of the century: is it bad for you?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E40-Understanding-Pornography.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E40-Understanding-Pornography.jpg"/>
     </item>
     <item>
       <title>The Impromptu Deconstructing Smart Speakers</title>
@@ -2195,7 +2195,7 @@ Download: Episode 125: Deconstructing Smart Speakers
       <itunes:title>The Impromptu Deconstructing Smart Speakers</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, a deconstruction of what a smart speaker is, how they work, and which one you should buy, if any.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, a deconstruction of what a smart speaker is, how they work, and which one you should buy, if any.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The.Impromptu.E125-Deconstructing-Smart-Speakers.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The.Impromptu.E125-Deconstructing-Smart-Speakers.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Light Itself</title>
@@ -2277,7 +2277,7 @@ Download: Episode 39: Light Itself
       <itunes:title>Learn Me Something Light Itself</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve light itself.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve light itself. How exactly does light work and do we all see it the same way?</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E39-Light-Itself.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E39-Light-Itself.jpg"/>
     </item>
     <item>
       <title>The Impromptu The Butterfly Keyboard Effect</title>
@@ -2341,7 +2341,7 @@ Download: Episode 124: The Butterfly Keyboard Effect
       <itunes:title>The Impromptu The Butterfly Keyboard Effect</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, we&amp;#8217;ve got a fresh sounding and shorter intro for you (we hope you like it).</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, we&amp;#8217;ve got a fresh sounding and shorter intro for you (we hope you like it). Michael caves and buys a second generation butterfly style keyboard MacBook Pro, discusses the merits of it, and Microsoft Windows 10 isn&amp;#8217;t that bad to use (there&amp;#8217;s a ton of cool stuff coming in future creator updates).</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E124-The-Butterfly-Keyboard-Effect.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E124-The-Butterfly-Keyboard-Effect.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Sexual Assault</title>
@@ -2427,7 +2427,7 @@ Download: Episode 38: Sexual Assault
       <itunes:title>Learn Me Something Sexual Assault</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the timely, yet regrettably horrifying topic of sexual assault.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the timely, yet regrettably horrifying topic of sexual assault. Where does it come from? What perpetuates it? When you look at statistics, the number of people who experience sexual assault is staggering, and often times the act is committed by someone close to you. In this episode, Rich and Aaron unpack this seemingly unsurmountable and insidious problem in society.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E38-Sexual-Assault.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E38-Sexual-Assault.jpg"/>
     </item>
     <item>
       <title>The Impromptu YouTube Tackles Conspiracies</title>
@@ -2485,7 +2485,7 @@ Download: Episode 123: YouTube Tackles Conspiracies
       <itunes:title>The Impromptu YouTube Tackles Conspiracies</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, we&amp;#8217;re here to tell you that the moon is really green and it&amp;#8217;s made of cheese.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, we&amp;#8217;re here to tell you that the moon is really green and it&amp;#8217;s made of cheese. That&amp;#8217;s right, everything you know about the moon is a lie. No, just kidding. Last year Facebook got a lot of flack for not doing anything to stave off the deluge of Russian propaganda and fake news in general, and now they&amp;#8217;ve finally decided to do something about it. And now YouTube is finally doing something about this too. This week, YouTube announced they&amp;#8217;re going to be making changes, sort of similar to what Facebook is doing, to flag content that could be considered conspiracy theories or propaganda of some kind. Is this a good thing? Most certainly yes, but it doesn&amp;#8217;t fully solve the problem. We get into that discussion and more, including an update on Nintendo Labo. Stay tuned for that, that&amp;#8217;s coming up next on The Impromptu.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/yt_logo_rgb_light.png</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/yt_logo_rgb_light.png"/>
     </item>
     <item>
       <title>Learn Me Something The Doomsday Clock</title>
@@ -2561,7 +2561,7 @@ Download: Episode 37: The Doomsday Clock
       <itunes:title>Learn Me Something The Doomsday Clock</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the ominous sounding topic of &amp;#8220;The Doomsday Clock.&amp;#8221;</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into the ominous sounding topic of &amp;#8220;The Doomsday Clock.&amp;#8221;</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E37-The-Doomsday-Clock.png</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E37-The-Doomsday-Clock.png"/>
     </item>
     <item>
       <title>The Impromptu Springtime for iOS 11</title>
@@ -2623,7 +2623,7 @@ Download: Episode 122: Springtime for iOS 11
       <itunes:title>The Impromptu Springtime for iOS 11</itunes:title>
       <itunes:subtitle>Synopsis: This week on the podcast, it&amp;#8217;s springtime for iOS.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on the podcast, it&amp;#8217;s springtime for iOS. Yes, it&amp;#8217;s time to cleanup some bugs and introduce some new features. Apple announced iOS 11.3, which is coming out in the spring. One of the major new features are the UI updates to enhance battery performance monitoring, an option to disable battery throttling, iMessages are finally going to sync with iCloud, iMessages gets an update for business, and the HomePod is available for preorder (but not in Canada and many other countries).</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/The-Impromptu-E122-Springtime-for-iOS-11.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/The-Impromptu-E122-Springtime-for-iOS-11.jpg"/>
     </item>
     <item>
       <title>Learn Me Something Phobias</title>
@@ -2685,7 +2685,7 @@ Download: Episode 36: Phobias
       <itunes:title>Learn Me Something Phobias</itunes:title>
       <itunes:subtitle>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into what phobias are, how they&amp;#8217;re developed, and the scientific research behind how they can be embedded in our genes.</itunes:subtitle>
       <itunes:summary>Synopsis: This week on &amp;#8220;Learn Me Something,&amp;#8221; Aaron and Rich delve into what phobias are, how they&amp;#8217;re developed, and the scientific research behind how they can be embedded in our genes. The fact is, many of us have strong, even uncontrollable fear reactions to harmless (or just slightly threatening) things. These reactions are uncomfortable and may even disrupt our lives. These reactions are called phobias.</itunes:summary>
-      <itunes:image>https://hologramradio.org/images/LMS-E36-Phobias.jpg</itunes:image>
+      <itunes:image href="https://hologramradio.org/images/LMS-E36-Phobias.jpg"/>
     </item>
   </channel>
 </rss>
