@@ -196,7 +196,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.type` (optional) maps to `itunes:type`.  Defaults to `episodic` (newest first).  The other option is `serial` (oldest first). [Details][bp].
 - `_itunes.complete` (optional) maps to `itunes:complete`.  Defaults to null.  Tells podcast clients to stop updating this feed ️️️forever. ⚠️
 - `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the feed from being added to Apple's podcast directory.  Helpful for private or customer specific feeds.
-- `_itunes.new_feed_url` (optional) maps to `itunes:new-feed-url`.  Used for moving feeds from an old url to a new url.  When generating `next_url` (the next n older feed items), you could generate the converse url for the previous (newer) n items and store it here.
+- `_itunes.new_feed_url` (optional) maps to `itunes:new-feed-url`.  Used for moving feeds from an old url to a new url. See https://podcasters.apple.com/support/837-change-the-rss-feed-url for more details.
 - `_itunes.author` (mapped) maps to `itunes:author`.  Defaults to `author.name`.
 - `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated `description` rss field.
 - `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `itunes:summary`.
