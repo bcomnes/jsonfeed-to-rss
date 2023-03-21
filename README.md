@@ -274,7 +274,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 [4]: https://img.shields.io/travis/bcomnes/jsonfeed-to-rss/master.svg?style=flat-square
 [5]: https://travis-ci.org/bcomnes/jsonfeed-to-rss
 [8]: http://img.shields.io/npm/dm/jsonfeed-to-rss.svg?style=flat-square
-[9]: https://npmjs.org/package/jsonfeed-to-rss
+[9]: https://npmtrends.com/jsonfeed-to-atom
 [10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [11]: https://github.com/feross/standard
 [12]: https://img.shields.io/coveralls/bcomnes/jsonfeed-to-rss/master.svg?style=flat-square
