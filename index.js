@@ -1,4 +1,3 @@
-
 /**
  * Converts a parsed JSON feed to an rss feed document
  * @module jsonfeed-to-rss
