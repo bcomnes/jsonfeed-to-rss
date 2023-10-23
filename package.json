@@ -24,7 +24,7 @@
     "@tap-format/spec": "^0.2.0",
     "auto-changelog": "^2.2.0",
     "budo": "^11.2.2",
-    "cpx2": "^5.0.0",
+    "cpx2": "^6.0.0",
     "dependency-check": "^4.1.0",
     "gh-release": "^7.0.0",
     "npm-run-all": "^4.1.3",
