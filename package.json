@@ -14,7 +14,7 @@
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "podcast-categories": "^2.0.0",
-    "sentence-splitter": "^4.0.2",
+    "sentence-splitter": "^5.0.0",
     "striptags": "^3.2.0",
     "trim-left": "^1.0.1",
     "trim-right": "^1.0.1",
