@@ -8,11 +8,11 @@
 
 If there is more than one paragraph, it gets truncated in some contexts.</description>
     <language>en-us</language>
-    <copyright>© 2023 Bret Comnes</copyright>
+    <copyright>© 2024 Bret Comnes</copyright>
     <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
     <category>News</category>
     <category>Politics</category>
-    <generator>jsonfeed-to-rss 3.0.7 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
+    <generator>jsonfeed-to-rss 3.0.8 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <image>
       <url>https://jsonfeed-to-rss.netlify.com/icon-512x512.png</url>
