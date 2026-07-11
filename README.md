@@ -11,6 +11,7 @@ The package supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best
 ## Installation
 
 This package is ESM-only and requires Node.js 20 or newer.
+See the [migration guide](MIGRATION.md) when upgrading from the CommonJS and JSON Feed 1.0 release.
 
 ```console
 $ npm install jsonfeed-to-rss
