@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node }}
+        package-manager-cache: false
     - run: npm i
     - run: npm test --color=always
 
