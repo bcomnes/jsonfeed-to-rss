@@ -91,6 +91,16 @@ The generated input type restricts `version` to `https://jsonfeed.org/version/1.
 
 The converter additionally requires `feed_url` and `home_page_url` because both values are needed to create the RSS channel and self link.
 
+Schema and converter input types can be imported from the open type module:
+
+```ts
+import type {
+  JSONFeed,
+  JSONFeedWithExtensions,
+  JsonFeedToRSSOptions
+} from 'jsonfeed-to-rss/types.js'
+```
+
 No TypeScript configuration changes should be necessary for consumers already using Node.js ESM resolution.
 If TypeScript cannot resolve the package, use a current `node16`, `nodenext`, or `bundler` module resolution mode.
 
@@ -104,13 +114,14 @@ Feed-level and item-level author fallbacks now prefer `authors[0].name` before t
 
 ## Direct object conversion
 
-Code that imports the lower-level object converter should use the exported subpath:
+Code that imports the lower-level object converter should include the file extension:
 
 ```js
-import jsonfeedToRSSObject from 'jsonfeed-to-rss/jsonfeed-to-rss-object'
+import jsonfeedToRSSObject from 'jsonfeed-to-rss/jsonfeed-to-rss-object.js'
 ```
 
-Undeclared deep imports are no longer supported because the package now defines an explicit export map.
+The package intentionally does not define an export map, so published deep imports remain open.
+Only the documented entry points are considered part of the supported public API.
 
 ## Release impact
 

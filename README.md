@@ -152,6 +152,16 @@ mihi arcum fore nitidam; in dixit de simul.</p>]]>
 Converts a parsed JSON Feed 1.1 document into an RSS feed and returns the RSS XML string.
 The package includes TypeScript declarations generated from the [SchemaStore JSON Feed 1.1 schema](https://www.schemastore.org/feed.json) with `json-schema-to-typescript`.
 
+Schema and converter input types are available from the open `types.js` subpath:
+
+```ts
+import type {
+  JSONFeed,
+  JSONFeedWithExtensions,
+  JsonFeedToRSSOptions
+} from 'jsonfeed-to-rss/types.js'
+```
+
 Opts include:
 
 ```js
