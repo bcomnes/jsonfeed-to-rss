@@ -1,0 +1,53 @@
+name: Version and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-type:
+        description: 'Version type'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - custom
+        default: 'patch'
+        required: true
+      new-version:
+        description: 'Custom version (only used when version-type is "custom")'
+        required: false
+
+env:
+  FORCE_COLOR: 3
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: npm-bump
+  cancel-in-progress: true
+
+jobs:
+  version_and_release:
+    runs-on: ubuntu-latest
+    outputs:
+      tagName: ${{ steps.npm-bump.outputs.release-tag }}
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        fetch-depth: 0
+    - name: Use Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version-file: package.json
+    - run: npm i
+    - run: npm test
+    - name: Version and publish to npm
+      id: npm-bump
+      uses: bcomnes/npm-bump@v3
+      with:
+        version-type: ${{ github.event.inputs['version-type'] }}
+        new-version: ${{ github.event.inputs['new-version'] }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: echo ${{ steps.npm-bump.outputs['release-tag'] }}

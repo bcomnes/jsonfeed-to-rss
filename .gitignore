@@ -1,7 +1,16 @@
 node_modules
-coverage
-.nyc_output
-.vscode
-build
-package-lock.json
 sandbox.js
+.nyc_output
+package-lock.json
+.claude
+public
+coverage
+lcov.info
+.tap
+build
+.vscode
+
+# Generated declaration builds
+*.d.ts
+*.d.ts.map
+!lib/*-types.d.ts

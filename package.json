@@ -1,40 +1,48 @@
 {
   "name": "jsonfeed-to-rss",
-  "description": "Convert a JSON feed to an rss feed",
+  "description": "Convert a JSON Feed 1.1 document to RSS",
   "version": "3.0.8",
   "author": "Bret Comnes <bcomnes@gmail.com> (https://bret.io)",
   "bugs": {
     "url": "https://github.com/bcomnes/jsonfeed-to-rss/issues"
   },
   "dependencies": {
-    "@bret/truthy": "^1.0.1",
-    "add-zero": "^1.0.0",
-    "clean-deep": "^3.0.2",
-    "existy": "^1.0.1",
+    "clean-deep": "^3.4.0",
     "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.1",
+    "lodash.merge": "^4.6.2",
     "podcast-categories": "^2.0.0",
-    "sentence-splitter": "^5.0.0",
+    "sentence-splitter": "^5.0.1",
     "striptags": "^3.2.0",
-    "trim-left": "^1.0.1",
-    "trim-right": "^1.0.1",
     "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {
-    "@tap-format/spec": "^0.2.0",
-    "auto-changelog": "^2.2.0",
-    "budo": "^11.2.2",
-    "cpx2": "^8.0.0",
-    "dependency-check": "^4.1.0",
-    "gh-release": "^7.0.0",
-    "npm-run-all": "^4.1.3",
-    "nyc": "^17.0.0",
-    "sitedown": "^5.0.0",
-    "snazzy": "^9.0.0",
-    "standard": "^17.0.0",
-    "tape": "^5.0.1"
+    "@types/lodash.get": "^4.4.9",
+    "@types/lodash.merge": "^4.6.9",
+    "@types/node": "^26.0.0",
+    "@voxpelli/tsconfig": "^16.1.0",
+    "json-schema-to-typescript": "^15.0.4",
+    "neostandard": "^0.13.0",
+    "npm-run-all2": "^9.0.0",
+    "releasearoni": "^0.2.0",
+    "typescript": "~6.0.3"
   },
-  "homepage": "https://github.com/bcomnes/jsonfeed-to-rss#readme",
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "default": "./index.js"
+    },
+    "./jsonfeed-to-rss-object": {
+      "types": "./jsonfeed-to-rss-object.d.ts",
+      "import": "./jsonfeed-to-rss-object.js",
+      "default": "./jsonfeed-to-rss-object.js"
+    }
+  },
+  "homepage": "https://github.com/bcomnes/jsonfeed-to-rss",
   "keywords": [
     "atom",
     "json",
@@ -42,32 +50,42 @@
     "rss",
     "xml"
   ],
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "index.d.ts.map",
+    "jsonfeed-to-rss-object.js",
+    "jsonfeed-to-rss-object.d.ts",
+    "jsonfeed-to-rss-object.d.ts.map",
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "lib/**/*.d.ts.map",
+    "CHANGELOG.md"
+  ],
   "license": "MIT",
+  "type": "module",
+  "module": "index.js",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bcomnes/jsonfeed-to-rss.git"
+    "url": "https://github.com/bcomnes/jsonfeed-to-rss.git"
   },
   "scripts": {
-    "build": "run-s clean && run-p build:*",
-    "build:md": "sitedown . -b build/ -l layout.html",
-    "build:static": "cpx '{snapshots,reference}/*' 'build'",
-    "clean": "rm -rf build && mkdir -p build",
-    "debug": "node --nolazy --inspect-brk=9229 node_modules/.bin/tape 'test.js'",
-    "prepublishOnly": "git push --follow-tags && gh-release -y",
-    "start": "run-s watch",
-    "test": "run-s test:*",
-    "test:deps": "dependency-check package.json --missing --unused --no-dev",
-    "test:lint": "standard --verbose | snazzy",
-    "test:tape": "nyc --reporter=lcov tape 'test.js' | tap-format-spec",
-    "update": "node generate-snapshot.js",
-    "version": "run-s version:*",
-    "version:changelog": "auto-changelog -p --template keepachangelog auto-changelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md",
-    "version:snapshots": "npm run update && git add snapshots",
-    "watch": "run-s clean && run-p watch:*",
-    "watch:dir": "budo -d build --live --open",
-    "watch:md": "run-s build:md -- --watch",
-    "watch:static": "run-s build:static -- --watch"
+    "prepublishOnly": "releasearoni",
+    "postpublish": "npm run clean",
+    "test": "npm run build:json-feed-types && run-s test:*",
+    "test:lint": "eslint",
+    "test:tsc": "tsc",
+    "test:node-test": "node --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=lcov.info --test",
+    "version": "releasearoni version",
+    "build": "npm run clean && run-s build:json-feed-types build:declaration",
+    "build:json-feed-types": "node scripts/generate-json-feed-types.js",
+    "build:declaration": "tsc -p declaration.tsconfig.json",
+    "clean": "run-p clean:*",
+    "clean:declarations-top": "rm -rf $(find . -maxdepth 1 -type f -name '*.d.ts*')",
+    "clean:declarations-lib": "rm -rf $(find lib -type f -name '*.d.ts*' ! -name '*-types.d.ts')",
+    "clean:coverage": "rm -rf coverage lcov.info"
   },
   "funding": {
     "type": "individual",

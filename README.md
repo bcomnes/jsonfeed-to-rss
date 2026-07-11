@@ -1,12 +1,17 @@
 # jsonfeed-to-rss
 [![npm version][2]][3] [![build status][4]][5]
-[![downloads][8]][9] [![js-standard-style][10]][11]
+[![downloads][8]][9] [![neostandard JavaScript style][10]][11]
 
-Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.
+Convert a [JSON Feed 1.1](https://www.jsonfeed.org/version/1.1/) document to an RSS feed ([RSS 2.0.11][rss]).
+JSON Feed 1.0 and non-standard version URLs are rejected.
+The package supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.
 
 ![JSON feed icon](/reference/icon.png)
 
 ## Installation
+
+This package is ESM-only and requires Node.js 20 or newer.
+
 ```console
 $ npm install jsonfeed-to-rss
 ```
@@ -14,28 +19,30 @@ $ npm install jsonfeed-to-rss
 ## Usage
 
 ```js
-const jsonfeedToRSS = require('jsonfeed-to-rss')
-const someJSONFeed = require('./load-some-json-feed-data.json')
+import jsonfeedToRSS from 'jsonfeed-to-rss'
+import someJSONFeed from './load-some-json-feed-data.json' with { type: 'json' }
 
-const rssFeed = jsonfeedToRSS(someJSONFeed) // Returns an rss 2.0.11 formatted json feed
+const rssFeed = jsonfeedToRSS(someJSONFeed) // Returns an RSS 2.0 XML string
 ```
 
 Example input:
 
 ```json
 {
-  "version":"https://jsonfeed.org/version/1",
+  "version":"https://jsonfeed.org/version/1.1",
   "title":"bret.io log",
   "home_page_url":"https://jsonfeed-to-rss.netlify.com",
   "feed_url":"https://jsonfeed-to-rss.netlify.com/snapshots/readme-feed.json",
   "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
   "next_url":"https://jsonfeed-to-rss.netlify.com/snapshots/2017.json",
   "icon":"https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
-  "author":{
-     "name":"Bret Comnes",
-     "url":"https://bret.io",
-     "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
-  },
+  "authors":[
+    {
+      "name":"Bret Comnes",
+      "url":"https://bret.io",
+      "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
+    }
+  ],
   "_itunes":{
      "about":"https://github.com/bcomnes/jsonfeed-to-rss#itunes",
      "owner": {
@@ -137,8 +144,10 @@ mihi arcum fore nitidam; in dixit de simul.</p>]]>
 
 ## API
 
-### `jsonfeedToRSS(parsedJsonfeed, opts)`
-Coverts a parsed JSON feed into an RSS feed.  Returns the string of the rss feed.
+### `jsonfeedToRSS(parsedJsonFeed, options)`
+
+Converts a parsed JSON Feed 1.1 document into an RSS feed and returns the RSS XML string.
+The package includes TypeScript declarations generated from the [SchemaStore JSON Feed 1.1 schema](https://www.schemastore.org/feed.json) with `json-schema-to-typescript`.
 
 Opts include:
 
@@ -147,7 +156,7 @@ Opts include:
   // a function that returns the rss feed url
   feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '-rss.xml'),
   language: 'en-us',
-  copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
+  copyright: `© ${now.getFullYear()} ${jf.authors?.[0]?.name ?? ''}`,
   managingEditor,
   webMaster,
   idIsPermalink: false, // if guid is the permalink, you can set this true
@@ -165,7 +174,8 @@ There is only one mapping implemented between jsonfeed and RSS:
 
 ### Items
 
-- `item.author.name || jf.author.name` (recommended) maps to `dc:creator`.
+- `item.authors[0].name || jf.authors[0].name` (recommended) maps to `dc:creator`.
+- The deprecated JSON Feed 1.1 `author` compatibility field remains a fallback.
 
 ## [RDF Site Summary Extensions][content]
 
@@ -180,7 +190,8 @@ The `content:encoded` field is used to store an `html` representation of content
 
 If the `itunes` option is set to `true` (or if the `jsonfeed._itunes` extension object is included in the jsonfeed) the resulting RSS feed will include as many itunes extension tags as possible.  You can override/set `_itunes` extension fields from the `opts.itunes` object.
 
-All `_itunes.property` map directly to the RSS `itunes:property` extensions, but most have default mappings to standard JSONFeed properties. Its better to rely on the [default JSONFeed fields](https://jsonfeed.org/version/1), but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.
+All `_itunes.property` values map directly to the RSS `itunes:property` extensions, but most have default mappings to standard JSON Feed properties.
+It is better to rely on the [default JSON Feed 1.1 fields](https://www.jsonfeed.org/version/1.1/), but you can override these mappings by including explicit `_itunes` extension properties in your JSON Feed.
 
 - There are a few extension fields that SHOULD be included, but dont map well.  These are marked as (recommended).
 - There are fields that dont have a mapping that are definitely optional but CAN be included. These are marked as (optional).
@@ -197,10 +208,10 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.complete` (optional) maps to `itunes:complete`.  Defaults to null.  Tells podcast clients to stop updating this feed ️️️forever. ⚠️
 - `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the feed from being added to Apple's podcast directory.  Helpful for private or customer specific feeds.
 - `_itunes.new_feed_url` (optional) maps to `itunes:new-feed-url`.  Used for moving feeds from an old url to a new url. See https://podcasters.apple.com/support/837-change-the-rss-feed-url for more details.
-- `_itunes.author` (mapped) maps to `itunes:author`.  Defaults to `author.name`.
+- `_itunes.author` (mapped) maps to `itunes:author`.  Defaults to `authors[0].name`.
 - `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated `description` rss field.
 - `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `itunes:summary`.
-- `_itunes.owner.name` (mapped) maps to `itunes:owner.itunes:name`.  Defaults to `author.name`.
+- `_itunes.owner.name` (mapped) maps to `itunes:owner.itunes:name`.  Defaults to `authors[0].name`.
 
 ### Items
 
@@ -211,7 +222,7 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 - `_itunes.is_closed_captioned` (optional) maps to `itunes:isClosedCaptioned`.
 - `_itunes.explicit` (optional) maps to `itunes:explicit`.  Defaults to null.
 - `_itunes.title` (mapped) maps to `itunes:title`.  Falls back to `item.title` and then the `generateTitle` function.
-- `_itunes.author` (mapped) maps to `itunes:author`.  Falls back to `author.name || jf._itunes.author || jf.author.name`.
+- `_itunes.author` (mapped) maps to `itunes:author`.  Falls back to `item.authors[0].name || jf._itunes.author || jf.authors[0].name`.
 - `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `_itunes.summary`.
 - `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated plaintext description of the item.
 - `_itunes.duration` (mapped) maps to `itunes:duration`. Defaults to `attachment.duration_in_seconds` formatted as HH:MM:SS.
@@ -275,8 +286,8 @@ All `_itunes.property` map directly to the RSS `itunes:property` extensions, but
 [5]: https://github.com/bcomnes/jsonfeed-to-rss/actions/workflows/test.yml
 [8]: http://img.shields.io/npm/dm/jsonfeed-to-rss.svg?style=flat-square
 [9]: https://npmtrends.com/jsonfeed-to-atom
-[10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
-[11]: https://github.com/feross/standard
+[10]: https://img.shields.io/badge/code%20style-neostandard-brightgreen.svg?style=flat-square
+[11]: https://github.com/neostandard/neostandard
 [12]: https://img.shields.io/coveralls/bcomnes/jsonfeed-to-rss/master.svg?style=flat-square
 [13]: https://coveralls.io/github/bcomnes/jsonfeed-to-rss
 [rss]: http://www.rssboard.org/rss-specification

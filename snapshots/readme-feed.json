@@ -1,16 +1,18 @@
 {
-  "version":"https://jsonfeed.org/version/1",
+  "version":"https://jsonfeed.org/version/1.1",
   "title":"jsonfeed-to-rss feed",
   "home_page_url":"https://jsonfeed-to-rss.netlify.com",
   "feed_url":"https://jsonfeed-to-rss.netlify.com/snapshots/readme-feed.json",
   "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
   "next_url":"https://jsonfeed-to-rss.netlify.com/snapshots/2017.json",
   "icon":"https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
-  "author":{
-     "name":"Bret Comnes",
-     "url":"https://bret.io",
-     "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
-  },
+  "authors":[
+    {
+      "name":"Bret Comnes",
+      "url":"https://bret.io",
+      "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
+    }
+  ],
   "_itunes":{
      "about":"https://github.com/bcomnes/jsonfeed-to-rss#itunes",
      "owner": {
