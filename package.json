@@ -7,18 +7,14 @@
     "url": "https://github.com/bcomnes/jsonfeed-to-rss/issues"
   },
   "dependencies": {
-    "clean-deep": "^3.4.0",
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.2",
+    "html-to-text": "^10.0.0",
     "podcast-categories": "^2.0.0",
     "sentence-splitter": "^5.0.1",
-    "striptags": "^3.2.0",
-    "xmlbuilder": "^15.1.1"
+    "xmlbuilder2": "^4.0.3"
   },
   "devDependencies": {
-    "@types/lodash.get": "^4.4.9",
-    "@types/lodash.merge": "^4.6.9",
-    "@types/node": "^26.0.0",
+    "@types/html-to-text": "^9.0.4",
+    "@types/node": "^20.19.0",
     "@voxpelli/tsconfig": "^16.1.0",
     "json-schema-to-typescript": "^15.0.4",
     "neostandard": "^0.13.0",
@@ -27,8 +23,20 @@
     "typescript": "~6.0.3"
   },
   "engines": {
-    "node": ">=20",
+    "node": ">=20.19",
     "npm": ">=10"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11",
+      "onFail": "error"
+    }
   },
   "exports": {
     ".": {

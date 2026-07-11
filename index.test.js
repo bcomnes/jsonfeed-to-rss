@@ -3,7 +3,9 @@ import { readFileSync } from 'node:fs'
 import test from 'node:test'
 import jsonfeedToRSS from './index.js'
 import jsonfeedToRSSObject from './jsonfeed-to-rss-object.js'
+import cleanDeep from './lib/clean-deep.js'
 import generateTitle from './lib/generate-title.js'
+import htmlToPlainText from './lib/html-to-plain-text.js'
 
 const extendedFeed = readJSON('./snapshots/extended-feed.json')
 const readmeFeed = readJSON('./snapshots/readme-feed.json')
@@ -101,6 +103,50 @@ test('generateTitle', () => {
   assert.equal(generateTitle(missingText), 'yo')
 
   assert.throws(() => generateTitle({}), /can't generate a title/)
+})
+
+test('converts HTML to readable plain text', () => {
+  assert.equal(
+    htmlToPlainText('<p>&#8220;Hi&#8221; <a href="https://example.com">there</a><img src="image.jpg"></p>'),
+    '“Hi” there'
+  )
+})
+
+test('removes empty nested values without removing meaningful falsy values', () => {
+  assert.deepEqual(
+    cleanDeep({
+      emptyString: '',
+      emptyArray: [null, '', {}],
+      nested: { empty: undefined, value: 'kept' },
+      falseValue: false,
+      zero: 0,
+      notANumber: Number.NaN
+    }),
+    {
+      nested: { value: 'kept' },
+      falseValue: false,
+      zero: 0,
+      notANumber: Number.NaN
+    }
+  )
+})
+
+test('merges partial iTunes owner options', () => {
+  const rss = jsonfeedToRSSObject({
+    version: 'https://jsonfeed.org/version/1.1',
+    title: 'A podcast',
+    home_page_url: 'https://example.com',
+    feed_url: 'https://example.com/feed.json',
+    items: [],
+    _itunes: { owner: { name: 'Owner name' } }
+  }, {
+    itunes: { owner: { email: 'owner@example.com' } }
+  })
+
+  assert.deepEqual(rss['rss'].channel['itunes:owner'], {
+    'itunes:name': 'Owner name',
+    'itunes:email': 'owner@example.com'
+  })
 })
 
 test('object snapshot', () => {

@@ -10,7 +10,7 @@ The package supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best
 
 ## Installation
 
-This package is ESM-only and requires Node.js 20 or newer.
+This package is ESM-only and requires Node.js 20.19 or newer.
 See the [migration guide](MIGRATION.md) when upgrading from the CommonJS and JSON Feed 1.0 release.
 
 ```console
@@ -118,9 +118,11 @@ If there is more than one paragraph, it gets truncated in some contexts.</descri
       <link>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post</link>
       <dc:creator>Bret Comnes</dc:creator>
       <description>Curam ad aut hactenus dentes cedere vigil
+
+
 Non Clitorio vertitur cavatur
-Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te
-mihi arcum fore nitidam; in dixit de simul.</description>
+
+Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te mihi arcum fore nitidam; in dixit de simul.</description>
       <content:encoded>
         <![CDATA[<h1>Curam ad aut hactenus dentes cedere vigil</h1>
 <h2>Non Clitorio vertitur cavatur</h2>
@@ -185,7 +187,7 @@ The `content:encoded` field is used to store an `html` representation of content
 ### Items
 
 - `item.content_html` (recommended) maps to a `CDATA` encoded `content:encoded` node.
-- `item.content_text || striptags(item.content_html)` (recommended) maps to an escaped `description` node.  When creating an iTunes feed, description is truncated to 4000 characters.
+- `item.content_text || plainText(item.content_html)` (recommended) maps to an escaped `description` node. HTML entities are decoded while tags, image elements, and link destinations are removed. When creating an iTunes feed, description is truncated to 4000 characters.
 
 ## [iTunes Extensions][itunes]
 

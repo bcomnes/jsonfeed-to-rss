@@ -1,10 +1,8 @@
 import { createRequire } from 'node:module'
-import cleanDeep from 'clean-deep'
-import get from 'lodash.get'
-import merge from 'lodash.merge'
-import striptags from 'striptags'
+import cleanDeep from './lib/clean-deep.js'
 import { cleanCategory, cleanSubcategory } from './lib/clean-category.js'
 import generateTitle from './lib/generate-title.js'
+import htmlToPlainText from './lib/html-to-plain-text.js'
 import { getAuthorName } from './lib/json-feed-author.js'
 import {
   getPodcastType,
@@ -111,8 +109,8 @@ export function jsonfeedToRSSObject (jsonFeed, options) {
   }
 
   if (typeof opts.itunes === 'object') {
-    jf = merge({}, jf)
-    jf._itunes = merge(jf._itunes, opts.itunes)
+    jf = structuredClone(jf)
+    jf._itunes = mergeITunesData(jf._itunes, opts.itunes)
   }
 
   const {
@@ -150,7 +148,7 @@ export function jsonfeedToRSSObject (jsonFeed, options) {
     webMaster: opts.webMaster,
     pubDate: now.toUTCString(),
     category: opts.itunes && !opts.category
-      ? [get(jf, '_itunes.category'), get(jf, '_itunes.subcategory')]
+      ? [jf._itunes?.category, jf._itunes?.subcategory]
       : opts.category,
     generator: `${packageInfo.name} ${packageInfo.version} (${packageInfo.homepage})`,
     docs: 'https://www.rssboard.org/rss-specification',
@@ -167,23 +165,19 @@ export function jsonfeedToRSSObject (jsonFeed, options) {
   }
 
   if (opts.itunes) {
-    const category = /** @type {string | undefined} */ (
-      get(jf, '_itunes.category') || get(opts, 'category[0]')
-    )
-    const subcategory = /** @type {string | undefined} */ (
-      get(jf, '_itunes.subcategory') || get(opts, 'category[1]')
-    )
+    const category = jf._itunes?.category || opts.category?.[0]
+    const subcategory = jf._itunes?.subcategory || opts.category?.[1]
     Object.assign(rss, {
-      'itunes:author': get(jf, '_itunes.author') || getAuthorName(jf),
+      'itunes:author': jf._itunes?.author || getAuthorName(jf),
       'itunes:summary': getSummary(jf),
       'itunes:subtitle': getSubtitle(jf),
       'itunes:type': getPodcastType(jf),
       'itunes:owner': {
-        'itunes:name': get(jf, '_itunes.owner.name') || getAuthorName(jf),
-        'itunes:email': get(jf, '_itunes.owner.email')
+        'itunes:name': jf._itunes?.owner?.name || getAuthorName(jf),
+        'itunes:email': jf._itunes?.owner?.email
       },
       'itunes:image': {
-        '@href': get(jf, '_itunes.image') || jf.icon
+        '@href': jf._itunes?.image || jf.icon
       },
       'itunes:category': {
         '@text': cleanCategory(category),
@@ -191,13 +185,13 @@ export function jsonfeedToRSSObject (jsonFeed, options) {
           '@text': cleanSubcategory(category, subcategory)
         }
       },
-      'itunes:explicit': exists(get(jf, '_itunes.explicit'))
-        ? isTruthy(get(jf, '_itunes.explicit')) ? 'yes' : 'no'
+      'itunes:explicit': exists(jf._itunes?.explicit)
+        ? isTruthy(jf._itunes?.explicit) ? 'yes' : 'no'
         : null,
-      'itunes:block': get(jf, '_itunes.block') ? 'Yes' : null,
-      'itunes:complete': get(jf, '_itunes.complete') ? 'Yes' : null,
-      'itunes:new-feed-url': get(jf, '_itunes.new_feed_url')
-        ? opts.feedURLFn(/** @type {string} */ (get(jf, '_itunes.new_feed_url')), jf)
+      'itunes:block': jf._itunes?.block ? 'Yes' : null,
+      'itunes:complete': jf._itunes?.complete ? 'Yes' : null,
+      'itunes:new-feed-url': jf._itunes?.new_feed_url
+        ? opts.feedURLFn(jf._itunes.new_feed_url, jf)
         : null,
       description: truncate4k(rss['description']),
       title: truncate250(rss['title'])
@@ -221,7 +215,7 @@ export function jsonfeedToRSSObject (jsonFeed, options) {
         title,
         link: item.external_url || item.url,
         'dc:creator': getAuthorName(item) || getAuthorName(jf),
-        description: item.content_text || (item.content_html ? striptags(item.content_html) : null),
+        description: item.content_text || (item.content_html ? htmlToPlainText(item.content_html) : null),
         'content:encoded': item.content_html
           ? { '#cdata': item.content_html }
           : null,
@@ -244,36 +238,37 @@ export function jsonfeedToRSSObject (jsonFeed, options) {
         }
 
         if (opts.itunes) {
-          const duration = get(item, '_itunes.duration') ||
+          const itemITunes = /** @type {ITunesData | undefined} */ (item['_itunes'])
+          const duration = itemITunes?.duration ||
             (attachment.duration_in_seconds !== undefined
               ? secondsToHMS(attachment.duration_in_seconds)
               : null)
-          const episodeType = /** @type {string} */ (get(item, '_itunes.episode_type'))
+          const episodeType = itemITunes?.episode_type
 
           Object.assign(rssItem, {
-            'itunes:episodeType': ['full', 'trailer', 'bonus'].includes(episodeType)
+            'itunes:episodeType': episodeType && ['full', 'trailer', 'bonus'].includes(episodeType)
               ? episodeType
               : 'full',
-            'itunes:title': get(item, '_itunes.title') || generateTitle(item),
-            'itunes:author': get(item, '_itunes.author') ||
+            'itunes:title': itemITunes?.title || generateTitle(item),
+            'itunes:author': itemITunes?.author ||
               getAuthorName(item) ||
-              get(jf, '_itunes.author') ||
+              jf._itunes?.author ||
               getAuthorName(jf),
-            'itunes:episode': Number.isInteger(get(item, '_itunes.episode'))
-              ? get(item, '_itunes.episode')
+            'itunes:episode': Number.isInteger(itemITunes?.episode)
+              ? itemITunes?.episode
               : null,
             'itunes:subtitle': getSubtitle(item),
             'itunes:summary': getSummary(item),
             'itunes:image': {
-              '@href': get(item, '_itunes.image') || item.image
+              '@href': itemITunes?.image || item.image
             },
             'itunes:duration': duration,
-            'itunes:season': get(item, '_itunes.season') || null,
-            'itunes:block': get(item, '_itunes.block') ? 'Yes' : null,
-            'itunes:explicit': exists(get(item, '_itunes.explicit'))
-              ? isTruthy(get(item, '_itunes.explicit')) ? 'yes' : 'no'
+            'itunes:season': itemITunes?.season || null,
+            'itunes:block': itemITunes?.block ? 'Yes' : null,
+            'itunes:explicit': exists(itemITunes?.explicit)
+              ? isTruthy(itemITunes?.explicit) ? 'yes' : 'no'
               : null,
-            'itunes:isClosedCaptioned': get(item, '_itunes.is_closed_captioned') ? 'Yes' : null,
+            'itunes:isClosedCaptioned': itemITunes?.is_closed_captioned ? 'Yes' : null,
             description: truncate4k(rssItem['description'])
           })
         }
@@ -317,6 +312,23 @@ function exists (value) {
  */
 function isTruthy (value) {
   return value !== false && exists(value)
+}
+
+/**
+ * @param {ITunesData | undefined} base
+ * @param {ITunesData} override
+ * @returns {ITunesData}
+ */
+function mergeITunesData (base, override) {
+  const owner = base?.owner || override.owner
+    ? { ...base?.owner, ...override.owner }
+    : undefined
+
+  return {
+    ...base,
+    ...override,
+    ...(owner ? { owner } : {})
+  }
 }
 
 export default jsonfeedToRSSObject

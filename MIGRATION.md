@@ -5,7 +5,7 @@ Most callers only need to update their import and the `version` and `authors` fi
 
 ## Requirements
 
-- Node.js 20 or newer
+- Node.js 20.19 or newer
 - npm 10 or newer when installing or publishing the package
 - An ESM application, or a CommonJS application that loads the package with dynamic `import()`
 

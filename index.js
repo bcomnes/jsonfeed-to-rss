@@ -1,4 +1,4 @@
-import builder from 'xmlbuilder'
+import { create } from 'xmlbuilder2'
 import jsonfeedToRSSObject from './jsonfeed-to-rss-object.js'
 
 /**
@@ -10,14 +10,17 @@ import jsonfeedToRSSObject from './jsonfeed-to-rss-object.js'
  */
 export function jsonfeedToRSS (jsonfeed, options) {
   const feedObject = jsonfeedToRSSObject(jsonfeed, options)
-  const feed = builder.create(feedObject, /** @type {any} */ ({
+  const feed = create({
+    version: '1.0',
     encoding: 'utf-8',
-    skipNullAttributes: true,
-    skipNullNodes: true,
-    invalidCharReplacement: ''
-  }))
+    invalidCharReplacement: '',
+    convert: {
+      text: '#text',
+      cdata: '#cdata'
+    }
+  }, feedObject)
 
-  return feed.end({ pretty: true, allowEmpty: false })
+  return feed.end({ prettyPrint: true })
 }
 
 export default jsonfeedToRSS
