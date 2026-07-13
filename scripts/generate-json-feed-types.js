@@ -7,11 +7,13 @@ import { compile } from 'json-schema-to-typescript'
 const rootDirectory = dirname(dirname(fileURLToPath(import.meta.url)))
 const schemaDirectory = join(rootDirectory, 'schemas')
 const outputPath = join(rootDirectory, 'lib', 'json-feed-types.d.ts')
+const podcastOutputPath = join(rootDirectory, 'lib', 'podcast-types.d.ts')
 const version = 'https://jsonfeed.org/version/1.1'
 
-const [jsonFeedSchema, jsonFeed1Schema] = await Promise.all([
+const [jsonFeedSchema, jsonFeed1Schema, podcastSchema] = await Promise.all([
   readSchema('feed.json'),
-  readSchema('feed-1')
+  readSchema('feed-1'),
+  readSchema('podcast-extensions.json')
 ])
 
 const adaptedJSONFeedSchema = adaptSchema(jsonFeedSchema)
@@ -36,21 +38,39 @@ try {
     )
   ])
 
-  const declarations = await compile(adaptedJSONFeedSchema, 'JSONFeed', {
-    bannerComment: [
-      '/* eslint-disable */',
-      '/**',
-      ' * Generated from the SchemaStore JSON Feed 1.1 schema.',
-      ' * Run `npm run build:json-feed-types` to regenerate.',
-      ' */'
-    ].join('\n'),
-    cwd: temporaryDirectory,
-    unknownAny: true
-  })
+  const [declarations, podcastDeclarations] = await Promise.all([
+    compile(adaptedJSONFeedSchema, 'JSONFeed', {
+      bannerComment: banner('the SchemaStore JSON Feed 1.1 schema'),
+      cwd: temporaryDirectory,
+      unknownAny: true
+    }),
+    compile(podcastSchema, 'PodcastExtensions', {
+      bannerComment: banner('the jsonfeed-to-rss podcast extension schema'),
+      cwd: schemaDirectory,
+      unknownAny: true
+    })
+  ])
 
-  await writeFile(outputPath, declarations)
+  await Promise.all([
+    writeFile(outputPath, declarations),
+    writeFile(podcastOutputPath, podcastDeclarations)
+  ])
 } finally {
   await rm(temporaryDirectory, { recursive: true, force: true })
+}
+
+/**
+ * @param {string} source
+ * @returns {string}
+ */
+function banner (source) {
+  return [
+    '/* eslint-disable */',
+    '/**',
+    ` * Generated from ${source}.`,
+    ' * Run `npm run build:json-feed-types` to regenerate.',
+    ' */'
+  ].join('\n')
 }
 
 /**

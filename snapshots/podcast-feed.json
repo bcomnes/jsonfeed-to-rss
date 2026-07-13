@@ -3,6 +3,8 @@
   "title": "Hologram Radio Master Feed",
   "home_page_url": "https://hologramradio.org",
   "feed_url": "https://podcast.hologramradio.org/master",
+  "description": "A collection of shows from Hologram Radio.",
+  "icon": "https://hologramradio.org/images/hologram-radio-3000.png",
   "items": [
       {
           "id": "https://hologramradio.org/?p=7258",

@@ -14,6 +14,9 @@ Most applications need to update their import syntax, feed version, and author f
 | Inferred converter types only | Public schema and converter types | Import types from `jsonfeed-to-rss/types.js`. |
 | Extensionless mapped subpaths | Open published deep imports | Include `.js` in ESM deep-import specifiers. |
 | HTML tags removed with minimal processing | Readable plain-text conversion | Review snapshots if consumers compare generated RSS strings exactly. |
+| Historical Apple tag profile | Current Apple Podcasts profile | Add required artwork, explicit status, categories, and complete enclosure metadata. |
+| One legacy Apple category pair | Up to two current category pairs | Replace `category` and `subcategory` with `categories`. |
+| No Podcasting 2.0 adapter | All 31 active namespace tags | Add `_podcast` objects and use the generated public types. |
 
 ## Requirements
 
@@ -109,8 +112,9 @@ Validation failures now explicitly report that JSON Feed 1.1 is required or iden
 The runtime source remains JavaScript and is checked in strict TypeScript mode through JSDoc.
 Published declarations are generated during the package build.
 
-The JSON Feed input types are generated from the vendored SchemaStore JSON Feed 1.1 schema with `json-schema-to-typescript`.
+The JSON Feed input types are generated from the vendored SchemaStore JSON Feed 1.1 schema with [`json-schema-to-typescript`](https://github.com/bcherny/json-schema-to-typescript).
 The generated `JSONFeed` type restricts `version` to `https://jsonfeed.org/version/1.1` and includes the 1.1 `authors` and `language` fields.
+Apple Podcasts and Podcasting 2.0 input types are generated from the package's [podcast extension schema](schemas/podcast-extensions.json) with the same generator.
 
 Schema and converter input types are available from the open type module:
 
@@ -118,29 +122,106 @@ Schema and converter input types are available from the open type module:
 import type {
   Attachment,
   Author,
+  ITunesChannelData,
   Item,
   JSONFeed,
   JSONFeedWithExtensions,
-  JsonFeedToRSSOptions
+  JsonFeedToRSSOptions,
+  PodcastChannelData,
+  PodcastItemData
 } from 'jsonfeed-to-rss/types.js'
 ```
 
 Use `JSONFeed` when working with the format itself.
-Use `JSONFeedWithExtensions` when passing a value to the converter because it requires `feed_url` and `home_page_url` and supports the `_itunes` extension.
+Use `JSONFeedWithExtensions` when passing a value to the converter because it requires `feed_url` and `home_page_url` and supports the `_itunes` and `_podcast` extensions.
 
 No TypeScript configuration changes should be necessary for consumers already using modern Node.js ESM resolution.
 If TypeScript cannot resolve the package, use a current `node16`, `nodenext`, or `bundler` module resolution mode.
 
-## Options and iTunes extensions
+## Apple Podcasts migration
 
 The `jsonfeedToRSS(feed, options)` signature is unchanged.
 Existing options such as `feedURLFn`, `copyright`, `category`, `ttl`, and `itunes` continue to work.
 
-The `_itunes` extension format is also unchanged.
-Feed-level and item-level author fallbacks now prefer `authors[0].name` before the deprecated `author.name` field.
+Apple mode now follows the current Apple Podcasts RSS requirements instead of reproducing the historical tag profile.
+When `_itunes` is present or `itunes` is enabled, the converter requires a show description, `_itunes.image`, `_itunes.explicit`, a valid category, at least one attached episode, and complete enclosure metadata.
+Every podcast enclosure must have `url`, `mime_type`, and `size_in_bytes`.
+Episode and season values must be positive integers, and serial shows require `_itunes.episode` for every attached episode.
+
+The preferred category shape supports Apple's current maximum of two category and subcategory pairs:
+
+```json
+{
+  "_itunes": {
+    "categories": [
+      { "category": "Technology" },
+      { "category": "Education", "subcategory": "How To" }
+    ]
+  }
+}
+```
+
+The singular `_itunes.category` and `_itunes.subcategory` fields remain accepted as deprecated compatibility inputs.
+Categories are now validated against [Apple's current category list](https://podcasters.apple.com/support/1691-apple-podcasts-categories), so replace removed legacy values before upgrading.
+The obsolete `podcast-categories` runtime dependency has been replaced by an audited in-repository category table.
+
+Current Apple output uses the boolean strings `true` and `false` for `itunes:explicit`.
+Descriptions observe Apple's 4,000-byte limit rather than counting UTF-16 code units, and truncation does not split a Unicode code point.
+`_itunes.new_feed_url` is emitted as the destination URL exactly as supplied and is no longer transformed through `feedURLFn`.
+Show artwork no longer falls back to the JSON Feed `icon`, because Apple's artwork requirements are different.
+
+Apple no longer supports `itunes:owner`, and its current tag reference no longer includes `itunes:summary`, `itunes:subtitle`, item-level `itunes:author`, or `itunes:isClosedCaptioned`.
+These historical tags are disabled by default.
+Set `legacyITunesTags: true` temporarily if another RSS consumer still depends on them.
+
+```js
+jsonfeedToRSS(feed, {
+  itunes: true,
+  legacyITunesTags: true
+})
+```
+
+Feed-level and item-level author fallbacks prefer `authors[0].name` before the deprecated `author.name` field.
 
 When an object is supplied through the `itunes` option, its fields override feed-level `_itunes` fields.
 Nested owner fields are merged so an override can replace the email without discarding the existing owner name.
+The owner merge matters only when `legacyITunesTags` is enabled.
+
+Review the cited [Apple behavior notes](PODCAST-SPEC.md#apple-podcasts-behavior) before enabling podcast mode in production.
+
+## Add Podcasting 2.0 metadata
+
+The new `_podcast` extension supports every active tag in the [Podcasting 2.0 namespace](https://podcastindex.org/namespace/1.0).
+The converter emits `xmlns:podcast` when a channel or item `_podcast` object is present, or when `podcast: true` is supplied.
+
+```json
+{
+  "_podcast": {
+    "guid": "917393e3-1b1e-5cef-ace4-edaa54e1f810",
+    "medium": "podcast"
+  },
+  "items": [
+    {
+      "id": "episode-1",
+      "title": "Episode one",
+      "_podcast": {
+        "transcripts": [
+          {
+            "url": "https://example.com/episode-1.vtt",
+            "type": "text/vtt",
+            "rel": "captions"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Use `PodcastChannelData` and `PodcastItemData` from `jsonfeed-to-rss/types.js` to construct these extensions.
+The deprecated `podcast:images` element is intentionally unavailable; use the `images` array, which emits the active singular `podcast:image` element.
+All nested value, remote-item, alternate-enclosure, and live-item structures have generated types and runtime serializers.
+The complete property mapping and a direct specification URL for each of the 31 tags are in [PODCAST-SPEC.md](PODCAST-SPEC.md#podcasting-20-support-matrix).
 
 ## Direct and deep imports
 
@@ -189,8 +270,11 @@ The repository now uses `node:test`, Neostandard, Node's built-in coverage, JSDo
 6. Add `.js` to documented deep-import specifiers.
 7. Update type imports to use `jsonfeed-to-rss/types.js` where useful.
 8. Review RSS snapshots for decoded entities and more readable plain-text formatting.
-9. Test any HTML content that may contain `]]>`.
-10. Run the application's complete feed-generation and RSS-consumer tests before deploying.
+9. For Apple feeds, add required artwork, explicit status, current categories, and complete enclosure metadata.
+10. Decide whether any non-Apple consumer temporarily needs `legacyITunesTags: true`.
+11. Add `_podcast` metadata for the open namespace features your application wants to publish.
+12. Test any HTML content that may contain `]]>`.
+13. Run the application's complete feed-generation and RSS-consumer tests before deploying.
 
 ## Release impact
 

@@ -19,8 +19,10 @@
        "email": "bcomnes@gmail.com"
      },
      "image": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png",
-     "category": "News",
-     "subcategory": "Politics"
+     "categories": [
+       { "category": "News", "subcategory": "Politics" }
+     ],
+     "explicit": false
   },
   "items":[
      {

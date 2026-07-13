@@ -137,16 +137,152 @@ test('merges partial iTunes owner options', () => {
     title: 'A podcast',
     home_page_url: 'https://example.com',
     feed_url: 'https://example.com/feed.json',
-    items: [],
-    _itunes: { owner: { name: 'Owner name' } }
+    description: 'A podcast description',
+    items: [{
+      id: 'episode-1',
+      title: 'Episode one',
+      attachments: [{
+        url: 'https://example.com/episode.mp3',
+        mime_type: 'audio/mpeg',
+        size_in_bytes: 123
+      }]
+    }],
+    _itunes: {
+      owner: { name: 'Owner name' },
+      image: 'https://example.com/show-3000.jpg',
+      categories: [{ category: 'Technology' }],
+      explicit: false
+    }
   }, {
-    itunes: { owner: { email: 'owner@example.com' } }
+    itunes: { owner: { email: 'owner@example.com' } },
+    legacyITunesTags: true
   })
 
   assert.deepEqual(rss['rss'].channel['itunes:owner'], {
     'itunes:name': 'Owner name',
     'itunes:email': 'owner@example.com'
   })
+})
+
+test('emits the current Apple Podcasts tag profile', () => {
+  const rss = jsonfeedToRSSObject({
+    version: 'https://jsonfeed.org/version/1.1',
+    title: 'A podcast',
+    home_page_url: 'https://example.com',
+    feed_url: 'https://example.com/feed.json',
+    description: 'A podcast description',
+    items: [{
+      id: 'episode-1',
+      title: 'Episode one',
+      attachments: [{
+        url: 'https://example.com/episode.mp3',
+        mime_type: 'audio/mpeg',
+        size_in_bytes: 123,
+        duration_in_seconds: 90
+      }],
+      _itunes: {
+        episode: 1,
+        season: 1,
+        explicit: true
+      }
+    }],
+    _itunes: {
+      title: 'Apple title',
+      image: 'https://example.com/show-3000.jpg',
+      categories: [
+        { category: 'Science', subcategory: 'Astronomy' },
+        { category: 'Technology' }
+      ],
+      explicit: false,
+      owner: { email: 'legacy@example.com' },
+      summary: 'Legacy summary',
+      subtitle: 'Legacy subtitle'
+    }
+  })
+
+  assert.equal(rss['rss'].channel['itunes:title'], 'Apple title')
+  assert.equal(rss['rss'].channel['itunes:explicit'], 'false')
+  assert.equal(rss['rss'].channel['itunes:owner'], undefined)
+  assert.equal(rss['rss'].channel['itunes:summary'], undefined)
+  assert.deepEqual(rss['rss'].channel['itunes:category'], [
+    {
+      '@text': 'Science',
+      'itunes:category': { '@text': 'Astronomy' }
+    },
+    { '@text': 'Technology' }
+  ])
+  assert.equal(rss['rss'].channel.item[0]['itunes:explicit'], 'true')
+  assert.equal(rss['rss'].channel.item[0]['itunes:duration'], '1:30')
+  assert.equal(rss['rss'].channel.item[0]['itunes:isClosedCaptioned'], undefined)
+})
+
+test('validates required Apple Podcasts metadata with cited errors', () => {
+  /** @type {any} */
+  const feed = {
+    version: 'https://jsonfeed.org/version/1.1',
+    title: 'A podcast',
+    home_page_url: 'https://example.com',
+    feed_url: 'https://example.com/feed.json',
+    description: 'A podcast description',
+    items: [{
+      id: 'episode-1',
+      attachments: [{
+        url: 'https://example.com/episode.mp3',
+        mime_type: 'audio/mpeg',
+        size_in_bytes: 123
+      }]
+    }],
+    _itunes: {
+      image: 'https://example.com/show-3000.jpg',
+      categories: [{ category: 'Technology' }]
+    }
+  }
+
+  assert.throws(
+    () => jsonfeedToRSSObject(feed),
+    /missing _itunes\.explicit boolean; see https:\/\/podcasters\.apple\.com\/support\/823-podcast-requirements/
+  )
+})
+
+test('enforces current Apple categories, serial numbering, and enclosures', () => {
+  const invalidCategory = makeAppleFeed()
+  invalidCategory['_itunes'].categories = [{ category: 'Games & Hobbies' }]
+  assert.throws(
+    () => jsonfeedToRSSObject(invalidCategory),
+    /unsupported Apple Podcasts category Games & Hobbies; see https:\/\/podcasters\.apple\.com\/support\/1691-apple-podcasts-categories/
+  )
+
+  const incompleteEnclosure = makeAppleFeed()
+  delete incompleteEnclosure.items[0].attachments[0].size_in_bytes
+  assert.throws(
+    () => jsonfeedToRSSObject(incompleteEnclosure),
+    /enclosure requires url, mime_type, and size_in_bytes/
+  )
+
+  const serial = makeAppleFeed()
+  serial['_itunes'].type = 'serial'
+  assert.throws(
+    () => jsonfeedToRSSObject(serial),
+    /serial podcast item episode-1 requires _itunes\.episode/
+  )
+})
+
+test('preserves Apple feed moves and truncates descriptions by UTF-8 bytes', () => {
+  const feed = makeAppleFeed()
+  feed.description = `${'a'.repeat(3998)}😀`
+  feed['_itunes'].new_feed_url = 'https://media.example.com/new-feed.xml'
+
+  const rss = jsonfeedToRSSObject(feed, {
+    feedURLFn: url => url.replace('media.example.com', 'wrong.example.com')
+  })
+
+  assert.equal(
+    rss['rss'].channel['itunes:new-feed-url'],
+    'https://media.example.com/new-feed.xml'
+  )
+  assert.equal(Buffer.byteLength(rss['rss'].channel.description), 4000)
+  assert.match(rss['rss'].channel.description, /…$/)
+  assert.doesNotMatch(rss['rss'].channel.description, /�/)
 })
 
 test('object snapshot', () => {
@@ -177,4 +313,31 @@ test('XML snapshots', async t => {
  */
 function readJSON (path) {
   return JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'))
+}
+
+/**
+ * @returns {any}
+ */
+function makeAppleFeed () {
+  return {
+    version: 'https://jsonfeed.org/version/1.1',
+    title: 'A podcast',
+    home_page_url: 'https://example.com',
+    feed_url: 'https://example.com/feed.json',
+    description: 'A podcast description',
+    _itunes: {
+      image: 'https://example.com/show-3000.jpg',
+      categories: [{ category: 'Technology' }],
+      explicit: false
+    },
+    items: [{
+      id: 'episode-1',
+      title: 'Episode one',
+      attachments: [{
+        url: 'https://example.com/episode.mp3',
+        mime_type: 'audio/mpeg',
+        size_in_bytes: 123
+      }]
+    }]
+  }
 }

@@ -20,17 +20,12 @@ If there is more than one paragraph, it gets truncated in some contexts.</descri
       <title>jsonfeed-to-rss feed</title>
     </image>
     <itunes:author>Bret Comnes</itunes:author>
-    <itunes:summary>A simple summary that describes the podcast.  It can have a few sentences.</itunes:summary>
-    <itunes:subtitle>A simple summary that describes the podcast.</itunes:subtitle>
     <itunes:type>episodic</itunes:type>
-    <itunes:owner>
-      <itunes:name>Bret Comnes</itunes:name>
-      <itunes:email>bcomnes@gmail.com</itunes:email>
-    </itunes:owner>
     <itunes:image href="https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"/>
     <itunes:category text="News">
       <itunes:category text="Politics"/>
     </itunes:category>
+    <itunes:explicit>false</itunes:explicit>
     <item>
       <title>Curam ad aut hactenus dentes cedere vigil</title>
       <link>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post</link>
@@ -50,12 +45,9 @@ mihi arcum fore nitidam; in dixit de simul.</p>]]></content:encoded>
       <enclosure type="audio/mpeg" url="https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/attatchment.mp4" length="1234"/>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:title>Curam ad aut hactenus dentes cedere vigil</itunes:title>
-      <itunes:author>Bret Comnes</itunes:author>
-      <itunes:episode>12</itunes:episode>
-      <itunes:subtitle>Curam ad aut hactenus dentes cedere vigil</itunes:subtitle>
-      <itunes:summary>Curam ad aut hactenus dentes cedere vigil</itunes:summary>
       <itunes:image href="https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png"/>
       <itunes:duration>3:25:45</itunes:duration>
+      <itunes:episode>12</itunes:episode>
     </item>
   </channel>
 </rss>

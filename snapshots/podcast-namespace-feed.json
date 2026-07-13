@@ -1,0 +1,451 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Podcasting 2.0 complete feed",
+  "home_page_url": "https://example.com/show",
+  "feed_url": "https://example.com/feed.json",
+  "description": "A complete Podcasting 2.0 fixture.",
+  "language": "en-US",
+  "authors": [
+    {
+      "name": "Alice Host",
+      "url": "https://example.com/alice",
+      "avatar": "https://example.com/alice.jpg"
+    }
+  ],
+  "_podcast": {
+    "locked": {
+      "value": false,
+      "owner": "owner@example.com"
+    },
+    "funding": [
+      {
+        "url": "https://example.com/support",
+        "label": "Support the show"
+      }
+    ],
+    "people": [
+      {
+        "name": "Alice Host",
+        "role": "host",
+        "group": "cast",
+        "image": "https://example.com/alice.jpg",
+        "url": "https://example.com/alice"
+      }
+    ],
+    "locations": [
+      {
+        "name": "Austin",
+        "rel": "creator",
+        "geo": "geo:30.2711286,-97.7436995",
+        "osm": "R113314",
+        "country": "US"
+      }
+    ],
+    "license": {
+      "identifier": "CC-BY-4.0"
+    },
+    "guid": "917393e3-1b1e-5cef-ace4-edaa54e1f810",
+    "medium": "podcast",
+    "trailers": [
+      {
+        "title": "Season two trailer",
+        "url": "https://example.com/trailer.mp3",
+        "published": "Thu, 01 Apr 2021 08:00:00 GMT",
+        "length": 123456,
+        "type": "audio/mpeg",
+        "season": 2
+      }
+    ],
+    "values": [
+      {
+        "type": "lightning",
+        "method": "keysend",
+        "suggested": "0.00000005000",
+        "recipients": [
+          {
+            "type": "node",
+            "address": "02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52",
+            "split": 100,
+            "name": "Alice Host"
+          }
+        ]
+      }
+    ],
+    "live_items": [
+      {
+        "status": "pending",
+        "start": "2026-08-01T17:00:00Z",
+        "end": "2026-08-01T18:00:00Z",
+        "title": "Live recording",
+        "description": "Join the live recording.",
+        "link": "https://example.com/live",
+        "guid": "https://example.com/live/2026-08-01",
+        "guid_is_permalink": true,
+        "enclosure": {
+          "url": "https://example.com/live.mp3",
+          "type": "audio/mpeg",
+          "length": 0
+        },
+        "people": [
+          {
+            "name": "Alice Host",
+            "role": "host"
+          }
+        ],
+        "alternate_enclosures": [
+          {
+            "type": "audio/opus",
+            "sources": [
+              {
+                "uri": "https://example.com/live.opus"
+              }
+            ]
+          }
+        ],
+        "content_links": [
+          {
+            "url": "https://example.com/live-player",
+            "label": "Listen live"
+          }
+        ],
+        "funding": [
+          {
+            "url": "https://example.com/live-support",
+            "label": "Support this live show"
+          }
+        ],
+        "locations": [
+          {
+            "name": "Austin",
+            "rel": "creator"
+          }
+        ],
+        "transcripts": [
+          {
+            "url": "https://example.com/live.vtt",
+            "type": "text/vtt",
+            "language": "en-US",
+            "rel": "captions"
+          }
+        ],
+        "chapters": {
+          "url": "https://example.com/live-chapters.json",
+          "type": "application/json+chapters"
+        },
+        "soundbites": [
+          {
+            "start_time": 30,
+            "duration": 15,
+            "title": "Live preview"
+          }
+        ],
+        "season": {
+          "number": 2,
+          "name": "Live shows"
+        },
+        "episode": {
+          "number": 4,
+          "display": "Live special"
+        },
+        "license": {
+          "identifier": "CC-BY-4.0"
+        },
+        "social_interactions": [
+          {
+            "protocol": "activitypub",
+            "uri": "https://social.example.com/@show/live"
+          }
+        ],
+        "text": [
+          {
+            "value": "live-verification",
+            "purpose": "verify"
+          }
+        ],
+        "values": [
+          {
+            "type": "lightning",
+            "method": "keysend",
+            "recipients": [
+              {
+                "type": "node",
+                "address": "02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52",
+                "split": 100,
+                "name": "Alice Host"
+              }
+            ]
+          }
+        ],
+        "chat": {
+          "server": "chat.example.com",
+          "protocol": "xmpp",
+          "account_id": "alice@example.com",
+          "space": "show@example.com"
+        },
+        "images": [
+          {
+            "url": "https://example.com/live.jpg",
+            "alt": "Live recording artwork",
+            "aspect_ratio": "16/9",
+            "width": 1600,
+            "height": 900,
+            "type": "image/jpeg",
+            "purpose": "artwork social"
+          }
+        ]
+      }
+    ],
+    "social_interactions": [
+      {
+        "protocol": "activitypub",
+        "uri": "https://social.example.com/@show/1",
+        "account_id": "@show",
+        "account_url": "https://social.example.com/@show",
+        "priority": 1
+      }
+    ],
+    "blocks": [
+      {
+        "value": true,
+        "id": "amazon"
+      }
+    ],
+    "text": [
+      {
+        "value": "verification-token",
+        "purpose": "verify"
+      }
+    ],
+    "remote_items": [
+      {
+        "feed_guid": "29cdca4a-32d8-56ba-b48b-09a011c5daa9",
+        "feed_url": "https://example.com/related.xml",
+        "title": "Related show"
+      }
+    ],
+    "podroll": [
+      {
+        "feed_guid": "396d9ae0-da7e-5557-b894-b606231fa3ea",
+        "feed_url": "https://example.com/recommended.xml",
+        "title": "Recommended show"
+      }
+    ],
+    "update_frequency": {
+      "label": "Every Monday",
+      "start": "2026-01-05T08:00:00Z",
+      "rrule": "FREQ=WEEKLY;BYDAY=MO"
+    },
+    "podping": true,
+    "chat": {
+      "server": "chat.example.com",
+      "protocol": "xmpp",
+      "account_id": "alice@example.com",
+      "space": "show@example.com"
+    },
+    "publisher": {
+      "feed_guid": "003af0a0-6a45-55cf-b765-68e3d349551a",
+      "feed_url": "https://example.com/publisher.xml",
+      "medium": "publisher",
+      "title": "Example Network"
+    },
+    "images": [
+      {
+        "url": "https://example.com/show-square.jpg",
+        "alt": "Podcasting 2.0 complete feed artwork",
+        "aspect_ratio": "1/1",
+        "width": 3000,
+        "height": 3000,
+        "type": "image/jpeg",
+        "purpose": "artwork"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "episode-1",
+      "url": "https://example.com/episodes/1",
+      "title": "A complete episode",
+      "content_text": "Every active item-level Podcasting 2.0 tag.",
+      "date_published": "2026-07-12T12:00:00Z",
+      "authors": [
+        {
+          "name": "Alice Host",
+          "url": "https://example.com/alice",
+          "avatar": "https://example.com/alice.jpg"
+        }
+      ],
+      "attachments": [
+        {
+          "url": "https://example.com/episode-1.mp3",
+          "mime_type": "audio/mpeg",
+          "size_in_bytes": 12345678,
+          "duration_in_seconds": 3600
+        }
+      ],
+      "_podcast": {
+        "transcripts": [
+          {
+            "url": "https://example.com/episode-1.vtt",
+            "type": "text/vtt",
+            "language": "en-US",
+            "rel": "captions"
+          }
+        ],
+        "chapters": {
+          "url": "https://example.com/episode-1-chapters.json",
+          "type": "application/json+chapters"
+        },
+        "soundbites": [
+          {
+            "start_time": 73.5,
+            "duration": 60,
+            "title": "Why open podcasting matters"
+          }
+        ],
+        "people": [
+          {
+            "name": "Alice Host",
+            "role": "host"
+          },
+          {
+            "name": "Bob Guest",
+            "role": "guest",
+            "url": "https://example.com/bob"
+          }
+        ],
+        "funding": [
+          {
+            "url": "https://example.com/episode-support",
+            "label": "Support this episode"
+          }
+        ],
+        "locations": [
+          {
+            "name": "The Moon",
+            "rel": "subject"
+          }
+        ],
+        "season": {
+          "number": 2,
+          "name": "The Open Web"
+        },
+        "episode": {
+          "number": 3.5,
+          "display": "Special"
+        },
+        "license": {
+          "identifier": "custom-license",
+          "url": "https://example.com/license"
+        },
+        "alternate_enclosures": [
+          {
+            "type": "audio/opus",
+            "length": 9000000,
+            "bitrate": 96000,
+            "language": "en-US",
+            "title": "Opus",
+            "rel": "default",
+            "codecs": "opus",
+            "default": false,
+            "sources": [
+              {
+                "uri": "https://example.com/episode-1.opus"
+              },
+              {
+                "uri": "ipfs://episode-1-opus",
+                "content_type": "audio/opus"
+              }
+            ],
+            "integrity": {
+              "type": "sri",
+              "value": "sha384-example"
+            }
+          }
+        ],
+        "content_links": [
+          {
+            "url": "https://example.com/episode-1-video",
+            "label": "Watch the episode"
+          }
+        ],
+        "social_interactions": [
+          {
+            "protocol": "activitypub",
+            "uri": "https://social.example.com/@show/episode-1",
+            "account_id": "@show",
+            "priority": 1
+          }
+        ],
+        "text": [
+          {
+            "value": "false",
+            "purpose": "ai-content"
+          }
+        ],
+        "values": [
+          {
+            "type": "lightning",
+            "method": "keysend",
+            "recipients": [
+              {
+                "type": "node",
+                "address": "02d5c1bf8b940dc9cadca86d1b0a3c37fbe39cee4c7e839e33bef9174531d27f52",
+                "split": 95,
+                "name": "Alice Host"
+              },
+              {
+                "type": "node",
+                "address": "03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a",
+                "split": 5,
+                "name": "Hosting Provider",
+                "fee": true
+              }
+            ],
+            "time_splits": [
+              {
+                "start_time": 60,
+                "duration": 120,
+                "recipients": [
+                  {
+                    "type": "node",
+                    "address": "02dd306e68c46681aa21d88a436fb35355a8579dd30201581cefa17cb179fc4c15",
+                    "split": 100,
+                    "name": "Bob Guest"
+                  }
+                ]
+              },
+              {
+                "start_time": 300,
+                "duration": 60,
+                "remote_start_time": 10,
+                "remote_percentage": 95,
+                "remote_item": {
+                  "feed_guid": "a94f5cc9-8c58-55fc-91fe-a324087a655b",
+                  "item_guid": "remote-episode",
+                  "medium": "music"
+                }
+              }
+            ]
+          }
+        ],
+        "chat": {
+          "server": "chat.example.com",
+          "protocol": "xmpp",
+          "account_id": "alice@example.com",
+          "space": "episode-1@example.com"
+        },
+        "images": [
+          {
+            "url": "https://example.com/episode-1.jpg",
+            "alt": "Episode one artwork",
+            "aspect_ratio": "1/1",
+            "width": 3000,
+            "height": 3000,
+            "type": "image/jpeg",
+            "purpose": "artwork"
+          }
+        ]
+      }
+    }
+  ]
+}

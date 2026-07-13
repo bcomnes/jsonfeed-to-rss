@@ -1,0 +1,23 @@
+name: Podcast specification audit
+
+on:
+  schedule:
+    - cron: '17 16 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          package-manager-cache: false
+      - name: Check upstream podcast specifications
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/check-podcast-spec.js

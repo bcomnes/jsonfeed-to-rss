@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "html-to-text": "^10.0.0",
-    "podcast-categories": "^2.0.0",
     "sentence-splitter": "^5.0.1",
     "xmlbuilder2": "^4.0.3"
   },
@@ -16,6 +15,8 @@
     "@types/html-to-text": "^9.0.4",
     "@types/node": "^20.19.0",
     "@voxpelli/tsconfig": "^16.1.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
     "json-schema-to-typescript": "^15.0.4",
     "neostandard": "^0.13.0",
     "npm-run-all2": "^9.0.0",
@@ -59,7 +60,8 @@
     "lib/**/*.d.ts",
     "lib/**/*.d.ts.map",
     "CHANGELOG.md",
-    "MIGRATION.md"
+    "MIGRATION.md",
+    "PODCAST-SPEC.md"
   ],
   "license": "MIT",
   "type": "module",
@@ -81,6 +83,7 @@
     "build": "npm run clean && run-s build:json-feed-types build:declaration",
     "build:json-feed-types": "node scripts/generate-json-feed-types.js",
     "build:declaration": "tsc -p declaration.tsconfig.json",
+    "check:podcast-spec": "node scripts/check-podcast-spec.js",
     "clean": "run-p clean:*",
     "clean:declarations-top": "rm -rf $(find . -maxdepth 1 -type f -name '*.d.ts*')",
     "clean:declarations-lib": "rm -rf $(find lib -type f -name '*.d.ts*' ! -name '*-types.d.ts')",
