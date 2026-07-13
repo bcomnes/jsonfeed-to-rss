@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migrate jsonfeed-to-rss"
+  short_description: "Upgrade consumers to the next major release"
+  default_prompt: "Use $migrate-jsonfeed-to-rss to migrate this application and validate its generated feeds."

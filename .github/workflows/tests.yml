@@ -1,0 +1,40 @@
+name: tests
+
+on: [pull_request, push]
+
+env:
+  FORCE_COLOR: 1
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        node: ['lts/*']
+
+    steps:
+    - uses: actions/checkout@v7
+    - name: Use Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v6
+      with:
+        node-version: ${{ matrix.node }}
+        package-manager-cache: false
+    - run: npm i
+    - run: npm test --color=always
+
+  automerge:
+    needs: test
+    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' && startsWith(github.head_ref, 'dependabot/github_actions/actions/') }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - name: Merge first-party GitHub Actions Dependabot PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge "$PR_URL" --squash --delete-branch

@@ -1,0 +1,7 @@
+version = 1
+name = "jsonfeed-to-rss"
+
+[setup]
+script = '''
+sh .codex/setup-worktree.sh
+'''

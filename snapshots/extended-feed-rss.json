@@ -15,37 +15,34 @@
    "link": "https://jsonfeed-to-rss.netlify.com",
    "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
    "language": "en-us",
-   "copyright": "© 2025 Bret Comnes",
+   "copyright": "© 2018 Bret Comnes",
    "pubDate": "Fri, 13 Apr 2018 22:06:43 GMT",
    "category": [
     "Sports",
     "Football"
    ],
-   "generator": "jsonfeed-to-rss 3.0.8 (https://github.com/bcomnes/jsonfeed-to-rss#readme)",
-   "docs": "http://www.rssboard.org/rss-specification",
+   "generator": "jsonfeed-to-rss 3.0.8 (https://github.com/bcomnes/jsonfeed-to-rss)",
+   "docs": "https://www.rssboard.org/rss-specification",
    "image": {
     "url": "https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
     "link": "https://jsonfeed-to-rss.netlify.com",
     "title": "jsonfeed-to-rss extended feed"
    },
    "itunes:author": "Bret Comnes",
-   "itunes:summary": "A simple summary that describes the podcast.  It can have a few sentences.",
-   "itunes:subtitle": "A simple summary that describes the podcast.",
    "itunes:type": "episodic",
-   "itunes:owner": {
-    "itunes:name": "Bret Comnes",
-    "itunes:email": "bcomnes@gmail.com"
-   },
    "itunes:image": {
     "@href": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"
    },
-   "itunes:category": {
-    "@text": "Sports",
-    "itunes:category": {
-     "@text": "Football"
+   "itunes:category": [
+    {
+     "@text": "Sports",
+     "itunes:category": {
+      "@text": "Football"
+     }
     }
-   },
-   "itunes:new-feed-url": "https://some-other-domain.com/snapshots/extended-feed-rss.xml",
+   ],
+   "itunes:explicit": "false",
+   "itunes:new-feed-url": "https://some-other-domain.com/snapshots/extended-feed.json",
    "item": [
     {
      "title": "A title, giving some simple context to the episode",
@@ -95,9 +92,6 @@
      },
      "itunes:episodeType": "full",
      "itunes:title": "Attachments",
-     "itunes:author": "Bret Comnes",
-     "itunes:subtitle": "Just a brief summary.",
-     "itunes:summary": "Just a brief summary.",
      "itunes:duration": "3:25:45"
     },
     {
@@ -143,13 +137,11 @@
      "pubDate": "Sun, 08 Apr 2018 22:06:43 GMT",
      "enclosure": {
       "@type": "audio/mpeg",
-      "@url": "https://example.com/attatchments-430.mp4"
+      "@url": "https://example.com/attatchments-430.mp4",
+      "@length": 1234
      },
      "itunes:episodeType": "full",
      "itunes:title": "A post with an author",
-     "itunes:author": "Mr Guy",
-     "itunes:subtitle": "A post with an author",
-     "itunes:summary": "A post with an author",
      "itunes:duration": "3:25:45"
     },
     {

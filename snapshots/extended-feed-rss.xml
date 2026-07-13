@@ -8,30 +8,25 @@
 
 If there is more than one paragraph, it gets truncated in some contexts.</description>
     <language>en-us</language>
-    <copyright>© 2025 Bret Comnes</copyright>
+    <copyright>© 2018 Bret Comnes</copyright>
     <pubDate>Fri, 13 Apr 2018 22:06:43 GMT</pubDate>
     <category>Sports</category>
     <category>Football</category>
-    <generator>jsonfeed-to-rss 3.0.8 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
-    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>jsonfeed-to-rss 3.0.8 (https://github.com/bcomnes/jsonfeed-to-rss)</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
     <image>
       <url>https://jsonfeed-to-rss.netlify.com/icon-512x512.png</url>
       <link>https://jsonfeed-to-rss.netlify.com</link>
       <title>jsonfeed-to-rss extended feed</title>
     </image>
     <itunes:author>Bret Comnes</itunes:author>
-    <itunes:summary>A simple summary that describes the podcast.  It can have a few sentences.</itunes:summary>
-    <itunes:subtitle>A simple summary that describes the podcast.</itunes:subtitle>
     <itunes:type>episodic</itunes:type>
-    <itunes:owner>
-      <itunes:name>Bret Comnes</itunes:name>
-      <itunes:email>bcomnes@gmail.com</itunes:email>
-    </itunes:owner>
     <itunes:image href="https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"/>
     <itunes:category text="Sports">
       <itunes:category text="Football"/>
     </itunes:category>
-    <itunes:new-feed-url>https://some-other-domain.com/snapshots/extended-feed-rss.xml</itunes:new-feed-url>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:new-feed-url>https://some-other-domain.com/snapshots/extended-feed.json</itunes:new-feed-url>
     <item>
       <title>A title, giving some simple context to the episode</title>
       <dc:creator>Bret Comnes</dc:creator>
@@ -67,9 +62,6 @@ Tags are super cool.</description>
       <enclosure type="audio/mpeg" url="https://example.com/attatchments.mp4" length="1234"/>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:title>Attachments</itunes:title>
-      <itunes:author>Bret Comnes</itunes:author>
-      <itunes:subtitle>Just a brief summary.</itunes:subtitle>
-      <itunes:summary>Just a brief summary.</itunes:summary>
       <itunes:duration>3:25:45</itunes:duration>
     </item>
     <item>
@@ -98,12 +90,9 @@ Tags are super cool.</description>
       <content:encoded><![CDATA[<p>A post with an author</p>]]></content:encoded>
       <guid isPermaLink="false">https://example.com/some-external-link2rfdsfa-2018-04-08T22:06:43.000Z</guid>
       <pubDate>Sun, 08 Apr 2018 22:06:43 GMT</pubDate>
-      <enclosure type="audio/mpeg" url="https://example.com/attatchments-430.mp4"/>
+      <enclosure type="audio/mpeg" url="https://example.com/attatchments-430.mp4" length="1234"/>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:title>A post with an author</itunes:title>
-      <itunes:author>Mr Guy</itunes:author>
-      <itunes:subtitle>A post with an author</itunes:subtitle>
-      <itunes:summary>A post with an author</itunes:summary>
       <itunes:duration>3:25:45</itunes:duration>
     </item>
     <item>

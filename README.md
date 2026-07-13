@@ -1,287 +1,247 @@
 # jsonfeed-to-rss
-[![npm version][2]][3] [![build status][4]][5]
-[![downloads][8]][9] [![js-standard-style][10]][11]
 
-Convert a JSON feed to an rss feed ([RSS 2.0.11][rss]).  Supports the [@xmlns:itunes][itunes] iTunes RSS extensions and [best practices for podcasts][bp], [xmlns:dc][dc] Dublin Core author names, and the [xmlns:content][content] RDF Site Summary 1.0 Modules: Content encoded content extension.
+[![npm version][npm-badge]][npm] [![build status][ci-badge]][ci] [![downloads][downloads-badge]][downloads] [![neostandard JavaScript style][style-badge]][style]
 
-![JSON feed icon](/reference/icon.png)
+Convert a [JSON Feed 1.1](https://www.jsonfeed.org/version/1.1/) document to RSS 2.0.
+JSON Feed 1.0 and non-standard version URLs are rejected.
+
+The converter supports current Apple Podcasts RSS metadata, all 31 active [Podcasting 2.0 namespace](https://podcastindex.org/namespace/1.0) tags, Dublin Core author names, and `content:encoded` HTML.
+See the cited [podcast specification support matrix](PODCAST-SPEC.md) for the exact upstream revision, tag coverage, and Apple sources.
+
+![JSON Feed icon](/reference/icon.png)
 
 ## Installation
+
+This package is ESM-only and requires Node.js 20.19 or newer.
+See the [migration guide](MIGRATION.md) when upgrading from the CommonJS and JSON Feed 1.0 release.
+
 ```console
-$ npm install jsonfeed-to-rss
+npm install jsonfeed-to-rss
 ```
 
 ## Usage
 
 ```js
-const jsonfeedToRSS = require('jsonfeed-to-rss')
-const someJSONFeed = require('./load-some-json-feed-data.json')
+import jsonfeedToRSS from 'jsonfeed-to-rss'
+import feed from './feed.json' with { type: 'json' }
 
-const rssFeed = jsonfeedToRSS(someJSONFeed) // Returns an rss 2.0.11 formatted json feed
+const rss = jsonfeedToRSS(feed)
 ```
 
-Example input:
+The input must include the exact JSON Feed 1.1 version URL plus `title`, `home_page_url`, and `feed_url`.
 
 ```json
 {
-  "version":"https://jsonfeed.org/version/1",
-  "title":"bret.io log",
-  "home_page_url":"https://jsonfeed-to-rss.netlify.com",
-  "feed_url":"https://jsonfeed-to-rss.netlify.com/snapshots/readme-feed.json",
-  "description": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts.",
-  "next_url":"https://jsonfeed-to-rss.netlify.com/snapshots/2017.json",
-  "icon":"https://jsonfeed-to-rss.netlify.com/icon-512x512.png",
-  "author":{
-     "name":"Bret Comnes",
-     "url":"https://bret.io",
-     "avatar":"https://gravatar.com/avatar/8d8b82740cb7ca994449cccd1dfdef5f?size=512"
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Example feed",
+  "home_page_url": "https://example.com",
+  "feed_url": "https://example.com/feed.json",
+  "authors": [{ "name": "Example Author" }],
+  "items": []
+}
+```
+
+The default export returns an RSS XML string.
+The lower-level object representation is also available as an open deep import.
+
+```js
+import jsonfeedToRSSObject from 'jsonfeed-to-rss/jsonfeed-to-rss-object.js'
+```
+
+## Options
+
+```js
+const options = {
+  feedURLFn: (feedURL, jsonFeed) => feedURL.replace(/\.json\b/, '-rss.xml'),
+  language: 'en-US',
+  copyright: '© 2026 Example Author',
+  managingEditor: 'editor@example.com',
+  webMaster: 'webmaster@example.com',
+  idIsPermalink: false,
+  category: ['Technology'],
+  ttl: 60,
+  skipHours: [0, 1],
+  skipDays: ['Saturday', 'Sunday'],
+  itunes: true,
+  podcast: true,
+  legacyITunesTags: false
+}
+
+const rss = jsonfeedToRSS(feed, options)
+```
+
+`itunes` defaults to `true` when the feed has a top-level `_itunes` object.
+An object supplied as `itunes` is merged over the feed-level `_itunes` data.
+`podcast` defaults to `true` when the feed or any item has a `_podcast` object.
+
+## Apple Podcasts
+
+Put Apple-specific metadata in `_itunes`.
+Enabling Apple mode validates the show metadata and enclosure fields that Apple requires.
+
+```json
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Example podcast",
+  "home_page_url": "https://example.com/show",
+  "feed_url": "https://example.com/feed.json",
+  "description": "A show about practical examples.",
+  "authors": [{ "name": "Example Host" }],
+  "_itunes": {
+    "image": "https://example.com/show-3000x3000.jpg",
+    "explicit": false,
+    "type": "episodic",
+    "categories": [
+      { "category": "Technology" },
+      { "category": "Education", "subcategory": "How To" }
+    ]
   },
-  "_itunes":{
-     "about":"https://github.com/bcomnes/jsonfeed-to-rss#itunes",
-     "owner": {
-       "email": "bcomnes@gmail.com"
-     },
-     "image": "https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png",
-     "category": "Sports & Recreation",
-     "subcategory": "Outdoor"
-  },
-  "items":[
-     {
-        "date_published":"2018-04-07T20:48:02.000Z",
-        "content_html":"<h1>Curam ad aut hactenus dentes cedere vigil</h1>\n<h2>Non Clitorio vertitur cavatur</h2>\n<p>Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te\nmihi arcum fore nitidam; in dixit de simul.</p>",
-        "url":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post",
-        "id":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post-2018-04-07T20:48:02.000Z",
-        "image": "https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png",
-        "_itunes": {
-          "episode": 12
-        },
-        "attachments":[
-           {
-              "url":"https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/attatchment.mp4",
-              "mime_type":"audio/mpeg",
-              "title":"Hey this is a podcast episode",
-              "duration_in_seconds":12345,
-              "size_in_bytes":1234
-           }
-        ]
-     }
+  "items": [
+    {
+      "id": "episode-1",
+      "title": "A useful episode",
+      "content_text": "Episode notes.",
+      "_itunes": {
+        "episode": 1,
+        "explicit": false
+      },
+      "attachments": [
+        {
+          "url": "https://example.com/episode-1.mp3",
+          "mime_type": "audio/mpeg",
+          "size_in_bytes": 123456,
+          "duration_in_seconds": 600
+        }
+      ]
+    }
   ]
 }
 ```
 
-Example output:
+The current profile emits supported `itunes:title`, `itunes:author`, `itunes:type`, `itunes:image`, `itunes:category`, `itunes:explicit`, episode numbering, duration, block, completion, and feed-move metadata when applicable.
+Descriptions are truncated to Apple's 4,000-byte limit without splitting Unicode code points.
+Categories are validated against [Apple's current category list](https://podcasters.apple.com/support/1691-apple-podcasts-categories), and up to two category and subcategory pairs are supported.
+Show artwork must be supplied as `_itunes.image`; the smaller JSON Feed `icon` is not used as an Apple artwork fallback.
+Every podcast enclosure must include `url`, `mime_type`, and `size_in_bytes`.
+Serial podcasts must give each attached episode a positive `_itunes.episode` number.
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-  <channel>
-    <atom:link href="https://jsonfeed-to-rss.netlify.com/snapshots/readme-feed-rss.xml" rel="self" type="application/rss+xml"/>
-    <title>bret.io log</title>
-    <link>https://jsonfeed-to-rss.netlify.com</link>
-    <description>A simple summary that describes the podcast.  It can have a few sentences.
+Apple no longer supports `itunes:owner`, and its current reference no longer includes `itunes:summary`, `itunes:subtitle`, item-level `itunes:author`, or `itunes:isClosedCaptioned`.
+Set `legacyITunesTags: true` only when another consumer still needs those historical tags.
+See [PODCAST-SPEC.md](PODCAST-SPEC.md) for the full Apple behavior and source URLs.
 
-If there is more than one paragraph, it gets truncated in some contexts.</description>
-    <language>en-us</language>
-    <copyright>© 2018 Bret Comnes</copyright>
-    <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
-    <category>Sports &amp; Recreation</category>
-    <category>Outdoor</category>
-    <generator>jsonfeed-to-rss 1.1.1 (https://github.com/bcomnes/jsonfeed-to-rss#readme)</generator>
-    <docs>http://www.rssboard.org/rss-specification</docs>
-    <image>
-      <url>https://jsonfeed-to-rss.netlify.com/icon-512x512.png</url>
-      <link>https://jsonfeed-to-rss.netlify.com</link>
-      <title>bret.io log</title>
-    </image>
-    <itunes:author>Bret Comnes</itunes:author>
-    <itunes:summary>A simple summary that describes the podcast.  It can have a few sentences.</itunes:summary>
-    <itunes:subtitle>A simple summary that describes the podcast.</itunes:subtitle>
-    <itunes:type>episodic</itunes:type>
-    <itunes:owner>
-      <itunes:name>Bret Comnes</itunes:name>
-      <itunes:email>bcomnes@gmail.com</itunes:email>
-    </itunes:owner>
-    <itunes:image href="https://jsonfeed-to-rss.netlify.com/icon-3000x3000.png"/>
-    <itunes:category text="Sports &amp; Recreation">
-      <itunes:category text="Outdoor"/>
-    </itunes:category>
-    <item>
-      <title>Curam ad aut hactenus dentes cedere vigil</title>
-      <link>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post</link>
-      <dc:creator>Bret Comnes</dc:creator>
-      <description>Curam ad aut hactenus dentes cedere vigil
-Non Clitorio vertitur cavatur
-Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te
-mihi arcum fore nitidam; in dixit de simul.</description>
-      <content:encoded>
-        <![CDATA[<h1>Curam ad aut hactenus dentes cedere vigil</h1>
-<h2>Non Clitorio vertitur cavatur</h2>
-<p>Lorem markdownum edendi, non ad clamant solacia septem ambierantque. Scelus te
-mihi arcum fore nitidam; in dixit de simul.</p>]]>
-      </content:encoded>
-      <guid isPermaLink="false">https://jsonfeed-to-rss.netlify.com/a-url-to-a-post-2018-04-07T20:48:02.000Z</guid>
-      <pubDate>Sat, 07 Apr 2018 20:48:02 GMT</pubDate>
-      <enclosure type="audio/mpeg" url="https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/attatchment.mp4" length="1234"/>
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:title>Curam ad aut hactenus dentes cedere vigil</itunes:title>
-      <itunes:author>Bret Comnes</itunes:author>
-      <itunes:episode>12</itunes:episode>
-      <itunes:subtitle>Curam ad aut hactenus dentes cedere vigil</itunes:subtitle>
-      <itunes:summary>Curam ad aut hactenus dentes cedere vigil</itunes:summary>
-      <itunes:image>https://jsonfeed-to-rss.netlify.com/a-url-to-a-post/episode-3000x3000.png</itunes:image>
-      <itunes:duration>3:25:45</itunes:duration>
-    </item>
-  </channel>
-</rss>
-```
+## Podcasting 2.0
 
-## API
+Put Podcasting 2.0 data in `_podcast` at channel or item level.
+The namespace is inferred automatically, or it can be enabled explicitly with `podcast: true`.
 
-### `jsonfeedToRSS(parsedJsonfeed, opts)`
-Coverts a parsed JSON feed into an RSS feed.  Returns the string of the rss feed.
-
-Opts include:
-
-```js
+```json
 {
-  // a function that returns the rss feed url
-  feedURLFn: (feedURL, jf) => feedURL.replace(/\.json\b/, '-rss.xml'),
-  language: 'en-us',
-  copyright: `© ${now.getFullYear()} ${jf.author && jf.author.name ? jf.author.name : ''}`,
-  managingEditor,
-  webMaster,
-  idIsPermalink: false, // if guid is the permalink, you can set this true
-  category, // array of categories.. will attempt to use iTunes categories if available
-  ttl,
-  skipHours,
-  skipDays,
-  itunes: !!jf._itunes // generate RSS feed with iTunes extensions
+  "_podcast": {
+    "guid": "917393e3-1b1e-5cef-ace4-edaa54e1f810",
+    "medium": "podcast",
+    "people": [
+      {
+        "name": "Example Host",
+        "role": "host",
+        "group": "cast"
+      }
+    ],
+    "funding": [
+      {
+        "url": "https://example.com/support",
+        "label": "Support the show"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "episode-1",
+      "title": "A useful episode",
+      "_podcast": {
+        "transcripts": [
+          {
+            "url": "https://example.com/episode-1.vtt",
+            "type": "text/vtt",
+            "language": "en-US",
+            "rel": "captions"
+          }
+        ],
+        "chapters": {
+          "url": "https://example.com/episode-1-chapters.json",
+          "type": "application/json+chapters"
+        }
+      }
+    }
+  ]
 }
 ```
 
-## [Dublin Core Extensions][dc]
+All 31 active namespace tags are supported, including nested alternate-enclosure sources and integrity, value recipients and time splits, remote items, live items, transcripts, chapters, people, chat, social interactions, and modern image metadata.
+The deprecated `podcast:images` tag is intentionally not emitted; use the singular `podcast:image` model through the `images` array.
+JSON Feed authors become `podcast:person` entries when no explicit people array is supplied.
+The complete input model and direct source link for every tag are documented in [PODCAST-SPEC.md](PODCAST-SPEC.md).
 
-There is only one mapping implemented between jsonfeed and RSS:
+## TypeScript and editor types
 
-### Items
+The runtime remains JavaScript checked with strict TypeScript through JSDoc.
+The package publishes declarations generated from the vendored SchemaStore JSON Feed 1.1 schema and the local podcast extension schema with [`json-schema-to-typescript`](https://github.com/bcherny/json-schema-to-typescript).
 
-- `item.author.name || jf.author.name` (recommended) maps to `dc:creator`.
+```ts
+import type {
+  Attachment,
+  ITunesChannelData,
+  Item,
+  JSONFeed,
+  JSONFeedWithExtensions,
+  JsonFeedToRSSOptions,
+  PodcastChannelData,
+  PodcastItemData
+} from 'jsonfeed-to-rss/types.js'
+```
 
-## [RDF Site Summary Extensions][content]
+The package intentionally has no export map, so published deep imports remain open.
+Include `.js` in ESM subpath imports.
 
-The `content:encoded` field is used to store an `html` representation of content, and RSS's default `description` field is for a plain text representation.
+## Field mappings
 
-### Items
+The first item attachment becomes the RSS enclosure.
+`item.content_html` becomes a CDATA-encoded `content:encoded` node.
+`item.content_text`, or readable plain text derived from `content_html`, becomes the RSS description.
+`item.authors[0].name` falls back to `feed.authors[0].name` for `dc:creator`.
+The deprecated singular JSON Feed `author` field remains a compatibility fallback, but `authors` takes precedence.
 
-- `item.content_html` (recommended) maps to a `CDATA` encoded `content:encoded` node.
-- `item.content_text || striptags(item.content_html)` (recommended) maps to an escaped `description` node.  When creating an iTunes feed, description is truncated to 4000 characters.
+## Development
 
-## [iTunes Extensions][itunes]
+```console
+npm test
+npm run build
+npm pack --dry-run
+```
 
-If the `itunes` option is set to `true` (or if the `jsonfeed._itunes` extension object is included in the jsonfeed) the resulting RSS feed will include as many itunes extension tags as possible.  You can override/set `_itunes` extension fields from the `opts.itunes` object.
+`npm run build:json-feed-types` regenerates `lib/json-feed-types.d.ts` and `lib/podcast-types.d.ts`.
+The contributor workflow and spec-refresh checklist are in [PODCAST-SPEC.md](PODCAST-SPEC.md).
 
-All `_itunes.property` map directly to the RSS `itunes:property` extensions, but most have default mappings to standard JSONFeed properties. Its better to rely on the [default JSONFeed fields](https://jsonfeed.org/version/1), but you can override these mappings by including explicit `_itunes` extension properties in your JSONFeed.
-
-- There are a few extension fields that SHOULD be included, but dont map well.  These are marked as (recommended).
-- There are fields that dont have a mapping that are definitely optional but CAN be included. These are marked as (optional).
-- There are fields that have default and acceptable mappings.  These MAY be included but probably not.  These are marked as (mapped).
-
-### Top-level
-
-- `_itunes.owner.email` (recommended) maps to `itunes:owner.itunes:email`.
-- `_itunes.image` (recommended) maps to `itunes:image`.  Defaults to `icon` but the `icon` field does not meet the minimum requirements for this field.  The `icon` field is a 512x512 image, where iTunes recommends Artwork that must be a minimum size of 1400 x 1400 pixels and a maximum size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate file extensions (.jpg, .png), and in the RGB colorspace.
-- `_itunes.category` (recommended) maps to `itunes:category`.  Defaults to `opts.category[0]`.  Must be a [valid category][categories].
-- `_itunes.subcategory` (recommended) maps to `itunes:category:itunes:category`.  Defaults to `opts.category[1]`. Must be a [valid subcategory][categories].
-- `_itunes.explicit` (recommended) maps to `itunes:explicit`.  Defaults to unset.
-- `_itunes.type` (optional) maps to `itunes:type`.  Defaults to `episodic` (newest first).  The other option is `serial` (oldest first). [Details][bp].
-- `_itunes.complete` (optional) maps to `itunes:complete`.  Defaults to null.  Tells podcast clients to stop updating this feed ️️️forever. ⚠️
-- `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the feed from being added to Apple's podcast directory.  Helpful for private or customer specific feeds.
-- `_itunes.new_feed_url` (optional) maps to `itunes:new-feed-url`.  Used for moving feeds from an old url to a new url. See https://podcasters.apple.com/support/837-change-the-rss-feed-url for more details.
-- `_itunes.author` (mapped) maps to `itunes:author`.  Defaults to `author.name`.
-- `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated `description` rss field.
-- `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `itunes:summary`.
-- `_itunes.owner.name` (mapped) maps to `itunes:owner.itunes:name`.  Defaults to `author.name`.
-
-### Items
-
-- `_itunes.episode` (recommended) maps to `itunes:episode`.  No fallback. Must be an integer > 0.  Its recommended you put episode numbers here, instead of in the title.
-- `_itunes.season` (optional) maps to `itunes:season`.
-- `_itunes.episode_type` (optional) maps to `itunes:episodeType`, but must be one of `full`, `trailer`, or `bonus`.  Defaults to `full`.
-- `_itunes.block` (optional) maps to `itunes:block`.  Defaults to null.  Prevents the item from being added to Apple's podcast directory. "For example, you might want to block a specific episode if you know that its content would otherwise cause the entire podcast to be removed from Apple Podcasts."
-- `_itunes.is_closed_captioned` (optional) maps to `itunes:isClosedCaptioned`.
-- `_itunes.explicit` (optional) maps to `itunes:explicit`.  Defaults to null.
-- `_itunes.title` (mapped) maps to `itunes:title`.  Falls back to `item.title` and then the `generateTitle` function.
-- `_itunes.author` (mapped) maps to `itunes:author`.  Falls back to `author.name || jf._itunes.author || jf.author.name`.
-- `_itunes.subtitle` (mapped) maps to `itunes:subtitle`.  Defaults to the first sentence of the generated `_itunes.summary`.
-- `_itunes.summary` (mapped) maps to `itunes:summary`.  Defaults to the first paragraph of the generated plaintext description of the item.
-- `_itunes.duration` (mapped) maps to `itunes:duration`. Defaults to `attachment.duration_in_seconds` formatted as HH:MM:SS.
-- `_itunes.image` (mapped) maps to `itunes:image`.  Defaults to `image`.  Artwork must be a minimum size of 1400 x 1400 pixels and a maximum size of 3000 x 3000 pixels, in JPEG or PNG format, 72 dpi, with appropriate file extensions (.jpg, .png), and in the RGB colorspace.  JSONFeed has no defined image restrictions on the `image` field, so it can be safely used for this purpose.
-
-## See also
-
-- [JSON Feed: Mapping RSS and Atom to JSON Feed](https://jsonfeed.org/mappingrssandatom)
-- [rssboard.org/rss-specification](http://www.rssboard.org/rss-specification)
-- [Really Simple Syndication Best Practices Profile](http://www.rssboard.org/rss-profile#namespace-elements-content-encoded)
-- [RSS validator.w3.org](https://validator.w3.org/feed/docs/rss2.html)
-- [AtomEnabled: Developers > Syndication](https://web.archive.org/web/20160113103647/http://atomenabled.org/developers/syndication/#link)
-- [Why RSS Content Module is Popular](https://developer.mozilla.org/en-US/docs/Web/RSS/Article/Why_RSS_Content_Module_is_Popular_-_Including_HTML_Contents)
-
-### Related projects
+## Related projects
 
 - [bcomnes/jsonfeed-to-atom](https://github.com/bcomnes/jsonfeed-to-atom)
 - [bcomnes/generate-feed](https://github.com/bcomnes/generate-feed)
 
-### More iTunes RSS feed information
+## Reference fixtures
 
-- [RSS tags for Podcasts Connect][itunes]
-- [Podcast best practices][bp]
-- [Podcasts Connect categories][categories]
-  - [bcomnes/podcast-categories](https://github.com/bcomnes/podcast-categories)
-- [Apple Create a podcast](https://help.apple.com/itc/podcasts_connect/#/itca5b22233a)
-- [Apple RSS feed sample](https://help.apple.com/itc/podcasts_connect/#/itcbaf351599)
-  - [reference/podcast.xml](reference/podcast.xml)
-- [Apple Requirements - Podcasts Connect Help](https://help.apple.com/itc/podcasts_connect/#/itc1723472cb)
-- [Apple Podcasts - What’s New in iOS 11 - 2017](http://podcasts.apple.com/resources/spec/ApplePodcastsSpecUpdatesiOS11.pdf) ([mirror](reference/ApplePodcastsSpecUpdatesiOS11.pdf))
-- [Apple Podcasts Identity Guidelines](https://www.apple.com/itunes/marketing-on-podcasts/identity-guidelines.html#messaging-and-style)
-- [podbase Podcast Validator](https://podba.se/validate/)
-- [Apple podcasts: Whats new](https://itunespartner.apple.com/podcasts/whats-new/)
-
-### Reference RSS feeds
-
-- [reference/datcast.xml](reference/datcast.xml)
-- [reference/podcast.xml](reference/podcast.xml)
-- [reference/rss-2.0-sample.xml](reference/rss-2.0-sample.xml)
-- [reference/rss20.xml](reference/rss20.xml)
-- [reference/scripting.rss](reference/scripting.rss)
-
-### Snapshots
-
-- [snapshots/podcast-feed.json](snapshots/podcast-feed.json)
-- [snapshots/podcast-feed-rss.xml](snapshots/podcast-feed.xml)
-- [snapshots/podcast-no-itunes-feed-rss.xml](snapshots/podcast-no-itunes-feed.xml)
-- [snapshots/readme-feed.json](snapshots/readme-feed.json)
-- [snapshots/readme-feed-rss.xml](snapshots/readme-feed.xml)
-- [snapshots/extended-feed-rss.xml](snapshots/snapshot.xml)
-- [snapshots/extended-feed.json](snapshots/test-feed.json)
+- [Complete Podcasting 2.0 JSON Feed fixture](snapshots/podcast-namespace-feed.json)
+- [Apple podcast JSON Feed fixture](snapshots/podcast-feed.json)
+- [Apple podcast RSS fixture](snapshots/podcast-feed-rss.xml)
+- [RSS conversion fixture](snapshots/extended-feed-rss.xml)
 
 ## License
+
 [MIT](https://tldrlegal.com/license/mit-license)
 
-[0]: https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square
-[1]: https://nodejs.org/api/documentation.html#documentation_stability_index
-[2]: https://img.shields.io/npm/v/jsonfeed-to-rss.svg?style=flat-square
-[3]: https://npmjs.org/package/jsonfeed-to-rss
-[4]: https://github.com/bcomnes/jsonfeed-to-rss/actions/workflows/test.yml/badge.svg
-[5]: https://github.com/bcomnes/jsonfeed-to-rss/actions/workflows/test.yml
-[8]: http://img.shields.io/npm/dm/jsonfeed-to-rss.svg?style=flat-square
-[9]: https://npmtrends.com/jsonfeed-to-atom
-[10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
-[11]: https://github.com/feross/standard
-[12]: https://img.shields.io/coveralls/bcomnes/jsonfeed-to-rss/master.svg?style=flat-square
-[13]: https://coveralls.io/github/bcomnes/jsonfeed-to-rss
-[rss]: http://www.rssboard.org/rss-specification
-[bp]: https://help.apple.com/itc/podcasts_connect/#/itc2b3780e76
-[itunes]: https://help.apple.com/itc/podcasts_connect/#/itcb54353390
-[categories]: https://help.apple.com/itc/podcasts_connect/?lang=en#/itc9267a2f12
-[dc]: http://www.rssboard.org/rss-profile#namespace-elements-dublin-creator
-[content]: http://web.resource.org/rss/1.0/modules/content/
+[npm-badge]: https://img.shields.io/npm/v/jsonfeed-to-rss.svg?style=flat-square
+[npm]: https://npmjs.org/package/jsonfeed-to-rss
+[ci-badge]: https://github.com/bcomnes/jsonfeed-to-rss/actions/workflows/tests.yml/badge.svg
+[ci]: https://github.com/bcomnes/jsonfeed-to-rss/actions/workflows/tests.yml
+[downloads-badge]: http://img.shields.io/npm/dm/jsonfeed-to-rss.svg?style=flat-square
+[downloads]: https://npmtrends.com/jsonfeed-to-rss
+[style-badge]: https://img.shields.io/badge/code%20style-neostandard-brightgreen.svg?style=flat-square
+[style]: https://github.com/neostandard/neostandard

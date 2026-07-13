@@ -1,7 +1,10 @@
 { "itunes": {
   "owner": { "email": "example@email.com" },
-  "category": "Science",
-  "subcategory": "Astronomy",
+  "image": "https://hologramradio.org/images/hologram-radio-3000.png",
+  "categories": [
+    { "category": "Science", "subcategory": "Astronomy" },
+    { "category": "Technology" }
+  ],
   "explicit": false,
   "summary": "A simple summary that describes the podcast.  It can have a few sentences.\n\nIf there is more than one paragraph, it gets truncated in some contexts."
 }}

@@ -1,20 +1,39 @@
-const fs = require('fs')
-const jsonfeedToRSS = require('./')
-const jsonfeedToRSSObj = require('./jsonfeed-to-rss-object')
-const extendedFeed = require('./snapshots/extended-feed.json')
-const readmeFeed = require('./snapshots/readme-feed.json')
-const podcastFeed = require('./snapshots/podcast-feed.json')
-const podcastOpts = require('./snapshots/podcast-opts.json')
+import { readFile, writeFile } from 'node:fs/promises'
+import jsonfeedToRSS from './index.js'
+import jsonfeedToRSSObject from './jsonfeed-to-rss-object.js'
 
-const rssObj = jsonfeedToRSSObj(extendedFeed)
-const rssFeed = jsonfeedToRSS(extendedFeed)
+const extendedFeed = await readJSON('./snapshots/extended-feed.json')
+const readmeFeed = await readJSON('./snapshots/readme-feed.json')
+const podcastFeed = await readJSON('./snapshots/podcast-feed.json')
+const podcastOptions = await readJSON('./snapshots/podcast-opts.json')
+const datedOptions = { copyright: '© 2018 Bret Comnes' }
+const undatedAuthorOptions = { copyright: '© 2018 ' }
 
-fs.writeFileSync('snapshots/extended-feed-rss.xml', rssFeed)
-fs.writeFileSync('snapshots/extended-feed-rss.json', JSON.stringify(rssObj, null, ' '))
+const rssObject = jsonfeedToRSSObject(extendedFeed, datedOptions)
 
-fs.writeFileSync('snapshots/readme-feed-rss.xml', jsonfeedToRSS(readmeFeed))
+await Promise.all([
+  writeFile('./snapshots/extended-feed-rss.xml', jsonfeedToRSS(extendedFeed, datedOptions)),
+  writeFile(
+    './snapshots/extended-feed-rss.json',
+    JSON.stringify(rssObject, null, ' ')
+  ),
+  writeFile('./snapshots/readme-feed-rss.xml', jsonfeedToRSS(readmeFeed, datedOptions)),
+  writeFile(
+    './snapshots/podcast-feed-rss.xml',
+    jsonfeedToRSS(podcastFeed, { ...podcastOptions, ...undatedAuthorOptions })
+  ),
+  writeFile(
+    './snapshots/podcast-no-itunes-feed-rss.xml',
+    jsonfeedToRSS(podcastFeed, undatedAuthorOptions)
+  )
+])
 
-fs.writeFileSync('snapshots/podcast-feed-rss.xml', jsonfeedToRSS(podcastFeed, podcastOpts))
-fs.writeFileSync('snapshots/podcast-no-itunes-feed-rss.xml', jsonfeedToRSS(podcastFeed))
+console.log('Updated RSS snapshots')
 
-console.log('update snapshot snapshot.xml')
+/**
+ * @param {string} path
+ * @returns {Promise<any>}
+ */
+async function readJSON (path) {
+  return JSON.parse(await readFile(path, 'utf8'))
+}
